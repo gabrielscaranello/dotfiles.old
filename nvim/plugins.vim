@@ -20,7 +20,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
 Plug 'elzr/vim-json'
-Plug 'yggdroot/indentline'
+Plug 'AdamWhittingham/vim-copy-filename'
 Plug 'lilydjwg/colorizer'
 
 call plug#end()

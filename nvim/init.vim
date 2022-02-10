@@ -33,8 +33,10 @@ set signcolumn=number
 set confirm
 set updatetime=200
 set encoding=utf-8
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set foldmethod=syntax
+set scrolloff=8
+set signcolumn=yes
 set foldlevel=99
 set tabstop=2 softtabstop=2 expandtab shiftwidth=2
 set termguicolors
@@ -96,4 +98,11 @@ let g:indentLine_defaultGroup = 'SpecialKey'
 " json syntax
 let g:vim_json_syntax_conceal = 0
 let g:vim_json_syntax_conceal = 0
+
+" Copy file name 
+nmap <leader>cp :CopyRelativePath<CR>
+nmap <leader>cl :CopyRelativePathAndLine<CR>
+nmap <leader>cP :CopyAbsolutePath<CR>
+nmap <leader>cf :CopyFileName<CR>
+nmap <leader>cd :CopyDirectoryPath<CR>
 
