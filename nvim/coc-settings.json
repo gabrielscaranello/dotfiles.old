@@ -1,19 +1,48 @@
 {
-	"eslint.autoFixOnSave": true,
-	"eslint.probe": [
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"html",
-		"vue",
-		"markdown",
-		"html"
-	],
+  "eslint.autoFixOnSave": true,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "html"
+  ],
   "prettier.eslintIntegration": true,
   "vetur.completion.autoImport": true,
   "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "markdown"],
-  "coc.preferences.formatOnTypeFiletypes": ["javascript", "typescript", "markdown"],
-  "diagnostic.refreshOnInsertMode": true
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "markdown"
+  ],
+  "coc.preferences.formatOnTypeFiletypes": [
+    "javascript",
+    "typescript",
+    "markdown"
+  ],
+  "diagnostic.refreshOnInsertMode": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.width": 30,
+  "explorer.file.showHiddenFiles": false,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit",
+    "yp": "copyRelativeFilepath"
+  },
+  "explorer.file.hiddenRules": {
+    "extensions": [
+      "o",
+      "a",
+      "obj",
+      "pyc"
+    ],
+    "filenames": [],
+    "patternMatches": [
+      "^\\.git$"
+    ]
+  }
 }
