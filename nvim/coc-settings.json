@@ -1,0 +1,19 @@
+{
+	"eslint.autoFixOnSave": true,
+	"eslint.probe": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"vue",
+		"markdown",
+		"html"
+	],
+  "prettier.eslintIntegration": true,
+  "vetur.completion.autoImport": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "markdown"],
+  "coc.preferences.formatOnTypeFiletypes": ["javascript", "typescript", "markdown"],
+  "diagnostic.refreshOnInsertMode": true
+}
