@@ -1,13 +1,20 @@
 " Extensions
 let g:coc_global_extensions = [
-      \ 'coc-markdownlint',
-      \ 'coc-tabnine',
-      \ 'coc-vetur',
-      \ 'coc-tsserver',
+      \ 'coc-css',
+      \ 'coc-cssmodules',
       \ 'coc-eslint',
-      \ 'coc-prettier',
+      \ 'coc-explorer',
+      \ 'coc-html',
+      \ 'coc-html-css-support',
       \ 'coc-json',
-      \ 'coc-explorer'
+      \ 'coc-markdownlint',
+      \ 'coc-prettier',
+      \ 'coc-sh',
+      \ 'coc-snippets',
+      \ 'coc-tabnine',
+      \ 'coc-tsserver',
+      \ 'coc-vetur',
+      \ 'coc-yaml'
       \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.

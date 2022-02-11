@@ -1,22 +1,25 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'jiangmiao/auto-pairs'
-Plug 'sheerun/vim-polyglot'
+Plug 'AndrewRadev/tagalong.vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
+Plug 'chiedo/vim-case-convert'
+Plug 'elzr/vim-json'
+Plug 'gabrielelana/vim-markdown'
+Plug 'gabrielscaranello/ctrlp.vim'
+Plug 'honza/vim-snippets'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'jiangmiao/auto-pairs'
+Plug 'lilydjwg/colorizer'
+Plug 'mattn/emmet-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'gabrielscaranello/ctrlp.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'gabrielelana/vim-markdown'
 Plug 'wakatime/vim-wakatime'
-Plug 'tpope/vim-fugitive'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-surround'
-Plug 'elzr/vim-json'
-Plug 'lilydjwg/colorizer'
 
 call plug#end()

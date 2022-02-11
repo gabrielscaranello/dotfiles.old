@@ -5,9 +5,6 @@ source ~/.config/nvim/coc.nvim.vim
 " keys mapped
 map q :quit<CR>
 map <C-s> :w<CR>
-map <leader>n :NERDTreeFocus<CR>
-map <C-n> :NERDTreeToggle<CR>
-map <C-f> :NERDTreeFind<CR>
 map <F5> :setlocal spell!<CR>
 
 :inoremap <C-v> <ESC>"+pa

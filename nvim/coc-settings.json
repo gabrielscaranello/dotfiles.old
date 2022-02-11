@@ -16,16 +16,20 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
-    "markdown"
+    "markdown",
+    "vue"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "javascript",
     "typescript",
-    "markdown"
+    "markdown",
+    "vue"
   ],
   "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.level": "hint",
+  "diagnostic.showDeprecated": true,
   "explorer.icon.enableNerdfont": true,
-  "explorer.width": 30,
+  "explorer.width": 40,
   "explorer.file.showHiddenFiles": false,
   "explorer.previewAction.onHover": false,
   "explorer.keyMappings.global": {
