@@ -10,43 +10,58 @@
     "markdown",
     "html"
   ],
-  "prettier.eslintIntegration": true,
+
   "vetur.completion.autoImport": true,
+  "vetur.format.enable": true,
+  "eslint.format.enable": false,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
     "markdown",
-    "vue"
+    "vue",
+    "json"
   ],
   "coc.preferences.formatOnTypeFiletypes": [
     "javascript",
     "typescript",
     "markdown",
-    "vue"
+    "vue",
+    "json"
   ],
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.level": "hint",
   "diagnostic.showDeprecated": true,
-  "explorer.icon.enableNerdfont": true,
-  "explorer.width": 40,
-  "explorer.file.showHiddenFiles": false,
-  "explorer.previewAction.onHover": false,
-  "explorer.keyMappings.global": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:vsplit",
-    "yp": "copyRelativeFilepath"
+  "diagnostic-languageserver.mergeConfig": true,
+  "diagnostic-languageserver.formatters": {
+    "prettier": {
+      "command": "prettier",
+      "args": ["--stdin-filepath", "%filepath"],
+      "rootPatterns": [
+        ".prettierrc",
+        ".prettierrc.json",
+        ".prettierrc.toml",
+        ".prettierrc.json",
+        ".prettierrc.yml",
+        ".prettierrc.yaml",
+        ".prettierrc.json5",
+        ".prettierrc.js",
+        ".prettierrc.cjs",
+        "prettier.config.js",
+        "prettier.config.cjs"
+      ]
+    },
+    "prettier_eslint": {
+      "command": "prettier-eslint",
+      "args": ["--stdin"],
+      "rootPatterns": [".git"]
+    }
   },
-  "explorer.file.hiddenRules": {
-    "extensions": [
-      "o",
-      "a",
-      "obj",
-      "pyc"
-    ],
-    "filenames": [],
-    "patternMatches": [
-      "^\\.git$"
-    ]
+  "diagnostic-languageserver.formatFiletypes": {
+    "json": "prettier",
+    "typescript": "prettier",
+    "vue": "prettier"
   }
 }
