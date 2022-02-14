@@ -4,10 +4,16 @@ endif
 
 call plug#begin()
 
+Plug 'airblade/vim-gitgutter'
+Plug 'arcticicestudio/nord-vim'
+Plug 'chiedo/vim-case-convert'
+Plug 'gabrielelana/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'lilydjwg/colorizer'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-Plug 'arcticicestudio/nord-vim'
-
+Plug 'tpope/vim-surround'
+Plug 'wakatime/vim-wakatime'
 
 if has("nvim")
   Plug 'BurntSushi/ripgrep'
