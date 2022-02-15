@@ -39,8 +39,6 @@ map("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 -- NvimTree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", opts)
 map("n", "<leader>o", "<cmd>NvimTreeFocus<CR>", opts)
-map("n", "<leader>p", "<cmd>NvimTreeFindFile<CR>", opts)
-
 
 -- Visual --
 -- Stay in indent mode

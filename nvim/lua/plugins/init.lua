@@ -48,13 +48,19 @@ local startup = function(use)
 
   use {
     'kyazdani42/nvim-tree.lua',
-    config = configs['nvim-tree']
+    config = configs['nvim-tree'],
+    cmd = { 'NvimTreeToggle', 'NvimTreeFocus' }
   }
 
   use {
     'akinsho/bufferline.nvim',
     after = 'nvim-web-devicons',
     config = configs['bufferline']
+  }
+
+  use {
+    'moll/vim-bbye',
+    after = 'bufferline.nvim'
   }
 
 end
