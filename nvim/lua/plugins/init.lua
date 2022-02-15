@@ -130,6 +130,16 @@ packer.startup {
             config = configs["null-ls"]
         }
 
+        -- Fuzzy finder
+        use {
+            "nvim-telescope/telescope.nvim",
+            cmd = "Telescope",
+            config = configs['telescope']
+        }
+
+        -- Fuzzy finder syntax support
+        use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
+
     end,
     config = {
         compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
