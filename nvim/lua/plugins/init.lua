@@ -27,13 +27,23 @@ local startup = function(use)
   
   use {
     'antoinemadec/FixCursorHold.nvim',
-    event = "BufRead"
-    config = configs['filetype'],
+    event = "BufRead",
+    config = configs['fix-cursor-hold'],
   }
   
   use {
     'nathom/filetype.nvim',
     config = configs['filetype']
+  }
+
+  use {
+    'kyazdani42/nvim-web-devicons',
+    config = configs['icons']
+  }
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = configs['lualine']
   }
 
 end

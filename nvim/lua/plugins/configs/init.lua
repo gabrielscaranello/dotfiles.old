@@ -1,4 +1,4 @@
-local sources = { 'filetype', 'fix-cursor-hold' }
+local sources = { 'filetype', 'fix-cursor-hold', 'icons', 'lualine' }
 
 local M = {}
 

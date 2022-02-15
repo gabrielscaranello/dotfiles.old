@@ -19,6 +19,7 @@ opt.nu = true
 opt.scrolloff = 10
 opt.shiftwidth = 2
 opt.shortmess = "c"
+opt.showmode = false
 opt.signcolumn = "number"
 opt.signcolumn = "yes"
 opt.smartindent = true
