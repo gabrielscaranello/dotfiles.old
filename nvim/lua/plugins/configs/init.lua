@@ -1,4 +1,11 @@
-local sources = { 'filetype', 'fix-cursor-hold', 'icons', 'lualine', 'nvim-tree' }
+local sources = { 
+  'bufferline',
+  'filetype', 
+  'fix-cursor-hold', 
+  'icons', 
+  'lualine', 
+  'nvim-tree',
+}
 
 local M = {}
 

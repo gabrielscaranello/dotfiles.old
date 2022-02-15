@@ -51,6 +51,12 @@ local startup = function(use)
     config = configs['nvim-tree']
   }
 
+  use {
+    'akinsho/bufferline.nvim',
+    after = 'nvim-web-devicons',
+    config = configs['bufferline']
+  }
+
 end
 
 
