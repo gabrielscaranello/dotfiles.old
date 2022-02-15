@@ -46,6 +46,11 @@ local startup = function(use)
     config = configs['lualine']
   }
 
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = configs['nvim-tree']
+  }
+
 end
 
 
