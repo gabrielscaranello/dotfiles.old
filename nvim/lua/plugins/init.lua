@@ -92,6 +92,13 @@ packer.startup {
       config = configs["gitsigns"]
     }
 
+     use {
+      "L3MON4D3/LuaSnip",
+      config = configs['lua-snip'],
+      requires = {
+        "rafamadriz/friendly-snippets",
+      },
+    }
 
    -- Completion engine
     use {

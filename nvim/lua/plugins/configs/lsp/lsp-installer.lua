@@ -8,7 +8,6 @@ lsp_installer.on_server_ready(function(server)
   opts.on_attach = require("plugings.configs.lsp.handlers").on_attach
   opts.capabilities = require("plugins.configs.lsp.handlers").capabilities
 
-  -- Apply AstroVim server settings (if available)
   local present, av_overrides = pcall(require, "plugins.configs.lsp.settings." .. server.name)
   if present then
     opts = vim.tbl_deep_extend("force", av_overrides, opts)

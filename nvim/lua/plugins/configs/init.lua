@@ -7,6 +7,7 @@ local sources = {
   "icons", 
   "lsp",
   "lsp.lspsaga",
+  "lua-snip",
   "lualine", 
   "null-ls",
   "nvim-tree",
