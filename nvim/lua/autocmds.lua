@@ -22,4 +22,3 @@ vim.cmd [[
     autocmd BufEnter * if &ft is "dashboard" | set nocursorline | endif
   augroup end
 ]]
-

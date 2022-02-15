@@ -14,7 +14,7 @@ opt.guicursor = ""
 opt.hidden = true
 opt.incsearch = true
 opt.laststatus = 2
-opt.mouse = "a" 
+opt.mouse = "a"
 opt.nu = true
 opt.scrolloff = 10
 opt.shiftwidth = 2
@@ -47,4 +47,3 @@ if (empty($TMUX))
   endif
 endif
 ]])
-

@@ -4,5 +4,3 @@ require("autocmds")
 require("mappings")
 
 require("packer_compiled")
-
-

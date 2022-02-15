@@ -1,12 +1,11 @@
 local map = vim.api.nvim_set_keymap
 local g = vim.g
-local opts = { noremap = true, silent = true }
+local opts = {noremap = true, silent = true}
 
 -- Remap space as leader key
 map("", "<Space>", "<Nop>", opts)
 g.mapleader = " "
 g.maplocalleader = " "
-
 
 -- Normal --
 -- Better window navigation
@@ -65,4 +64,3 @@ map("n", "<C-w>", "<cmd>w!<CR>", opts)
 
 -- ForceQuit
 map("n", "<C-q>", "<cmd>q!<CR>", opts)
-
