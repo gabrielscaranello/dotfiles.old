@@ -150,6 +150,13 @@ packer.startup {
             config = configs['colorizer']
         }
 
+        -- Autopairs
+        use {
+            "windwp/nvim-autopairs",
+            event = "InsertEnter",
+            config = configs['autopairs']
+        }
+
     end,
     config = {
         compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
