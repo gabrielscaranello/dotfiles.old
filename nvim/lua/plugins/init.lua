@@ -1,106 +1,106 @@
--- bootstrap Packer
-local fn = vim.fn
-local cmd = vim.cmd
-local packer_path = '/site/pack/packer/start/packer.nvim'
-local install_path = fn.stdpath('data') .. packer_path
-
-if fn.empty(vim.fn.glob(install_path)) > 0 then
-	local repo = 'https://github.com/wbthomason/packer.nvim'
-	local clone = { 'git', 'clone', '--depth', '1', repo, install_path }
-	PackerBboostraped = vim.fn.system(clone)
-end
-
-cmd('packadd packer.nvim')
-
-if PackerBboostraped then
-	require('packer').sync()
+local status, packer = pcall(require, "packer")
+if not status then
+  return
 end
 
 -- add plugins
-local startup = function(use)
-  local configs = require('plugins.configs')
+packer.startup { 
+  function(use)
+    local configs = require('plugins.configs')
 
-  use 'wbthomason/packer.nvim'
-  use 'lewis6991/impatient.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-lua/popup.nvim'
-  
-  use {
-    'antoinemadec/FixCursorHold.nvim',
-    event = 'BufRead',
-    config = configs['fix-cursor-hold'],
-  }
-  
-  use {
-    'nathom/filetype.nvim',
-    config = configs['filetype']
-  }
+    use 'wbthomason/packer.nvim'
+    use 'lewis6991/impatient.nvim'
+    use 'nvim-lua/plenary.nvim'
+    use 'nvim-lua/popup.nvim'
+    
+    use {
+      'antoinemadec/FixCursorHold.nvim',
+      event = 'BufRead',
+      config = configs['fix-cursor-hold'],
+    }
+    
+    use {
+      'nathom/filetype.nvim',
+      config = configs['filetype']
+    }
 
-  use {
-    'kyazdani42/nvim-web-devicons',
-    config = configs['icons']
-  }
+    use {
+      'kyazdani42/nvim-web-devicons',
+      config = configs['icons']
+    }
 
-  use {
-    'nvim-lualine/lualine.nvim',
-    config = configs['lualine']
-  }
+    use {
+      'nvim-lualine/lualine.nvim',
+      config = configs['lualine']
+    }
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    config = configs['nvim-tree'],
-    cmd = { 'NvimTreeToggle', 'NvimTreeFocus' }
-  }
+    use {
+      'kyazdani42/nvim-tree.lua',
+      config = configs['nvim-tree'],
+      cmd = { 'NvimTreeToggle', 'NvimTreeFocus' }
+    }
 
-  use {
-    'akinsho/bufferline.nvim',
-    after = 'nvim-web-devicons',
-    config = configs['bufferline']
-  }
+    use {
+      'akinsho/bufferline.nvim',
+      after = 'nvim-web-devicons',
+      config = configs['bufferline']
+    }
 
-  use {
-    'moll/vim-bbye',
-    after = 'bufferline.nvim'
-  }
+    use {
+      'moll/vim-bbye',
+      after = 'bufferline.nvim'
+    }
 
-  -- Syntax highlighting
-  use {
-   'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    event = 'BufRead',
-    cmd = {
-      'TSInstall',
-      'TSInstallInfo',
-      'TSInstallSync',
-      'TSUninstall',
-      'TSUpdate',
-      'TSUpdateSync',
-      'TSDisableAll',
-      'TSEnableAll',
+    -- Syntax highlighting
+    use {
+     'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      event = 'BufRead',
+      cmd = {
+        'TSInstall',
+        'TSInstallInfo',
+        'TSInstallSync',
+        'TSUninstall',
+        'TSUpdate',
+        'TSUpdateSync',
+        'TSDisableAll',
+        'TSEnableAll',
+      },
+      config = configs['treesitter'],
+      requires = {
+        {
+          -- Parenthesis highlighting
+          'p00f/nvim-ts-rainbow',
+          after = 'nvim-treesitter',
+        },
+        {
+          -- Autoclose tags
+          'windwp/nvim-ts-autotag',
+          after = 'nvim-treesitter',
+        },
+        {
+          -- Context based commenting
+          'JoosepAlviste/nvim-ts-context-commentstring',
+          after = 'nvim-treesitter',
+        },
+      },
+    }
+  end,
+  config = {
+    compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+    display = {
+      open_fn = function()
+        return require("packer.util").float { border = "rounded" }
+      end,
     },
-    config = configs['treesitter'],
-    requires = {
-      {
-        -- Parenthesis highlighting
-        'p00f/nvim-ts-rainbow',
-        after = 'nvim-treesitter',
-      },
-      {
-        -- Autoclose tags
-        'windwp/nvim-ts-autotag',
-        after = 'nvim-treesitter',
-      },
-      {
-        -- Context based commenting
-        'JoosepAlviste/nvim-ts-context-commentstring',
-        after = 'nvim-treesitter',
-      },
+    profile = {
+      enable = true,
+      threshold = 0.0001,
     },
-  }
-
-end
-
-
--- load plugins
-return require('packer').startup(startup)
-
+    git = {
+      clone_timeout = 300,
+    },
+    auto_clean = true,
+    compile_on_sync = true,
+  },
+}
