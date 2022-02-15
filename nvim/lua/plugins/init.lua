@@ -92,6 +92,81 @@ packer.startup {
       config = configs["gitsigns"]
     }
 
+
+   -- Completion engine
+    use {
+      "hrsh7th/nvim-cmp",
+      event = "BufRead",
+      config = configs["cmp"]
+    }
+
+    -- Snippet completion source
+    use {
+      "saadparwaiz1/cmp_luasnip",
+      after = "nvim-cmp",
+    }
+
+    -- Buffer completion source
+    use {
+      "hrsh7th/cmp-buffer",
+      after = "nvim-cmp",
+    }
+
+    -- Path completion source
+    use {
+      "hrsh7th/cmp-path",
+      after = "nvim-cmp",
+    }
+
+    -- LSP completion source
+    use {
+      "hrsh7th/cmp-nvim-lsp",
+    }
+
+    -- LSP manager
+    use {
+      "williamboman/nvim-lsp-installer",
+      event = "BufRead",
+      cmd = {
+        "LspInstall",
+        "LspInstallInfo",
+        "LspPrintInstalled",
+        "LspRestart",
+        "LspStart",
+        "LspStop",
+        "LspUninstall",
+        "LspUninstallAll",
+      },
+    }
+
+    -- Built-in LSP
+    use {
+      "neovim/nvim-lspconfig",
+      event = "BufRead",
+      config = configs["lsp"]
+    }
+
+    -- LSP enhancer
+    use {
+      "tami5/lspsaga.nvim",
+      event = "BufRead",
+      config = configs["lsp.lspsaga"]
+    }
+
+    -- LSP symbols
+    use {
+      "simrat39/symbols-outline.nvim",
+      cmd = "SymbolsOutline",
+      setup = configs["symbols-outline"]
+    }
+
+    -- Formatting and linting
+    use {
+      "jose-elias-alvarez/null-ls.nvim",
+      event = "BufRead",
+      config = configs["null-ls"]
+    }
+
   end,
   config = {
     compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",

@@ -1,11 +1,16 @@
 local sources = { 
   "bufferline",
+  "cmp",
   "filetype", 
   "fix-cursor-hold", 
   "gitsigns",
   "icons", 
+  "lsp",
+  "lsp.lspsaga",
   "lualine", 
+  "null-ls",
   "nvim-tree",
+  "symbols-outline",
   "treesitter",
 }
 
