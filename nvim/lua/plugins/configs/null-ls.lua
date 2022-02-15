@@ -9,7 +9,7 @@ M.config = function()
   local formatting = null_ls.builtins.formatting
   local diagnostics = null_ls.builtins.diagnostics
 
-  local sources = {}
+  local sources = { diagnostics.eslint, formatting.eslint }
 
   null_ls.setup {
     debug = false,
