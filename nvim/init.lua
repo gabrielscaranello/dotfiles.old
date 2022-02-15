@@ -1,6 +1,6 @@
 require("plugins")
 require("options")
-require("mappings")
 require("autocmds")
+require("mappings")
 
 require("packer_compiled")

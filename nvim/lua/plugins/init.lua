@@ -157,6 +157,13 @@ packer.startup {
             config = configs['autopairs']
         }
 
+        -- Terminal
+        use {
+            "akinsho/nvim-toggleterm.lua",
+            cmd = "ToggleTerm",
+            config = configs['toggleterm']
+        }
+
     end,
     config = {
         compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
