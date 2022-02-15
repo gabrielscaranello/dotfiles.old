@@ -143,6 +143,13 @@ packer.startup {
         -- Start screen
         use {"glepnir/dashboard-nvim", config = configs['dashboard']}
 
+        -- Color highlighting
+        use {
+            "norcalli/nvim-colorizer.lua",
+            event = "BufRead",
+            config = configs['colorizer']
+        }
+
     end,
     config = {
         compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
