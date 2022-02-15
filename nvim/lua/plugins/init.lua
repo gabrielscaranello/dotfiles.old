@@ -6,85 +6,92 @@ end
 -- add plugins
 packer.startup { 
   function(use)
-    local configs = require('plugins.configs')
+    local configs = require("plugins.configs")
 
-    use 'wbthomason/packer.nvim'
-    use 'lewis6991/impatient.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-lua/popup.nvim'
+    use "wbthomason/packer.nvim"
+    use "lewis6991/impatient.nvim"
+    use "nvim-lua/plenary.nvim"
+    use "nvim-lua/popup.nvim"
     
     use {
-      'antoinemadec/FixCursorHold.nvim',
-      event = 'BufRead',
-      config = configs['fix-cursor-hold'],
+      "antoinemadec/FixCursorHold.nvim",
+      event = "BufRead",
+      config = configs["fix-cursor-hold"],
     }
     
     use {
-      'nathom/filetype.nvim',
-      config = configs['filetype']
+      "nathom/filetype.nvim",
+      config = configs["filetype"]
     }
 
     use {
-      'kyazdani42/nvim-web-devicons',
-      config = configs['icons']
+      "kyazdani42/nvim-web-devicons",
+      config = configs["icons"]
     }
 
     use {
-      'nvim-lualine/lualine.nvim',
-      config = configs['lualine']
+      "nvim-lualine/lualine.nvim",
+      config = configs["lualine"]
     }
 
     use {
-      'kyazdani42/nvim-tree.lua',
-      config = configs['nvim-tree'],
-      cmd = { 'NvimTreeToggle', 'NvimTreeFocus' }
+      "kyazdani42/nvim-tree.lua",
+      config = configs["nvim-tree"],
+      cmd = { "NvimTreeToggle", "NvimTreeFocus" }
     }
 
     use {
-      'akinsho/bufferline.nvim',
-      after = 'nvim-web-devicons',
-      config = configs['bufferline']
+      "akinsho/bufferline.nvim",
+      after = "nvim-web-devicons",
+      config = configs["bufferline"]
     }
 
     use {
-      'moll/vim-bbye',
-      after = 'bufferline.nvim'
+      "moll/vim-bbye",
+      after = "bufferline.nvim"
     }
 
     -- Syntax highlighting
     use {
-     'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
-      event = 'BufRead',
+     "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+      event = "BufRead",
       cmd = {
-        'TSInstall',
-        'TSInstallInfo',
-        'TSInstallSync',
-        'TSUninstall',
-        'TSUpdate',
-        'TSUpdateSync',
-        'TSDisableAll',
-        'TSEnableAll',
+        "TSInstall",
+        "TSInstallInfo",
+        "TSInstallSync",
+        "TSUninstall",
+        "TSUpdate",
+        "TSUpdateSync",
+        "TSDisableAll",
+        "TSEnableAll",
       },
-      config = configs['treesitter'],
+      config = configs["treesitter"],
       requires = {
         {
           -- Parenthesis highlighting
-          'p00f/nvim-ts-rainbow',
-          after = 'nvim-treesitter',
+          "p00f/nvim-ts-rainbow",
+          after = "nvim-treesitter",
         },
         {
           -- Autoclose tags
-          'windwp/nvim-ts-autotag',
-          after = 'nvim-treesitter',
+          "windwp/nvim-ts-autotag",
+          after = "nvim-treesitter",
         },
         {
           -- Context based commenting
-          'JoosepAlviste/nvim-ts-context-commentstring',
-          after = 'nvim-treesitter',
+          "JoosepAlviste/nvim-ts-context-commentstring",
+          after = "nvim-treesitter",
         },
       },
     }
+
+    use {
+      "lewis6991/gitsigns.nvim",
+      event = "BufRead",
+      config = configs["gitsigns"]
+    }
+
   end,
   config = {
     compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",

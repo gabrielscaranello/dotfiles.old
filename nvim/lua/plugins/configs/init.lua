@@ -1,11 +1,12 @@
 local sources = { 
-  'bufferline',
-  'filetype', 
-  'fix-cursor-hold', 
-  'icons', 
-  'lualine', 
-  'nvim-tree',
-  'treesitter',
+  "bufferline",
+  "filetype", 
+  "fix-cursor-hold", 
+  "gitsigns",
+  "icons", 
+  "lualine", 
+  "nvim-tree",
+  "treesitter",
 }
 
 local M = {}

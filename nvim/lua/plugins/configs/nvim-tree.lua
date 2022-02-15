@@ -1,8 +1,8 @@
 local M = {}
 
-function M.config()
-  local status_ok, nvimtree = pcall(require, "nvim-tree")
-  if not status_ok then
+M.config = function()
+  local status, nvimtree = pcall(require, "nvim-tree")
+  if not status then
     return
   end
 

@@ -32,11 +32,11 @@ opt.termguicolors = true
 opt.updatetime = 200
 opt.wildmenu = true
 
-cmd('filetype on')
-cmd('filetype indent on')
-cmd('filetype plugin on')
-cmd('filetype plugin indent on')
-cmd('colorscheme onedark')
+cmd("filetype on")
+cmd("filetype indent on")
+cmd("filetype plugin on")
+cmd("filetype plugin indent on")
+cmd("colorscheme onedark")
 
 cmd([[
 autocmd!

@@ -1,6 +1,6 @@
 local M = {}
 
-function M.config()
+M.config = function()
   local status_ok, icons = pcall(require, "nvim-web-devicons")
   if not status_ok then
     return

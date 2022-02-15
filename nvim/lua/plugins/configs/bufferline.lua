@@ -1,8 +1,8 @@
 local M = {}
 
-function M.config()
-  local status_ok, bufferline = pcall(require, "bufferline")
-  if not status_ok then
+M.config = function()
+  local status, bufferline = pcall(require, "bufferline")
+  if not status then
     return
   end
 

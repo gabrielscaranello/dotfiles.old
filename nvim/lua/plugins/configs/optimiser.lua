@@ -3,7 +3,7 @@
 local M = {}
 
 M.config = function()
-  require'impatient'.enable_profile()
+  require"impatient".enable_profile()
 end
 
 return M

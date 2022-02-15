@@ -25,8 +25,8 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 map("", "<C-s>", "<cmd>:w<CR>", opts)
 
 -- Delete without yank
-map('n', '<leader>d', '"_d', opts)
-map('n', 'x', '"_x', opts)
+map("n", "<leader>d", '"_d', opts)
+map("n", "x", '"_x', opts)
 
 -- Navigate buffers
 map("n", "<Tab>", "<cmd>bnext<CR>", opts)
