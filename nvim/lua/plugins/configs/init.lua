@@ -5,6 +5,7 @@ local sources = {
   'icons', 
   'lualine', 
   'nvim-tree',
+  'treesitter',
 }
 
 local M = {}

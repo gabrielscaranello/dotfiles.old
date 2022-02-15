@@ -1,19 +1,19 @@
 -- bootstrap Packer
 local fn = vim.fn
 local cmd = vim.cmd
-local packer_path = "/site/pack/packer/start/packer.nvim"
-local install_path = fn.stdpath("data") .. packer_path
+local packer_path = '/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. packer_path
 
 if fn.empty(vim.fn.glob(install_path)) > 0 then
-	local repo = "https://github.com/wbthomason/packer.nvim"
-	local clone = { "git", "clone", "--depth", "1", repo, install_path }
+	local repo = 'https://github.com/wbthomason/packer.nvim'
+	local clone = { 'git', 'clone', '--depth', '1', repo, install_path }
 	PackerBboostraped = vim.fn.system(clone)
 end
 
 cmd('packadd packer.nvim')
 
 if PackerBboostraped then
-	require("packer").sync()
+	require('packer').sync()
 end
 
 -- add plugins
@@ -27,7 +27,7 @@ local startup = function(use)
   
   use {
     'antoinemadec/FixCursorHold.nvim',
-    event = "BufRead",
+    event = 'BufRead',
     config = configs['fix-cursor-hold'],
   }
   
@@ -63,9 +63,44 @@ local startup = function(use)
     after = 'bufferline.nvim'
   }
 
+  -- Syntax highlighting
+  use {
+   'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    event = 'BufRead',
+    cmd = {
+      'TSInstall',
+      'TSInstallInfo',
+      'TSInstallSync',
+      'TSUninstall',
+      'TSUpdate',
+      'TSUpdateSync',
+      'TSDisableAll',
+      'TSEnableAll',
+    },
+    config = configs['treesitter'],
+    requires = {
+      {
+        -- Parenthesis highlighting
+        'p00f/nvim-ts-rainbow',
+        after = 'nvim-treesitter',
+      },
+      {
+        -- Autoclose tags
+        'windwp/nvim-ts-autotag',
+        after = 'nvim-treesitter',
+      },
+      {
+        -- Context based commenting
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        after = 'nvim-treesitter',
+      },
+    },
+  }
+
 end
 
 
 -- load plugins
-return require("packer").startup(startup)
+return require('packer').startup(startup)
 
