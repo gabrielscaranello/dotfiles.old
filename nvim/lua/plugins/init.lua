@@ -140,6 +140,9 @@ packer.startup {
         -- Fuzzy finder syntax support
         use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
 
+        -- Start screen
+        use {"glepnir/dashboard-nvim", config = configs['dashboard']}
+
     end,
     config = {
         compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
