@@ -2,7 +2,9 @@ local status, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status then return end
 
 local install_servers = function()
-    local required_servers = {"jsonls", "tsserver"}
+    local required_servers = {
+        "jsonls", "tsserver", "vuels", "eslint", "sumneko_lua"
+    }
 
     local installed_servers =
         require("nvim-lsp-installer.servers").get_installed_servers()
@@ -26,9 +28,9 @@ lsp_installer.on_server_ready(function(server)
     opts.on_attach = require("plugins.configs.lsp.handlers").on_attach
     opts.capabilities = require("plugins.configs.lsp.handlers").capabilities
 
-    local present, av_overrides = pcall(require,
-                                        "plugins.configs.lsp.settings." ..
-                                            server.name)
+    local settings = "plugins.configs.lsp.settings." .. server.name
+    local present, av_overrides = pcall(require, settings)
+
     if present then opts = vim.tbl_deep_extend("force", av_overrides, opts) end
 
     server:setup(opts)
