@@ -22,6 +22,7 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- enable ctrl+s
 map("", "<C-s>", "<cmd>:w<CR>", opts)
+map("i", "<C-s>", "<cmd>:w<CR>", opts)
 
 -- Delete without yank
 map("n", "<leader>d", '"_d', opts)

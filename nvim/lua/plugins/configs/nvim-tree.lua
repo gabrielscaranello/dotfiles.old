@@ -54,7 +54,7 @@ M.config = function()
             icons = {hint = "", info = "", warning = "", error = ""}
         },
         view = {
-            width = 25,
+            width = 45,
             height = 30,
             side = "left",
             allow_resize = true,
