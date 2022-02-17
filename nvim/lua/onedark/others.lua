@@ -61,7 +61,7 @@ local others = {
     NvimTreeFolderIcon = {fg = C.blue},
     NvimTreeExecFile = {fg = C.green},
     NvimTreeOpenedFile = {fg = C.green},
-    NvimTreeRootFolder = {fg = C.bg},
+    NvimTreeRootFolder = {fg = C.grey_2},
     NvimTreeEndOfBuffer = {fg = C.bg},
     NvimTreeNormal = {bg = C.blue_2},
     NvimTreeNormalNC = {bg = C.blue_2},

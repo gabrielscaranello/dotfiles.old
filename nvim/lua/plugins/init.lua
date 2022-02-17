@@ -7,9 +7,10 @@ packer.startup {
         local configs = require("plugins.configs")
 
         use "wbthomason/packer.nvim"
-        use "lewis6991/impatient.nvim"
         use "nvim-lua/plenary.nvim"
         use "nvim-lua/popup.nvim"
+
+        use {"lewis6991/impatient.nvim", config = configs['impatient']}
 
         use {
             "antoinemadec/FixCursorHold.nvim",
