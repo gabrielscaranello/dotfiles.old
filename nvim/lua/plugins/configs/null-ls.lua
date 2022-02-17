@@ -9,8 +9,9 @@ M.config = function()
     local actions = null_ls.builtins.code_actions
 
     local sources = {
-        diagnostics.eslint.with({prefer_local = './node_modules/bin'}),
-        formatting.prettier, formatting.lua_format, actions.gitsigns
+        diagnostics.eslint.with({prefer_local = "node_modules/.bin"}),
+        formatting.prettier.with({prefer_local = "node_modules/.bin"}),
+        formatting.lua_format, actions.gitsigns
     }
 
     null_ls.setup {
