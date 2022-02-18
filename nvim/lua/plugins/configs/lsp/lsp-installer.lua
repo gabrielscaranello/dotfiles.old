@@ -2,9 +2,7 @@ local status, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status then return end
 
 local install_servers = function()
-    local required_servers = {
-        "jsonls", "tsserver", "vuels", "eslint", "sumneko_lua"
-    }
+    local required_servers = {"jsonls", "tsserver", "volar", "sumneko_lua"}
 
     local installed_servers =
         require("nvim-lsp-installer.servers").get_installed_servers()

@@ -5,13 +5,20 @@ M.config = function()
     if not status then return end
 
     local formatting = null_ls.builtins.formatting
-    local diagnostics = null_ls.builtins.diagnostics
     local actions = null_ls.builtins.code_actions
+    local diagnostics = null_ls.builtins.diagnostics
 
     local sources = {
-        diagnostics.eslint.with({prefer_local = "node_modules/.bin"}),
+
+        -- diagnostics ----------------------------------------------------
+        diagnostics.eslint_d.with({extra_filetypes = {"vue"}}),
+
+        -- formatting -----------------------------------------------------
         formatting.prettier.with({prefer_local = "node_modules/.bin"}),
-        formatting.lua_format, actions.gitsigns
+        formatting.lua_format,
+
+        -- actions ---------------------------------------------------------
+        actions.gitsigns
     }
 
     null_ls.setup {
@@ -20,7 +27,7 @@ M.config = function()
 
         on_attach = function(client)
             if client.resolved_capabilities.document_formatting then
-                vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 5000)"
+                vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2000)"
             end
         end
     }

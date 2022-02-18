@@ -50,7 +50,7 @@ M.config = function()
             ignore_list = {}
         },
         diagnostics = {
-            enable = false,
+            enable = true,
             icons = {hint = "", info = "", warning = "", error = ""}
         },
         view = {

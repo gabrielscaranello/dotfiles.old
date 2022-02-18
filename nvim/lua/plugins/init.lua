@@ -27,7 +27,8 @@ packer.startup {
         use {
             "kyazdani42/nvim-tree.lua",
             config = configs["nvim-tree"],
-            cmd = {"NvimTreeToggle", "NvimTreeFocus"}
+            cmd = {"NvimTreeToggle", "NvimTreeFocus"},
+            after = {"gitsigns.nvim"}
         }
 
         use {
@@ -74,7 +75,8 @@ packer.startup {
         use {
             "L3MON4D3/LuaSnip",
             config = configs['lua-snip'],
-            requires = {"rafamadriz/friendly-snippets"}
+            requires = {"rafamadriz/friendly-snippets"},
+            after = "nvim-lsp-installer"
         }
 
         -- Completion engine
@@ -100,7 +102,8 @@ packer.startup {
                 "LspInstall", "LspInstallInfo", "LspPrintInstalled",
                 "LspRestart", "LspStart", "LspStop", "LspUninstall",
                 "LspUninstallAll"
-            }
+            },
+            after = "nvim-lspconfig"
         }
 
         -- Built-in LSP
@@ -114,7 +117,8 @@ packer.startup {
         use {
             "tami5/lspsaga.nvim",
             event = "BufRead",
-            config = configs["lsp.lspsaga"]
+            config = configs["lsp.lspsaga"],
+            after = {"nvim-lsp-installer"}
         }
 
         -- LSP symbols
@@ -128,7 +132,9 @@ packer.startup {
         use {
             "jose-elias-alvarez/null-ls.nvim",
             event = "BufRead",
-            config = configs["null-ls"]
+            config = configs["null-ls"],
+            requires = {"nvim-lua/plenary.nvim"},
+            after = "nvim-lsp-installer"
         }
 
         -- Fuzzy finder
@@ -164,6 +170,9 @@ packer.startup {
             cmd = "ToggleTerm",
             config = configs['toggleterm']
         }
+
+        -- String Case Converter
+        use {"chiedo/vim-case-convert"}
 
     end,
     config = {
