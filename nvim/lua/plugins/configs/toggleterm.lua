@@ -1,6 +1,6 @@
 local M = {}
 
-function M.config()
+M.config = function()
     local status, toggleterm = pcall(require, "toggleterm")
     if not status then return end
 
@@ -18,7 +18,7 @@ function M.config()
         start_in_insert = true,
         insert_mappings = true,
         persist_size = true,
-        direction = "horizontal",
+        direction = "float",
         close_on_exit = true,
         shell = o.shell,
         float_opts = {

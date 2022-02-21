@@ -174,6 +174,44 @@ packer.startup {
         -- String Case Converter
         use {"chiedo/vim-case-convert"}
 
+        -- Commenting
+        use {
+            "numToStr/Comment.nvim",
+            event = "BufRead",
+            config = configs['comment']
+        }
+
+        -- Indentation
+        use {
+            "lukas-reineke/indent-blankline.nvim",
+            config = configs['indent-line']
+        }
+
+        -- Keymaps popup
+        use {"folke/which-key.nvim", config = configs["which-key"]}
+
+        -- Smooth scrolling
+        use {
+            "karb94/neoscroll.nvim",
+            event = "BufRead",
+            config = configs['neoscroll']
+        }
+
+        use {
+            "max397574/better-escape.nvim",
+            event = {"InsertEnter"},
+            config = function()
+                require("better_escape").setup {
+                    mapping = {"ii", "jj", "jk", "kj"},
+                    timeout = vim.o.timeoutlen,
+                    keys = "<ESC>"
+                }
+            end
+        }
+
+        -- Get extra JSON schemas
+        use {"b0o/SchemaStore.nvim"}
+
     end,
     config = {
         compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",

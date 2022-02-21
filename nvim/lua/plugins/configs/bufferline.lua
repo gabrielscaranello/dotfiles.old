@@ -19,7 +19,10 @@ M.config = function()
 
     bufferline.setup {
         options = {
-            offsets = {{filetype = "NvimTree", text = "", padding = 1}},
+            offsets = {
+                {filetype = "NvimTree", text = "", padding = 1},
+                {filetype = "Outline", text = "", padding = 1}
+            },
             buffer_close_icon = "",
             modified_icon = "",
             close_icon = "",
