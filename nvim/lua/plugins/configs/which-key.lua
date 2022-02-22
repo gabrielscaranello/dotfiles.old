@@ -1,5 +1,15 @@
 local M = {}
 
+function _OPEN_TERM(cmd)
+    local default_options = require("plugins.configs.toggleterm").options
+    local Terminal = require('toggleterm.terminal').Terminal
+    local opts = {cmd = cmd, hidden = true}
+    local setup = vim.tbl_deep_extend("force", default_options, opts)
+    local instance = Terminal:new(setup)
+
+    instance:toggle()
+end
+
 M.config = function()
     local status_ok, which_key = pcall(require, "which-key")
     if not status_ok then return end
@@ -76,7 +86,7 @@ M.config = function()
 
         g = {
             name = "Git",
-            g = {"<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit"},
+            g = {"<cmd>lua _OPEN_TERM('lazygit')<CR>", "Lazygit"},
             j = {"<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk"},
             k = {"<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk"},
             l = {"<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame"},
@@ -120,11 +130,11 @@ M.config = function()
 
         t = {
             name = "Terminal",
-            n = {"<cmd>lua _NODE_TOGGLE()<cr>", "Node"},
-            u = {"<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU"},
-            t = {"<cmd>lua _HTOP_TOGGLE()<cr>", "Htop"},
-            p = {"<cmd>lua _PYTHON_TOGGLE()<cr>", "Python"},
-            l = {"<cmd>lua _LAZYGIT_TOGGLE()<cr>", "LazyGit"},
+            n = {"<cmd>lua _OPEN_TERM('node'))<cr>", "Node"},
+            u = {"<cmd>lua _OPEN_TERM('ncdu')<cr>", "NCDU"},
+            t = {"<cmd>lua _OPEN_TERM('htop')<cr>", "Htop"},
+            p = {"<cmd>lua _OPEN_TERM('python')<cr>", "Python"},
+            l = {"<cmd>lua _OPEN_TERM('lazygit')<cr>", "LazyGit"},
             f = {"<cmd>ToggleTerm direction=float<cr>", "Float"},
             h = {
                 "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal"
