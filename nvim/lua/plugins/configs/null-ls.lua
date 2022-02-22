@@ -24,7 +24,7 @@ M.config = function()
     null_ls.setup {
         debug = false,
         sources = sources,
-        debounce = 100,
+        debounce = 150,
         update_in_insert = false,
 
         on_attach = function(client)

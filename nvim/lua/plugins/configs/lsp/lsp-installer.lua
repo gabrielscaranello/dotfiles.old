@@ -25,6 +25,7 @@ lsp_installer.on_server_ready(function(server)
     local opts = server:get_default_options()
     opts.on_attach = require("plugins.configs.lsp.handlers").on_attach
     opts.capabilities = require("plugins.configs.lsp.handlers").capabilities
+    opts.flags = {debounce_text_changes = 150}
 
     local settings = "plugins.configs.lsp.settings." .. server.name
     local present, av_overrides = pcall(require, settings)

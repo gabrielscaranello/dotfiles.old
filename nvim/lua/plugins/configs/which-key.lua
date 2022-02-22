@@ -20,7 +20,7 @@ M.config = function()
             registers = true,
             spelling = {enabled = true, suggestions = 20},
             presets = {
-                operators = false,
+                operators = true,
                 motions = true,
                 text_objects = true,
                 windows = true,
