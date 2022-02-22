@@ -31,7 +31,7 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.updatetime = 200
 opt.wildmenu = true
-opt.timeoutlen = 150
+opt.timeoutlen = 300
 
 cmd("filetype on")
 cmd("filetype indent on")

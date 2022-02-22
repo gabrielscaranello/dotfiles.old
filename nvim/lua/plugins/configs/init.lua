@@ -3,7 +3,7 @@ local sources = {
     "lsp", "lsp.lspsaga", "lua-snip", "lualine", "null-ls", "nvim-tree",
     "symbols-outline", "treesitter", "telescope", "dashboard", "colorizer",
     "autopairs", "toggleterm", "impatient", "comment", "indent-line",
-    "which-key", "neoscroll"
+    "which-key", "neoscroll", "tabnine"
 }
 
 local M = {}

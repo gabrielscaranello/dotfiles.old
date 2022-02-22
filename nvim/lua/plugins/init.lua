@@ -209,6 +209,13 @@ packer.startup {
             end
         }
 
+        use {
+            "tzachar/cmp-tabnine",
+            run = "./install.sh",
+            requires = {"hrsh7th/nvim-cmp"},
+            config = configs['tabnine']
+        }
+
         -- Get extra JSON schemas
         use {"b0o/SchemaStore.nvim"}
 
