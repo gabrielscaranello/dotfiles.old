@@ -219,6 +219,8 @@ packer.startup {
         -- Get extra JSON schemas
         use {"b0o/SchemaStore.nvim"}
 
+        use {"rcarriga/nvim-notify", config = configs["notify"]}
+
     end,
     config = {
         compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",

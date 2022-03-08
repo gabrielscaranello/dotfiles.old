@@ -11,11 +11,11 @@ M.config = function()
     local sources = {
 
         -- diagnostics ----------------------------------------------------
-        diagnostics.eslint_d.with({extra_filetypes = {"vue"}}),
+        diagnostics.eslint_d.with({extra_filetypes = {"vue"}}), diagnostics.php,
 
         -- formatting -----------------------------------------------------
         formatting.prettier.with({prefer_local = "node_modules/.bin"}),
-        formatting.lua_format,
+        formatting.lua_format, formatting.phpcsfixer, formatting.yapf,
 
         -- actions ---------------------------------------------------------
         actions.gitsigns
@@ -29,7 +29,7 @@ M.config = function()
 
         on_attach = function(client)
             if client.resolved_capabilities.document_formatting then
-                vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2000)"
+                vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 5000)"
             end
         end
     }

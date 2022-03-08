@@ -122,7 +122,24 @@ local others = {
     WhichKeyGroup = {fg = C.blue},
 
     -- SymbolsOutline
-    FocusedSymbol = {fg = C.yellow, bg = C.none}
+    FocusedSymbol = {fg = C.yellow, bg = C.none},
+
+    -- Notifications
+    NotifyERRORBorder = {fg = C.red},
+    NotifyWARNBorder = {fg = C.orange},
+    NotifyINFOBorder = {fg = C.blue},
+    NotifyDEBUGBorder = {fg = C.grey},
+    NotifyTRACEBorder = {fg = C.red_2},
+    NotifyERRORIcon = {fg = C.purple},
+    NotifyWARNIcon = {fg = C.orange_1},
+    NotifyINFOIcon = {fg = C.green},
+    NotifyDEBUGIcon = {fg = C.grey_2},
+    NotifyTRACEIcon = {fg = C.red_3},
+    NotifyERRORTitle = {fg = C.red_2},
+    NotifyWARNTitle = {fg = C.orange_2},
+    NotifyINFOTitle = {fg = C.green_1},
+    NotifyDEBUGTitle = {fg = C.grey_2},
+    NotifyTRACETitle = {fg = C.purple}
 }
 
 return others
