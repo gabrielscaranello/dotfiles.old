@@ -22,12 +22,9 @@ An Nerd Font is needed, I chose the Fira Code
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k#oh-my-zsh)
 - [Zsh autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md#oh-my-zsh)
 - [Fira Code Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf)
+- [Nord Theme for tilix](https://github.com/arcticicestudio/nord-tilix)
 
 ```sh
 cp -r ./zsh/* ~/
 exec $SHELL
-```
-
-```typescript
-const user = new User();
 ```
