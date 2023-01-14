@@ -14,3 +14,13 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 After install oh-my-zsh run `./setup/zsh.sh`
 
 > Source from `Android Studio`, `Flutter`, `nvm`, `yarn`, `composer` and `tilix` is on the `zsh/.profile`. Please, verify this sources after import and remove if doesn't use. 
+
+
+## Look setup
+
+The look is [Graphite-gtk-theme](https://github.com/vinceliuice/Graphite-gtk-theme) with [papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) and cursor is [Bibata-cursor](https://github.com/ful1e5/Bibata_Cursor)
+
+> This look script is make for [Arch linux](https://archlinux.org/) with [paru aur helper](https://github.com/Morganamilo/paru), will not work correctly in another configuration.
+>
+> More information about my Arch installation in [that repository](https://github.com/gabrielscaranello/arch)
+
