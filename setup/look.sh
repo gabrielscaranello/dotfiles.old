@@ -102,3 +102,4 @@ main() {
   echo "Gnome extensions installed"
   echo $'\nAll look settings done. Restart the session so that everything works as expected!'
 }
+
