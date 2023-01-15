@@ -2,6 +2,10 @@
 
 > My intention is to group all my settings in one place and share it with the community
 
+# Preview
+![](./preview-1.png)
+![](./preview-2.png)
+
 ## Setup oh-my-zsh
 
 Install font and theme for tilix (optional)
