@@ -28,3 +28,7 @@ The look is [Graphite-gtk-theme](https://github.com/vinceliuice/Graphite-gtk-the
 >
 > More information about my Arch installation in [that repository](https://github.com/gabrielscaranello/arch)
 
+## Neovim
+
+Coming soon, I'm still working on it...
+
