@@ -8,6 +8,7 @@ ICONS="papirus-icon-theme papirus-folders-git bibata-cursor-theme-bin"
 ICON_NAME="Papirus-Dark"
 CURSOR_ICON="Bibata-Modern-Ice"
 CURSOR_SIZE=20
+DCONF="$(pwd)/look/dconf-settings"
 WALLPAPER="$(pwd)/look/wallpaper.jpg"
 FINAL_WALLPAPER="$HOME/.local/share/backgrounds/mountain_jaws.jpg"
 
@@ -46,3 +47,6 @@ gsettings set org.gnome.desktop.screensaver picture-uri "$FINAL_WALLPAPER"
 # Flatpak GTK setup
 stylepak install-system
 stylepak install-user
+
+### load dconfig
+dconf load / < "$DCONF"
