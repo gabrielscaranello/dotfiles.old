@@ -196,7 +196,7 @@ highlight-mouse-over=false
 
 [org/gnome/shell/extensions/date-menu-formatter]
 font-size=10
-pattern="EEE dd 'de'  MMM kk:mm:ss"
+pattern="EEE. MMM dd kk:mm:ss"
 remove-messages-indicator=false
 use-default-locale=true
 
