@@ -2,15 +2,16 @@
 
 GIT_URL="https://github.com/vinceliuice/Graphite-gtk-theme.git"
 THEME_NAME="Graphite-blue-Dark-nord"
-LOCATION="/tmp/$THEME_NAME"
-PARAMS="-l -s standard -c dark --tweaks nord black darker rimless normal -t blue"
+THEME_LOCATION="/tmp/$THEME_NAME"
+THEME_PARAMS="-l -s standard -c dark -t blue --tweaks nord black darker rimless normal"
 ICONS="papirus-icon-theme papirus-folders-git bibata-cursor-theme-bin"
 ICON_NAME="Papirus-Dark"
 CURSOR_ICON="Bibata-Modern-Ice"
 CURSOR_SIZE=20
 DCONF="$(pwd)/look/dconf-settings"
 WALLPAPER="$(pwd)/look/wallpaper.jpg"
-FINAL_WALLPAPER="$HOME/.local/share/backgrounds/mountain_jaws.jpg"
+WALLPAPER_DIR="$HOME/.local/share/backgrounds"
+FINAL_WALLPAPER="$WALLPAPER_DIR/mountain_jaws.jpg"
 
 GNOME_EXTENSIONS=(
   3193  # Blur my Shell
@@ -33,11 +34,11 @@ GNOME_EXTENSIONS=(
 # install theme and icons
 install_theme_and_icons() {
   # Install GTK Theme
-  git clone "$GIT_URL" "$LOCATION"
-  "$LOCATION"/install.sh "$PARAMS"
+  git clone "$GIT_URL" "$THEME_LOCATION"
+  $(echo "$THEME_LOCATION/install.sh $THEME_PARAMS")
 
   # Install Icons Package
-  paru -Sy --noconfirm "$ICONS"
+  $(echo "paru -Sy --noconfirm $ICONS")
 
   # Make settings
   ## GTK
@@ -65,6 +66,7 @@ EOF
 
 # Set wallpaper
 set_wallpaper() {
+  mkdir -p "$WALLPAPER_LOCATION"
   cp "$WALLPAPER" "$FINAL_WALLPAPER"
   gsettings set org.gnome.desktop.background picture-uri "$FINAL_WALLPAPER"
   gsettings set org.gnome.desktop.background picture-uri-dark "$FINAL_WALLPAPER"
@@ -102,4 +104,6 @@ main() {
   echo "Gnome extensions installed"
   echo $'\nAll look settings done. Restart the session so that everything works as expected!'
 }
+
+main
 
