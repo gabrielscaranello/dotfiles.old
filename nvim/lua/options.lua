@@ -1,45 +1,41 @@
-local opt = vim.opt
-local cmd = vim.cmd
+vim.opt.autoindent = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.cmdheight = 1
+vim.opt.confirm = true
+vim.opt.cursorline = true
+vim.opt.encoding = "utf-8"
+vim.opt.expandtab = true
+vim.opt.foldlevel = 99
+vim.opt.foldmethod = "syntax"
+vim.opt.guicursor = ""
+vim.opt.hidden = true
+vim.opt.incsearch = true
+vim.opt.laststatus = 2
+vim.opt.mouse = "a"
+vim.opt.nu = true
+vim.opt.scrolloff = 10
+vim.opt.shiftwidth = 2
+vim.opt.shortmess = "c"
+vim.opt.showmode = false
+vim.opt.signcolumn = "number"
+vim.opt.signcolumn = "yes"
+vim.opt.smartindent = true
+vim.opt.smarttab = true
+vim.opt.softtabstop = 2
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.tabstop = 2
+vim.opt.termguicolors = true
+vim.opt.updatetime = 200
+vim.opt.wildmenu = true
+vim.opt.timeoutlen = 300
 
-opt.autoindent = true
-opt.clipboard = "unnamedplus"
-opt.cmdheight = 1
-opt.confirm = true
-opt.cursorline = true
-opt.encoding = "utf-8"
-opt.expandtab = true
-opt.foldlevel = 99
-opt.foldmethod = "syntax"
-opt.guicursor = ""
-opt.hidden = true
-opt.incsearch = true
-opt.laststatus = 2
-opt.mouse = "a"
-opt.nu = true
-opt.scrolloff = 10
-opt.shiftwidth = 2
-opt.shortmess = "c"
-opt.showmode = false
-opt.signcolumn = "number"
-opt.signcolumn = "yes"
-opt.smartindent = true
-opt.smarttab = true
-opt.softtabstop = 2
-opt.splitbelow = true
-opt.splitright = true
-opt.tabstop = 2
-opt.termguicolors = true
-opt.updatetime = 200
-opt.wildmenu = true
-opt.timeoutlen = 300
+vim.cmd("filetype on")
+vim.cmd("filetype indent on")
+vim.cmd("filetype plugin on")
+vim.cmd("filetype plugin indent on")
 
-cmd("filetype on")
-cmd("filetype indent on")
-cmd("filetype plugin on")
-cmd("filetype plugin indent on")
-cmd("colorscheme nord")
-
-cmd([[
+vim.cmd([[
 autocmd!
 if (empty($TMUX))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -48,3 +44,10 @@ if (empty($TMUX))
   endif
 endif
 ]])
+
+local colorscheme = "nord"
+colorscheme_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+
+if not colorscheme_ok then
+    vim.cmd([["colorscheme habamax"]])
+end
