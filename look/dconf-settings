@@ -1,15 +1,3 @@
-[com/gexperts/Tilix]
-app-title='${appName}: ${sessionName} '
-enable-wide-handle=false
-quake-specific-monitor=0
-session-name='${title}'
-sidebar-on-right=false
-tab-position='top'
-terminal-title-style='normal'
-use-tabs=false
-warn-vte-config-issue=false
-window-style='normal'
-
 [com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
 background-color='#2E3440'
 background-transparency-percent=10
@@ -22,7 +10,6 @@ font='FiraCode Nerd Font 11'
 foreground-color='#D8DEE9'
 highlight-colors-set=false
 palette=['#3B4252', '#BF616A', '#A3BE8C', '#EBCB8B', '#81A1C1', '#B48EAD', '#88C0D0', '#E5E9F0', '#4C566A', '#BF616A', '#A3BE8C', '#EBCB8B', '#81A1C1', '#B48EAD', '#8FBCBB', '#ECEFF4']
-use-system-font=false
 use-theme-colors=true
 visible-name='Padrão'
 
@@ -30,9 +17,7 @@ visible-name='Padrão'
 custom-font='FiraCode Nerd Font 11'
 highlight-current-line=true
 restore-session=false
-show-grid=false
-show-map=false
-style-scheme='classic-dark'
+style-scheme='kate-dark'
 style-variant='dark'
 use-system-font=false
 
@@ -40,7 +25,7 @@ use-system-font=false
 folder-children=['Utilities']
 
 [org/gnome/desktop/app-folders/folders/Utilities]
-apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'cups.desktop']
 categories=['X-GNOME-Utilities']
 name='X-GNOME-Utilities.directory'
 translate=true
@@ -49,8 +34,6 @@ translate=true
 exec='tilix'
 
 [org/gnome/desktop/background]
-color-shading-type='solid'
-picture-options='zoom'
 picture-uri='/home/gabriel/.local/share/backgrounds/mountain_jaws.jpg'
 picture-uri-dark='/home/gabriel/.local/share/backgrounds/mountain_jaws.jpg'
 primary-color='#000000000000'
@@ -58,14 +41,6 @@ secondary-color='#000000000000'
 
 [org/gnome/desktop/calendar]
 show-weekdate=true
-
-[org/gnome/desktop/datetime]
-automatic-timezone=true
-
-[org/gnome/desktop/input-sources]
-current=uint32 0
-sources=[('xkb', 'us+intl')]
-xkb-options=@as []
 
 [org/gnome/desktop/interface]
 clock-show-date=false
@@ -75,70 +50,49 @@ color-scheme='prefer-dark'
 cursor-size=20
 cursor-theme='Bibata-Modern-Ice'
 document-font-name='Roboto 11'
-enable-animations=true
 font-antialiasing='grayscale'
 font-hinting='slight'
 font-name='Roboto 11'
 gtk-theme='Graphite-blue-Dark-nord'
 icon-theme='Papirus-Dark'
-monospace-font-name='FiraCode Nerd Font Mono 10'
-
-[org/gnome/desktop/peripherals/keyboard]
-numlock-state=true
+monospace-font-name='FiraCode Nerd Font 10'
 
 [org/gnome/desktop/peripherals/mouse]
 accel-profile='flat'
 
-[org/gnome/desktop/peripherals/touchpad]
-two-finger-scrolling-enabled=true
-
 [org/gnome/desktop/privacy]
+old-files-age=uint32 14
+recent-files-max-age=-1
+remove-old-temp-files=true
+remove-old-trash-files=true
 report-technical-problems=true
 
 [org/gnome/desktop/screensaver]
-color-shading-type='solid'
-picture-options='zoom'
 picture-uri='/home/gabriel/.local/share/backgrounds/mountain_jaws.jpg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
-[org/gnome/desktop/sound]
-event-sounds=true
-theme-name='__custom'
+[org/gnome/desktop/search-providers]
+disabled=['org.gnome.Contacts.desktop', 'org.gnome.Nautilus.desktop']
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 
 [org/gnome/desktop/wm/keybindings]
 show-desktop=['<Super>d']
 
 [org/gnome/desktop/wm/preferences]
 action-middle-click-titlebar='minimize'
+theme='Graphite-blue-Dark-nord'
 titlebar-font='Roboto Medium 11'
-workspace-names=@as []
-
-[org/gnome/gnome-system-monitor]
-current-tab='processes'
-maximized=false
-network-total-in-bits=false
-show-dependencies=false
-show-whose-processes='user'
-window-state=(700, 500, 202, 247)
 
 [org/gnome/mutter]
 center-new-windows=true
 
-[org/gnome/nautilus/icon-view]
-default-zoom-level='small-plus'
-
-[org/gnome/nautilus/preferences]
-default-folder-viewer='icon-view'
-migrated-gtk-settings=true
-search-filter-time-type='last_modified'
-
 [org/gnome/settings-daemon/plugins/color]
 night-light-enabled=true
 night-light-schedule-automatic=false
-night-light-schedule-from=5.0
-night-light-schedule-to=4.9833333333333334
-night-light-temperature=uint32 4522
+night-light-schedule-from=4.0
+night-light-schedule-to=3.9833333333333334
+night-light-temperature=uint32 4500
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
@@ -156,81 +110,38 @@ name='Flameshot'
 
 [org/gnome/shell]
 disable-user-extensions=false
-disabled-extensions=@as []
-enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'color-picker@tuberry', 'blur-my-shell@aunetx', 'CoverflowAltTab@palatis.blogspot.com', 'appindicatorsupport@rgcjonas.gmail.com', 'clipboard-indicator@tudmotu.com', 'date-menu-formatter@marcinjakubowski.github.com', 'order-extensions@wa4557.github.com', 'easy_docker_containers@red.software.systems', 'Vitals@CoreCoding.com', 'trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com', 'emoji-selector@maestroschan.fr', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'caffeine@patapon.info', 'Rounded_Corners@lennart-k', 'rounded-window-corners@yilozt']
-favorite-apps=['org.gnome.Nautilus.desktop', 'com.gexperts.Tilix.desktop', 'code.desktop', 'firefox.desktop', 'com.google.Chrome.desktop', 'org.gimp.GIMP.desktop', 'org.onlyoffice.desktopeditors.desktop', 'rest.insomnia.Insomnia.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'com.google.Chrome.flextop.chrome-cinhimbnkkaeohfgghhklpknlkffjgod-Default.desktop', 'discord.desktop', 'org.telegram.desktop.desktop', 'com.valvesoftware.Steam.desktop']
-
-[org/gnome/shell/extensions/blur-my-shell/applications]
-blur=false
-
-[org/gnome/shell/extensions/blur-my-shell/dash-to-dock]
-blur=true
-override-background=true
-style-dash-to-dock=0
-unblur-in-overview=false
-
-[org/gnome/shell/extensions/blur-my-shell/overview]
-customize=false
-style-components=1
-
-[org/gnome/shell/extensions/blur-my-shell/panel]
-blur=true
-brightness=0.6
-customize=false
-noise-amount=0.0
-override-background=true
-override-background-dynamically=true
-static-blur=true
-style-panel=0
-unblur-in-overview=false
+enabled-extensions=['blur-my-shell@aunetx', 'wireless-hid@chlumskyvaclav.gmail.com', 'caffeine@patapon.info', 'easy_docker_containers@red.software.systems', 'CoverflowAltTab@palatis.blogspot.com', 'Rounded_Corners@lennart-k', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'clipboard-indicator@tudmotu.com', 'color-picker@tuberry', 'emoji-selector@maestroschan.fr', 'order-extensions@wa4557.github.com', 'trayIconsReloaded@selfmade.pl', 'date-menu-formatter@marcinjakubowski.github.com']
+favorite-apps=['com.gexperts.Tilix.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'firefox.desktop', 'com.google.Chrome.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'com.valvesoftware.Steam.desktop', 'discord.desktop', 'org.telegram.desktop.desktop']
 
 [org/gnome/shell/extensions/caffeine]
 nightlight-control='never'
 restore-state=true
+show-notifications=false
 user-enabled=true
 
 [org/gnome/shell/extensions/coverflowalttab]
 dim-factor=0.75
 hide-panel=false
-highlight-mouse-over=false
 
 [org/gnome/shell/extensions/date-menu-formatter]
-font-size=10
-pattern="EEE. MMM dd kk:mm:ss"
-remove-messages-indicator=false
-use-default-locale=true
-
-[org/gnome/shell/extensions/lennart-k/rounded_corners]
-corner-radius=12
+font-size=11
+pattern="EEE d 'de' MMM  H:mm:ss"
 
 [org/gnome/shell/extensions/order-icons]
 order-icons-center=['dateMenu']
 order-icons-left=['activities', 'vitalsMenu', 'appMenu']
-order-icons-right=['TrayIconsReloaded', 'clipboardIndicator', 'EmojisMenu', 'docker-menu', 'color-picker@tuberry', 'Caffeine', 'wireless-hid', 'quickSettings', 'keyboard', 'a11y', 'dwellClick', 'screenSharing', 'screenRecording']
+order-icons-right=['TrayIconsReloaded', 'EmojisMenu', 'clipboardIndicator', 'color-picker@tuberry', 'docker-menu', 'Caffeine', 'wireless-hid', 'quickSettings', 'keyboard', 'a11y', 'dwellClick', 'screenSharing', 'screenRecording']
 
 [org/gnome/shell/extensions/rounded-window-corners]
-custom-rounded-corner-settings=@a{sv} {}
-global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}
-settings-version=uint32 5
-
-[org/gnome/shell/extensions/trayIconsReloaded]
-applications='[]'
-icon-margin-horizontal=4
-icon-padding-horizontal=16
-tray-margin-left=0
-tray-margin-right=4
+global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>}
 
 [org/gnome/shell/extensions/user-theme]
 name='Graphite-blue-Dark-nord'
 
 [org/gnome/shell/extensions/vitals]
-hot-sensors=['_memory_usage_', '_processor_usage_', '__temperature_max__']
+hot-sensors=['_memory_usage_', '__temperature_max__', '_processor_usage_']
 position-in-panel=3
-show-battery=false
-show-fan=true
+show-network=true
 show-storage=false
 show-system=false
 show-voltage=false
-
-[org/gnome/tweaks]
-show-extensions-notice=false
