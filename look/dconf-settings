@@ -125,7 +125,7 @@ hide-panel=false
 
 [org/gnome/shell/extensions/date-menu-formatter]
 font-size=11
-pattern="EEE d 'de' MMM  H:mm:ss"
+pattern="EEE d 'de' MMM HH:mm:ss"
 
 [org/gnome/shell/extensions/order-icons]
 order-icons-center=['dateMenu']
