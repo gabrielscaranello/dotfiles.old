@@ -66,7 +66,7 @@ EOF
 
 # Set wallpaper
 set_wallpaper() {
-  mkdir -p "$WALLPAPER_LOCATION"
+  mkdir -p "$WALLPAPER_DIR"
   cp "$WALLPAPER" "$FINAL_WALLPAPER"
   gsettings set org.gnome.desktop.background picture-uri "$FINAL_WALLPAPER"
   gsettings set org.gnome.desktop.background picture-uri-dark "$FINAL_WALLPAPER"
