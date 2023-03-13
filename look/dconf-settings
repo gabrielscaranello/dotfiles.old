@@ -92,7 +92,7 @@ night-light-enabled=true
 night-light-schedule-automatic=false
 night-light-schedule-from=4.0
 night-light-schedule-to=3.9833333333333334
-night-light-temperature=uint32 4500
+night-light-temperature=uint32 4700
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
