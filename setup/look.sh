@@ -38,7 +38,7 @@ install_theme_and_icons() {
   $(echo "$THEME_LOCATION/install.sh $THEME_PARAMS")
 
   # Install Icons Package
-  $(echo "paru -Sy --noconfirm $ICONS")
+  $(echo "yay -Sy --noconfirm $ICONS")
 
   # Make settings
   ## GTK
@@ -76,7 +76,7 @@ set_wallpaper() {
 # install gnome extensions
 install_gnome_extensions() {
   # Add helper
-  paru -S --noconfirm gnome-shell-extension-installer
+  yay -S --noconfirm gnome-shell-extension-installer
 
   # Install extensions
   for extension in ${GNOME_EXTENSIONS[@]}; do
@@ -84,7 +84,7 @@ install_gnome_extensions() {
   done
 
   # Remove helper
-  paru -Rns --noconfirm gnome-shell-extension-installer
+  yay -Rns --noconfirm gnome-shell-extension-installer
 
   ### load dconfig
   dconf load / < "$DCONF"

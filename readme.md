@@ -24,7 +24,7 @@ After install oh-my-zsh run `./setup/zsh.sh`
 
 The look is [Graphite-gtk-theme](https://github.com/vinceliuice/Graphite-gtk-theme) with [papirus-icon-theme](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) and cursor is [Bibata-cursor](https://github.com/ful1e5/Bibata_Cursor)
 
-> This look script is make for [Arch linux](https://archlinux.org/) with [paru aur helper](https://github.com/Morganamilo/paru), will not work correctly in another configuration.
+> This look script is make for [Arch linux](https://archlinux.org/) with [yay aur helper](https://github.com/Jguer/yay), will not work correctly in another configuration.
 >
 > More information about my Arch installation in [that repository](https://github.com/gabrielscaranello/arch)
 
