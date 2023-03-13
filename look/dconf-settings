@@ -53,7 +53,7 @@ document-font-name='Roboto 11'
 font-antialiasing='grayscale'
 font-hinting='slight'
 font-name='Roboto 11'
-gtk-theme='Graphite-blue-Dark-nord'
+gtk-theme='Orchis-Dark-Nord'
 icon-theme='Papirus-Dark'
 monospace-font-name='FiraCode Nerd Font 10'
 
@@ -81,7 +81,7 @@ show-desktop=['<Super>d']
 
 [org/gnome/desktop/wm/preferences]
 action-middle-click-titlebar='minimize'
-theme='Graphite-blue-Dark-nord'
+theme='Orchis-Dark-Nord'
 titlebar-font='Roboto Medium 11'
 
 [org/gnome/mutter]
@@ -136,7 +136,7 @@ order-icons-right=['TrayIconsReloaded', 'EmojisMenu', 'clipboardIndicator', 'col
 global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>}
 
 [org/gnome/shell/extensions/user-theme]
-name='Graphite-blue-Dark-nord'
+name='Orchis-Dark-Nord'
 
 [org/gnome/shell/extensions/vitals]
 hot-sensors=['_memory_usage_', '__temperature_max__', '_processor_usage_']

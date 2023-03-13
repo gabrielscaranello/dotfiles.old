@@ -1,9 +1,9 @@
 #! /bin/sh
 
-GIT_URL="https://github.com/vinceliuice/Graphite-gtk-theme.git"
-THEME_NAME="Graphite-blue-Dark-nord"
+GIT_URL="https://github.com/vinceliuice/Orchis-theme.git"
+THEME_NAME="Orchis-Dark-Nord"
 THEME_LOCATION="/tmp/$THEME_NAME"
-THEME_PARAMS="-l -s standard -c dark -t blue --tweaks nord black darker rimless normal"
+THEME_PARAMS="-c dark -s standard -l --tweaks compact primary macos submenu nord"
 ICONS="papirus-icon-theme papirus-folders-git bibata-cursor-theme-bin"
 ICON_NAME="Papirus-Dark"
 CURSOR_ICON="Bibata-Modern-Ice"
