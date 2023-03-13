@@ -34,8 +34,8 @@ translate=true
 exec='tilix'
 
 [org/gnome/desktop/background]
-picture-uri='/home/gabriel/.local/share/backgrounds/mountain_jaws.jpg'
-picture-uri-dark='/home/gabriel/.local/share/backgrounds/mountain_jaws.jpg'
+picture-uri='file:///usr/share/backgrounds/archlinux/gritty.png'
+picture-uri-dark='file:///usr/share/backgrounds/archlinux/gritty.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -68,7 +68,7 @@ remove-old-trash-files=true
 report-technical-problems=true
 
 [org/gnome/desktop/screensaver]
-picture-uri='/home/gabriel/.local/share/backgrounds/mountain_jaws.jpg'
+picture-uri='file:///usr/share/backgrounds/archlinux/gritty.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 

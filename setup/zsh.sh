@@ -22,7 +22,7 @@ clone() {
   path=$2
 
   if [[ ! -d "$path" ]]; then
-    git clone "https://github.com/$repo" "$path"
+    git clone --depth=1 "https://github.com/$repo" "$path"
   else
     echo "$repo are installed, skipping..."
   fi

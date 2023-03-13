@@ -9,9 +9,7 @@ ICON_NAME="Papirus-Dark"
 CURSOR_ICON="Bibata-Modern-Ice"
 CURSOR_SIZE=20
 DCONF="$(pwd)/look/dconf-settings"
-WALLPAPER="$(pwd)/look/wallpaper.jpg"
-WALLPAPER_DIR="$HOME/.local/share/backgrounds"
-FINAL_WALLPAPER="$WALLPAPER_DIR/mountain_jaws.jpg"
+WALLPAPER="file:///usr/share/backgrounds/archlinux/gritty.png"
 
 GNOME_EXTENSIONS=(
   3193  # Blur my Shell
@@ -66,11 +64,9 @@ EOF
 
 # Set wallpaper
 set_wallpaper() {
-  mkdir -p "$WALLPAPER_DIR"
-  cp "$WALLPAPER" "$FINAL_WALLPAPER"
-  gsettings set org.gnome.desktop.background picture-uri "$FINAL_WALLPAPER"
-  gsettings set org.gnome.desktop.background picture-uri-dark "$FINAL_WALLPAPER"
-  gsettings set org.gnome.desktop.screensaver picture-uri "$FINAL_WALLPAPER"
+  gsettings set org.gnome.desktop.background picture-uri "$WALLPAPER"
+  gsettings set org.gnome.desktop.background picture-uri-dark "$WALLPAPER"
+  gsettings set org.gnome.desktop.screensaver picture-uri "$WALLPAPER"
 }
 
 # install gnome extensions
