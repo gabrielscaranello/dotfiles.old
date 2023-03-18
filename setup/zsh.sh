@@ -3,7 +3,7 @@
 # Auxiliar DIRS
 PWD=$(pwd)
 ZSH_DIR="zsh"
-BKP_DIR="$HOME/profile-bkp"
+PROFILE_DUMP="$HOME/.profile_dump"
 OMZ_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 PLUGINS_DIR="$OMZ_DIR/plugins"
 THEMES_DIR="$OMZ_DIR/themes"
@@ -35,14 +35,14 @@ install_plugins_and_themes() {
 
 backup_and_copy_files() {
   # make backup dir
-  mkdir -p "$BKP_DIR"
+  mkdir -p "$PROFILE_DUMP"
 
   # replace files
   cd "$ZSH_DIR"
 
   for file in ${FILES[@]}; do
     # backup file
-    [[ ! -f "$HOME/$file" ]] || mv "$HOME/$file" "$BKP_DIR/$file"
+    [[ ! -f "$HOME/$file" ]] || mv "$HOME/$file" "$PROFILE_DUMP/$file"
     
     # copy a new file
     cp "$file" "$HOME/$file"
@@ -57,7 +57,7 @@ main() {
   install_plugins_and_themes
   echo $'\nCnsoping files...\n'
   backup_and_copy_files
-  echo "Install completed. Old profile files is on $BKP_DIR."
+  echo "Install completed. Old profile files is on $PROFILE_DUMP."
 }
 
 main
