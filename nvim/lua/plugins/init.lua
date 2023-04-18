@@ -6,8 +6,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.api.nvim_set_hl(0, "NormalFloat", {
         bg = "#2e3440"
     })
-    PACKER_BOOTSTRAP = fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim",
-                                  install_path})
+    PACKER_BOOTSTRAP = fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim",
+        install_path })
     print("Installing packer close and reopen Neovim...")
     vim.cmd([[packadd packer.nvim]])
 end
@@ -22,7 +22,6 @@ end
 packer.init(require("utils.config").packer_init_opts())
 
 return packer.startup(function(use)
-
     -- self assign and impatient
     use "wbthomason/packer.nvim"
     use "lewis6991/impatient.nvim"
@@ -50,10 +49,14 @@ return packer.startup(function(use)
         after = "nvim-treesitter"
     }
 
-    -- nord theme
-    use "arcticicestudio/nord-vim"
+    -- Onedark theme
+    use {
+        "navarasu/onedark.nvim",
+        config = function() require "plugins.configs.onedark" end
+    }
 
     -- file explorer
+    -- TODO: check branch
     use {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
@@ -91,8 +94,8 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         event = "BufRead",
-        cmd = {"TSInstall", "TSInstallInfo", "TSInstallSync", "TSUninstall", "TSUpdate", "TSUpdateSync", "TSDisableAll",
-               "TSEnableAll"},
+        cmd = { "TSInstall", "TSInstallInfo", "TSInstallSync", "TSUninstall", "TSUpdate", "TSUpdateSync", "TSDisableAll",
+            "TSEnableAll" },
         config = function() require "plugins.configs.treesitter" end
     }
 

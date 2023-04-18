@@ -44,10 +44,3 @@ if (empty($TMUX))
   endif
 endif
 ]])
-
-local colorscheme = "nord"
-colorscheme_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-
-if not colorscheme_ok then
-    vim.cmd([["colorscheme habamax"]])
-end

@@ -9,7 +9,7 @@ neo_tree.setup({
     enable_diagnostics = true,
     sort_case_insensitive = false,
     window = {
-        width = 32
+        width = 40
     }
 })
 
