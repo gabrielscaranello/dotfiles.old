@@ -1,14 +1,11 @@
 #! /bin/sh
 
-GTK_THEME_URL="https://github.com/lassekongo83/adw-gtk3/releases/download/v4.3/adw-gtk3v4-3.tar.xz"
 THEME_NAME="adw-gtk3-dark"
-THEME_LOCATION="/tmp/$THEME_NAME.tar.xz"
-THEMES_PATH="$HOME/.themes"
 CURSOR_ICON="Bibata-Modern-Ice"
 CURSOR_SIZE=20
 ICON_NAME="Papirus-Dark"
 ICONS="papirus-icon-theme papirus-folders-git bibata-cursor-theme-bin"
-WALLPAPER="file:///usr/share/backgrounds/archlinux/gritty.png"
+WALLPAPER="file:///usr/share/backgrounds/gnome/blobs-l.svg"
 
 # install theme and icons
 install_theme_and_icons() {
@@ -16,16 +13,16 @@ install_theme_and_icons() {
     mkdir -p "$THEMES_PATH"
     wget -c "$GTK_THEME_URL" -O "$THEME_LOCATION"
     tar -xf "$THEME_LOCATION" -C "$THEMES_PATH"
-    
-    # Install Icons Package
-    $(echo "yay -Sy --noconfirm $ICONS")
-    
+
+    # Install Icons and Themes
+    yay -Sy --noconfirm papirus-icon-theme papirus-folders-git bibata-cursor-theme-bin adw-gtk3
+
     # Make settings
     ## GTK
     gsettings set org.gnome.desktop.interface gtk-theme "$THEME_NAME"
     gsettings set org.gnome.desktop.wm.preferences theme "$THEME_NAME"
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-    
+
     ## Wallpaper and icons
     ### Icons
     papirus-folders -C adwaita

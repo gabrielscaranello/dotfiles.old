@@ -12,7 +12,7 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
@@ -38,9 +38,9 @@ PATH="$PATH:$ANDROID_SDK_ROOT/tools"
 PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
 PATH="$PATH:/opt/gradle/gradle-7.0.2/bin:$PATH"
 
-# Fix Tilix, open new split in CWD 
+# Fix Tilix, open new split in CWD
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
+    source /etc/profile.d/vte.sh
 fi
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

@@ -24,15 +24,15 @@ GNOME_EXTENSIONS=(
 install_gnome_extensions() {
     # Add helper
     yay -S --noconfirm gnome-shell-extension-installer
-    
+
     # Install extensions
     for extension in ${GNOME_EXTENSIONS[@]}; do
         gnome-shell-extension-installer --yes "$extension"
     done
-    
+
     # Remove helper
     yay -Rns --noconfirm gnome-shell-extension-installer
-    
+
     ### load dconfig
     dconf load / < "$DCONF"
 }

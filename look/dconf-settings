@@ -34,8 +34,8 @@ translate=true
 exec='tilix'
 
 [org/gnome/desktop/background]
-picture-uri='file:///usr/share/backgrounds/archlinux/gritty.png'
-picture-uri-dark='file:///usr/share/backgrounds/archlinux/gritty.png'
+picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
+picture-uri-dark='file:///usr/share/backgrounds/gnome/blobs-l.svg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -65,7 +65,7 @@ remove-old-trash-files=true
 report-technical-problems=true
 
 [org/gnome/desktop/screensaver]
-picture-uri='file:///usr/share/backgrounds/archlinux/gritty.png'
+picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
