@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 # Auxiliar DIRS
 PWD=$(pwd)
@@ -55,7 +55,7 @@ main() {
     echo $'\nProfile setup started\n'
     echo "Cloning plugins and themes..."
     install_plugins_and_themes
-    echo $'\nCnsoping files...\n'
+    echo $'\nCoping files...\n'
     backup_and_copy_files
     echo "Install completed. Old profile files is on $PROFILE_DUMP."
 }

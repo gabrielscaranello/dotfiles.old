@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 THEME_NAME="adw-gtk3-dark"
 CURSOR_ICON="Bibata-Modern-Ice"

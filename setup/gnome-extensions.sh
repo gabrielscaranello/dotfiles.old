@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 DCONF="$(pwd)/look/dconf-settings"
 
