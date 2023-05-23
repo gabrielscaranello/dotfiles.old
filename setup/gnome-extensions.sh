@@ -3,21 +3,20 @@
 DCONF="$(pwd)/look/dconf-settings"
 
 GNOME_EXTENSIONS=(
-    3193  # Blur my Shell
-    517   # Caffeine
-    779   # Clipboard Indicator
-    3396  # Color Picker
-    97    # Coverflow Alt-Tab
-    4655  # Date Menu Formatter
-    2224  # Easy Docker Containers
-    1162  # Emoji Selector
-    2114  # Order Gnome Shell extensions
-    1514  # Rounded Corners
-    5237  # Rounded Window Corners
-    2890  # Tray Icons: Reloaded
-    19    # User Themes
-    1460  # Vitals
-    4228  # Wireless HID
+    3193 # Blur my Shell
+    517  # Caffeine
+    779  # Clipboard Indicator
+    3396 # Color Picker
+    97   # Coverflow Alt-Tab
+    4655 # Date Menu Formatter
+    2224 # Easy Docker Containers
+    1162 # Emoji Selector
+    2114 # Order Gnome Shell extensions
+    1514 # Rounded Corners
+    2890 # Tray Icons: Reloaded
+    19   # User Themes
+    1460 # Vitals
+    4228 # Wireless HID
 )
 
 # install gnome extensions

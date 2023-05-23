@@ -1,18 +1,3 @@
-[com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-background-color='#2E3440'
-background-transparency-percent=10
-badge-color='#AC7EA8'
-badge-color-set=false
-bold-color-set=false
-cursor-colors-set=false
-cursor-shape='underline'
-font='FiraCode Nerd Font 11'
-foreground-color='#D8DEE9'
-highlight-colors-set=false
-palette=['#3B4252', '#BF616A', '#A3BE8C', '#EBCB8B', '#81A1C1', '#B48EAD', '#88C0D0', '#E5E9F0', '#4C566A', '#BF616A', '#A3BE8C', '#EBCB8B', '#81A1C1', '#B48EAD', '#8FBCBB', '#ECEFF4']
-use-theme-colors=true
-visible-name='Padrão'
-
 [org/gnome/TextEditor]
 custom-font='FiraCode Nerd Font 11'
 highlight-current-line=true
@@ -31,7 +16,7 @@ name='X-GNOME-Utilities.directory'
 translate=true
 
 [org/gnome/desktop/applications/terminal]
-exec='tilix'
+exec='kitty'
 
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/gnome/blobs-l.svg'
@@ -96,8 +81,8 @@ home=['<Super>e']
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Control><Alt>t'
-command='tilix'
-name='Tilix'
+command='kitty'
+name='Kitty'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
 binding='<Control><Super>s'
@@ -107,7 +92,7 @@ name='Flameshot'
 [org/gnome/shell]
 disable-user-extensions=false
 enabled-extensions=['blur-my-shell@aunetx', 'wireless-hid@chlumskyvaclav.gmail.com', 'caffeine@patapon.info', 'easy_docker_containers@red.software.systems', 'CoverflowAltTab@palatis.blogspot.com', 'Rounded_Corners@lennart-k', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'clipboard-indicator@tudmotu.com', 'color-picker@tuberry', 'emoji-selector@maestroschan.fr', 'order-extensions@wa4557.github.com', 'trayIconsReloaded@selfmade.pl', 'date-menu-formatter@marcinjakubowski.github.com']
-favorite-apps=['com.gexperts.Tilix.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'firefox.desktop', 'com.google.Chrome.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'com.valvesoftware.Steam.desktop', 'discord.desktop', 'org.telegram.desktop.desktop']
+favorite-apps=['kitty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'firefox.desktop', 'com.google.Chrome.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'com.valvesoftware.Steam.desktop', 'discord.desktop', 'org.telegram.desktop.desktop']
 
 [org/gnome/shell/extensions/caffeine]
 nightlight-control='never'
