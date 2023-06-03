@@ -1,0 +1,20 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+plugins=(git dnf composer yarn npm laravel zsh-autosuggestions docker-compose git-flow docker)
+
+source $ZSH/oh-my-zsh.sh
+
+
+# Source files
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[[ ! -f ~/.profile ]] || source ~/.profile
+
+[[ ! -f ~/.alias ]] || source ~/.alias
