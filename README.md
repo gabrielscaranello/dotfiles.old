@@ -4,6 +4,8 @@ This is my Arch Linux installation setup. 😍
 
 This guide translates my personal installation, with packages that I use in my daily life. Use as an example, never as an absolute truth! 😉
 
+Thanks if you have suggestions for improvement. Make forks at will... 🫣
+
 ## Installation
 
 This dotfiles and scripts are made for Arch Linux. Based on minimal installation using [archinstall](https://wiki.archlinux.org/title/Archinstall) script.
@@ -56,8 +58,14 @@ All scripts run from a Makefile file
 | `make update_zram`              | Update SWAP size (highest value between 4GiB and half total RAM)                                                                                                                                                                                                                   |
 | `make yay`                      | Install yay package manager. (needed to run other commands)                                                                                                                                                                                                                        |
 
----
+## Preview
+
+![](./assets/preview.png)
 
 #### Why I use Gnome DE?
 
 Among numerous options for window management, such as BSPWM, Hyprland and others. Why did I choose to use Gnome? Simply for personal taste. I admire WMs, but Gnome has everything I need for my day to day and I feel productive with it. This is my opinion at the moment, but that may change in the future, I'm very interested in Hyprland. 🫣
+
+## Links
+
+- [My AstroNvim Config](https://github.com/gabrielscaranello/astronvim-config)
