@@ -66,7 +66,7 @@ home=['<Super>e']
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Control><Alt>t'
-command='kitty'
+command='kitty --start-as=maximized'
 name='kitty'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
@@ -100,6 +100,13 @@ style-components=1
 [org/gnome/shell/extensions/blur-my-shell/panel]
 blur=true
 unblur-in-overview=true
+
+[org/gnome/shell/extensions/arch-update]
+check-cmd="/bin/sh -c \"(/usr/bin/checkupdates; /usr/bin/yay -Qu --color never | sed 's/Get .*//') | sort -u -t' ' -k1,1; /usr/bin/flatpak remote-ls --columns=application -a --updates\""
+check-interval=60
+disable-parsing=true
+update-cmd='kitty --title "Update packages" -1 sh -c  \\"yay; flatpak update; touch /var/lib/pacman/local/flatpak-arch-update; echo Done - Press enter to exit; read\\"'
+use-buildin-icons=true
 
 [org/gnome/shell/extensions/blur-my-shell/screenshot]
 blur=true
