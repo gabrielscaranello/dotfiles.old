@@ -68,7 +68,7 @@ setup_icon_theme:
 
 setup_wallpaper:
 	# Coping wallpaper image
-	@cp ./wallpaper.jpg ~/.wallpaper.jpg
+	@cp ./assets/wallpaper.jpg ~/.wallpaper.jpg
 	# Defining wallpaper
 	@gsettings set org.gnome.desktop.background picture-uri "file:///$${HOME}/.wallpaper.jpg"
 	@gsettings set org.gnome.desktop.background picture-uri-dark "file:///$${HOME}/.wallpaper.jpg"
