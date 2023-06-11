@@ -6,6 +6,7 @@ dialog
 discocss-git
 discord
 docker
+docker-buildx
 docker-compose
 dosfstools
 eog
