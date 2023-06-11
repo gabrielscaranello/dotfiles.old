@@ -1,14 +1,29 @@
 # Dotfiles [Arch Linux]
 
+<!--toc:start-->
+
+- [Dotfiles [Arch Linux]](#dotfiles-arch-linux)
+  - [About](#about)
+  - [Installation](#installation)
+    - [Why I use Gnome DE?](#why-i-use-gnome-de)
+  - [Usage](#usage)
+  - [Preview](#preview)
+  - [Links](#links)
+  <!--toc:end-->
+
+## About
+
 This is my Arch Linux installation setup. 😍
 
-This guide translates my personal installation, with packages that I use in my daily life. Use as an example, never as an absolute truth! 😉
+This guide translates my personal installation, with packages that I use in my
+daily life. Use as an example, never as an absolute truth! 😉
 
 Thanks if you have suggestions for improvement. Make forks at will... 🫣
 
 ## Installation
 
-This dotfiles and scripts are made for Arch Linux. Based on minimal installation using [archinstall](https://wiki.archlinux.org/title/Archinstall) script.
+This dotfiles and scripts are made for Arch Linux. Based on minimal installation
+using [archinstall](https://wiki.archlinux.org/title/Archinstall) script.
 
 | Title               | Description                                                                                                                                            |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -23,9 +38,18 @@ This dotfiles and scripts are made for Arch Linux. Based on minimal installation
 | Gnome Apps          | Baobab, Calculator, Calendar, Contacts, Disks, EOG, Evince, File Roller, Font Viewer, Nautilus, Software (with pacman support), System Monitor, Tweaks |
 | Other Apps          | Flameshot, Piper, VLC                                                                                                                                  |
 
+### Why I use Gnome DE?
+
+Among numerous options for window management, such as BSPWM, Hyprland and others.
+Why did I choose to use Gnome? Simply for personal taste. I admire WMs,
+but Gnome has everything I need for my day to day and I feel productive with it.
+This is my opinion at the moment, but that may change in the future,
+I'm very interested in Hyprland. 🫣
+
 ## Usage
 
-The actions below assume that you already have Arch Linux installed and logged in with your username.
+The actions below assume that you already have Arch Linux installed and
+logged in with your username.
 
 All scripts run from a Makefile file
 
@@ -60,11 +84,7 @@ All scripts run from a Makefile file
 
 ## Preview
 
-![](./assets/preview.png)
-
-#### Why I use Gnome DE?
-
-Among numerous options for window management, such as BSPWM, Hyprland and others. Why did I choose to use Gnome? Simply for personal taste. I admire WMs, but Gnome has everything I need for my day to day and I feel productive with it. This is my opinion at the moment, but that may change in the future, I'm very interested in Hyprland. 🫣
+![Preview](./assets/preview.png)
 
 ## Links
 
