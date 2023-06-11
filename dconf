@@ -105,7 +105,7 @@ unblur-in-overview=true
 check-cmd="/bin/sh -c \"(/usr/bin/checkupdates; /usr/bin/yay -Qu --color never | sed 's/Get .*//') | sort -u -t' ' -k1,1; /usr/bin/flatpak remote-ls --columns=application -a --updates\""
 check-interval=60
 disable-parsing=true
-update-cmd='kitty --title "Update packages" -1 sh -c  \\"yay; flatpak update; touch /var/lib/pacman/local/flatpak-arch-update; echo Done - Press enter to exit; read\\"'
+update-cmd='kitty --title "Update packages" -1 sh -c  "yay; flatpak update; sudo touch /var/lib/pacman/local/flatpak-arch-update; echo Done - Press enter to exit; read"'
 use-buildin-icons=true
 
 [org/gnome/shell/extensions/blur-my-shell/screenshot]
