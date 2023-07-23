@@ -51,12 +51,14 @@ setup_gtk_theme:
 	# Installing build and setup GTK Theme
 	@cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless
 	# Defining themes
-	@gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	@gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	@dconf write /org/gnome/shell/extensions/user-theme/name "'Catppuccin-Mocha-Standard-Blue-Dark'"
+	@gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-dark"
+	@gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-dark"
+	@dconf write /org/gnome/shell/extensions/user-theme/name "'Catppuccin-Mocha-Standard-Blue-dark'"
 	# Setup theme for flatpak apps
 	@sudo flatpak override --filesystem=$$HOME/.themes
-	@sudo flatpak override --env=GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
+	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
+	@sudo flatpak override --filesystem=$$HOME/.config/gtk-4.0
+	@sudo flatpak override --env=GTK_THEME="Catppuccin-Mocha-Standard-Blue-dark"
 	# Remove dependencies
 	@yay -Rsn --noconfirm python-virtualenv
 
