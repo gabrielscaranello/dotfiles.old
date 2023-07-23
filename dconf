@@ -1,5 +1,8 @@
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'YaST']
+
 [org/gnome/desktop/app-folders/folders/Utilities]
-apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'nm-connection-editor.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'gnome-abrt.desktop', 'gnome-system-log.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop']
+apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop', 'org.gnome.font-viewer.desktop', 'qdbusviewer.desktop', 'linguist.desktop', 'designer.desktop', 'assistant.desktop']
 categories=['X-GNOME-Utilities']
 name='X-GNOME-Utilities.directory'
 translate=true
@@ -18,7 +21,7 @@ document-font-name='Roboto 11'
 font-antialiasing='grayscale'
 font-hinting='slight'
 font-name='Roboto 11'
-gtk-theme='Catppuccin-Mocha-Standard-Blue-Dark'
+gtk-theme='Catppuccin-Mocha-Standard-Blue-dark'
 icon-theme='Papirus-Dark'
 monospace-font-name='JetBrainsMono Nerd Font 10'
 
@@ -48,6 +51,7 @@ show-desktop=['<Super>d']
 
 [org/gnome/desktop/wm/preferences]
 action-middle-click-titlebar='minimize'
+theme='Catppuccin-Mocha-Standard-Blue-dark'
 titlebar-font='Roboto Bold 11'
 
 [org/gnome/mutter]
@@ -57,8 +61,14 @@ center-new-windows=true
 default-folder-viewer='icon-view'
 migrated-gtk-settings=true
 search-filter-time-type='last_modified'
+search-view='list-view'
 show-create-link=true
 show-delete-permanently=true
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=true
+night-light-last-coordinates=(-24.310987681112419, -53.323599999999999)
+night-light-temperature=uint32 4700
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
@@ -75,13 +85,20 @@ command='flameshot gui'
 name='flameshot'
 
 [org/gnome/shell]
-app-picker-layout=[{'org.gnome.Calculator.desktop': <{'position': <0>}>, 'org.gnome.Calendar.desktop': <{'position': <1>}>, 'org.gnome.Settings.desktop': <{'position': <2>}>, 'org.gnome.Contacts.desktop': <{'position': <3>}>, 'org.gnome.Extensions.desktop': <{'position': <4>}>, 'org.flameshot.Flameshot.desktop': <{'position': <5>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <6>}>, 'gnome-system-monitor.desktop': <{'position': <7>}>, 'org.freedesktop.Piper.desktop': <{'position': <8>}>, 'org.gnome.Software.desktop': <{'position': <9>}>, 'vlc.desktop': <{'position': <10>}>, 'Utilities': <{'position': <11>}>, 'org.gimp.GIMP.desktop': <{'position': <12>}>}]
+app-picker-layout=[{'org.gnome.Calculator.desktop': <{'position': <0>}>, 'org.gnome.Calendar.desktop': <{'position': <1>}>, 'org.gnome.Settings.desktop': <{'position': <2>}>, 'org.gnome.Contacts.desktop': <{'position': <3>}>, 'org.flameshot.Flameshot.desktop': <{'position': <4>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <5>}>, 'gnome-system-monitor.desktop': <{'position': <6>}>, 'org.freedesktop.Piper.desktop': <{'position': <7>}>, 'org.gnome.Software.desktop': <{'position': <8>}>, 'vlc.desktop': <{'position': <9>}>, 'Utilities': <{'position': <10>}>, 'org.gnome.Extensions.desktop': <{'position': <11>}>, 'org.qbittorrent.qBittorrent.desktop': <{'position': <12>}>, 'org.telegram.desktop._c69f69b6cebae31eec9c8fe40ae4a01b.desktop': <{'position': <13>}>, 'virtualbox.desktop': <{'position': <14>}>}]
 command-history=['r']
 disable-user-extensions=false
 disabled-extensions=['appindicatorsupport@rgcjonas.gmail.com']
-enabled-extensions=['blur-my-shell@aunetx', 'caffeine@patapon.info', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-selector@maestroschan.fr', 'order-extensions@wa4557.github.com', 'pano@elhan.io', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'AlphabeticalAppGrid@stuarthayhurst', 'top-bar-organizer@julian.gse.jsts.xyz', 'trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com']
-favorite-apps=['kitty.desktop', 'org.gnome.Nautilus.desktop', 'codium.desktop', 'firefox.desktop', 'chromium.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'discord.desktop', 'org.telegram.desktop._5ab9f8aed26a44844d634f74310f973b.desktop']
+enabled-extensions=['blur-my-shell@aunetx', 'caffeine@patapon.info', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-selector@maestroschan.fr', 'order-extensions@wa4557.github.com', 'pano@elhan.io', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'AlphabeticalAppGrid@stuarthayhurst', 'top-bar-organizer@julian.gse.jsts.xyz', 'trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com', 'arch-update@RaphaelRochet']
+favorite-apps=['kitty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'firefox.desktop', 'chromium.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'discord.desktop']
 welcome-dialog-last-shown-version='44.2'
+
+[org/gnome/shell/extensions/arch-update]
+check-cmd="/bin/sh -c \"(/usr/bin/checkupdates; /usr/bin/yay -Qu --color never | sed 's/Get .*//') | sort -u -t' ' -k1,1; /usr/bin/flatpak remote-ls --columns=application -a --updates\""
+check-interval=60
+disable-parsing=true
+update-cmd='kitty --start-as=maximized --title "Update packages" -1 sh -c  "yay; flatpak update; sudo touch /var/lib/pacman/local/flatpak-arch-update; echo Done - Press enter to exit; read"'
+use-buildin-icons=true
 
 [org/gnome/shell/extensions/blur-my-shell/appfolder]
 blur=true
@@ -100,13 +117,6 @@ style-components=1
 [org/gnome/shell/extensions/blur-my-shell/panel]
 blur=true
 unblur-in-overview=true
-
-[org/gnome/shell/extensions/arch-update]
-check-cmd="/bin/sh -c \"(/usr/bin/checkupdates; /usr/bin/yay -Qu --color never | sed 's/Get .*//') | sort -u -t' ' -k1,1; /usr/bin/flatpak remote-ls --columns=application -a --updates\""
-check-interval=60
-disable-parsing=true
-update-cmd='kitty --title "Update packages" -1 sh -c  "yay; flatpak update; sudo touch /var/lib/pacman/local/flatpak-arch-update; echo Done - Press enter to exit; read"'
-use-buildin-icons=true
 
 [org/gnome/shell/extensions/blur-my-shell/screenshot]
 blur=true
@@ -214,7 +224,7 @@ tweak-kitty-terminal=true
 [org/gnome/shell/extensions/top-bar-organizer]
 center-box-order=['dateMenu']
 left-box-order=['activities', 'vitalsMenu', 'appMenu']
-right-box-order=['TrayIconsReloaded', 'appindicator-kstatusnotifieritem-chrome_status_icon_1', 'color-picker@tuberry', 'docker-menu', 'wireless-hid', 'screenRecording', 'screenSharing', 'dwellClick', 'a11y', 'keyboard', 'quickSettings']
+right-box-order=['TrayIconsReloaded', 'ArchUpdateIndicator', 'color-picker@tuberry', 'docker-menu', 'wireless-hid', 'screenRecording', 'screenSharing', 'dwellClick', 'a11y', 'keyboard', 'quickSettings']
 
 [org/gnome/shell/extensions/trayIconsReloaded]
 applications='[]'
@@ -225,11 +235,14 @@ icon-padding-horizontal=12
 icon-padding-vertical=0
 icon-saturation=0
 icon-size=20
-icons-limit=1
+icons-limit=4
 invoke-to-workspace=false
 position-weight=0
 tray-margin-left=0
 tray-margin-right=0
+
+[org/gnome/shell/extensions/user-theme]
+name='Catppuccin-Mocha-Standard-Blue-dark'
 
 [org/gnome/shell/extensions/vitals]
 alphabetize=true
@@ -241,17 +254,12 @@ show-storage=false
 show-system=false
 update-time=2
 
-[org/gtk/gtk4/settings/file-chooser]
-show-hidden=false
-sort-directories-first=true
-
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
 show-hidden=false
 show-size-column=true
 show-type-column=true
-sidebar-width=156
 sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
