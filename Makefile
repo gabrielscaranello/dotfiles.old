@@ -123,6 +123,7 @@ copy_configs:
 	@rm -rf ~/.config/flameshot
 	# Coping files
 	@cp -r ./flameshot ~/.config/flameshot
+	@sudo cp ./timeshift.json /etc/timeshift/timeshift.json
 
 setup_oh_my_zsh:
 	# Setup oh-my-zsh
