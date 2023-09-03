@@ -27,7 +27,7 @@ image/svg+xml=org.gnome.eog.desktop
 image/svg+xml-compressed=org.gnome.eog.desktop
 image/vnd.wap.wbmp=org.gnome.eog.desktop
 image/x-icns=org.gnome.eog.desktop
-text/plain=nvim.desktop
+text/plain=org.gnome.TextEditor.desktop
 inode/directory=org.gnome.Nautilus.desktop
 
 [Added Associations]
@@ -58,4 +58,4 @@ image/svg+xml=org.gnome.eog.desktop;
 image/svg+xml-compressed=org.gnome.eog.desktop;
 image/vnd.wap.wbmp=org.gnome.eog.desktop;
 image/x-icns=org.gnome.eog.desktop;
-text/plain=nvim.desktop;
+text/plain=nvim.desktop;org.gnome.TextEditor.desktop;
