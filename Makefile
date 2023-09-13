@@ -91,7 +91,7 @@ setup_cursors:
 
 load_dconf:
 	# Loading dconf
-	@dconf load / < ./dconf
+	@dconf load / < ./config/dconf
 
 setup_discord_theme:
 	# Setup discord theme
@@ -105,7 +105,7 @@ setup_kitty:
 	# Removing old files
 	@rm -rf ~/.config/kitty
 	# Coping files
-	@cp -r ./kitty ~/.config/kitty
+	@cp -r ./config/kitty ~/.config/kitty
 
 setup_bat:
 	# Setup bat theme
@@ -122,8 +122,8 @@ copy_configs:
 	# Removing old files
 	@rm -rf ~/.config/flameshot
 	# Coping files
-	@cp -r ./flameshot ~/.config/flameshot
-	@sudo cp ./timeshift.json /etc/timeshift/timeshift.json
+	@cp -r ./config/flameshot ~/.config/flameshot
+	@sudo cp ./config/timeshift.json /etc/timeshift/timeshift.json
 
 setup_oh_my_zsh:
 	# Setup oh-my-zsh
@@ -137,10 +137,10 @@ setup_oh_my_zsh:
 	# Removing dump files
 	@rm -rf ~/.zcompdump* ~/.zshrc.* ~/.shell.pre-oh-my-zsh
 	# Coping config files
-	@cp ./oh-my-zsh/alias ~/.alias
-	@cp ./oh-my-zsh/p10k.zsh ~/.p10k.zsh
-	@cp ./oh-my-zsh/profile ~/.profile
-	@cp ./oh-my-zsh/zshrc ~/.zshrc
+	@cp ./config/oh-my-zsh/alias ~/.alias
+	@cp ./config/oh-my-zsh/p10k.zsh ~/.p10k.zsh
+	@cp ./config/oh-my-zsh/profile ~/.profile
+	@cp ./config/oh-my-zsh/zshrc ~/.zshrc
 
 setup_term: setup_kitty setup_oh_my_zsh setup_bat
 
