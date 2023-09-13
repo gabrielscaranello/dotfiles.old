@@ -2,14 +2,9 @@
 
 # Variables
 APPS=(
-    avahi-discover
-    bssh
-    bvnc
-    nm-connection-editor
+    btop
     nvim
     org.gnome.Extensions
-    qv4l2
-    qvidcap
 )
 
 for app in ${APPS[@]}; do

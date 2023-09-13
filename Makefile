@@ -1,55 +1,83 @@
-# Makefile for arch
+# Makefile for fedora
 
-yay:
-	# Installing yay
-	# Installing dependencies
-	@sudo pacman -S --needed --noconfirm git base-devel
-	# Cloning yay
-	@rm -rf /tmp/yay
-	@git clone https://aur.archlinux.org/yay.git /tmp/yay
-	# Installing yay
-	@cd /tmp/yay && makepkg -si
-	# Yay gendb
-	yay -Y --gendb
+add_repos:
+	# Adding repos
+	# RPM Fusion
+	@sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$$(rpm -E %fedora).noarch.rpm
+	# VSCode
+	@sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+	@sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+	# Bottom
+	@sudo dnf copr enable atim/bottom -y
+	# Lazygit
+	@sudo dnf copr enable atim/lazygit -y
+	# Lazydocker
+	@sudo dnf copr enable atim/lazydocker -y
+	# Docker
+	@sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
-install_system: yay
-	# Updating system packages
-	@yay -Suuy --noconfirm
+remove_unused_repos:
+	# Removing unused repos
+	@sudo rm -rf $$(cat ./repos_to_remove | tr '\n' ' ')
+
+update_system: remove_unused_repos
+	# Remove old packages
+	@sudo dnf remove -y $$(cat ./packages_to_remove | tr '\n' ' ')
+	# Updating system
+	@sudo dnf update -y
+
+install_system: update_system add_repos
 	# Installing system packages
-	@yay -S --noconfirm $$(cat ./system_packages | tr '\n' ' ')
+	@sudo dnf install -y $$(cat ./system_packages | tr '\n' ' ')
 
-install_amd:
-	# Install packages from AMD
-	@yay -S --noconfirm $$(cat ./amd_packages | tr '\n', ' ')
+install_multimedia_codecs:
+	# Installing multimedia codecs
+	@sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+	@sudo dnf install -y lame\* --exclude=lame-devel
 
 install_flatpak:
+	# Installing flatpak
+	# Add flathub repo
+	@sudo flatpak remote-delete flathub
+	@sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	# Installing flatpak apps
 	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
 
 install_gnome_extensions:
 	# Installing gnome extensions
 	# Intalling helper
-	@yay -S --noconfirm gnome-shell-extension-installer
+	@wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+	@chmod +x gnome-shell-extension-installer
+	@sudo mv gnome-shell-extension-installer /usr/bin/
 	# Installing extensions
 	@for i in $$(sed "s/[^0-9]//g" ./gnome_extensions); do gnome-shell-extension-installer --yes "$$i"; done
-	# Removing helper
-	@yay -Rsn --noconfirm gnome-shell-extension-installer
 
 install_nvm:
 	# Installing NVM
-	@bash nvm.sh
+	@bash ./scripts/nvm.sh
+
+install_telegram:
+	# Installing Telegram
+	@bash ./scripts/telegram.sh
+
+install_jetbrains_fonts:
+	# Installing Jetbrains Fonts
+	@bash ./scripts/jetbrains_fonts.sh
+
+install_git_flow_cjs:
+	# Installing Git flow CJS
+	@wget -q  https://raw.githubusercontent.com/CJ-Systems/gitflow-cjs/develop/contrib/gitflow-installer.sh -O /tmp/gitflow-installer.sh
+	@cd /tmp && sudo bash ./gitflow-installer.sh install stable
 
 setup_gtk_theme:
 	# Setup gtk theme
-	# Installing dependencies
-	@yay -S --noconfirm python-virtualenv
 	# Removing old GTK Theme
 	@rm -rf ~/.themes/Catppuccin-Mocha-Standard-Blue-*
 	@rm -rf /tmp/gtk-theme
 	# Cloning GTK Theme
 	@git clone --recurse-submodules https://github.com/catppuccin/gtk.git /tmp/gtk-theme
 	# Installing build and setup GTK Theme
-	@cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless
+	@bash -c "cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless"
 	# Defining themes
 	@gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
@@ -59,11 +87,14 @@ setup_gtk_theme:
 	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
 	@sudo flatpak override --filesystem=$$HOME/.config/gtk-4.0
 	@sudo flatpak override --env=GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
-	# Remove dependencies
-	@yay -Rsn --noconfirm python-virtualenv
 
 setup_icon_theme:
 	# Defining icons
+	# Cloning catppuccin papirus folders
+	@rm -rf /tmp/catppuccin-papirus-folders
+	@git clone https://github.com/catppuccin/papirus-folders.git /tmp/catppuccin-papirus-folders
+	# Installing catppuccin papirus folders
+	@bash -c "cd /tmp/catppuccin-papirus-folders && sudo cp -r src/* /usr/share/icons/Papirus && sudo make install"
 	@papirus-folders -C cat-mocha-blue
 	@gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 	@sudo flatpak override --filesystem=$$HOME/.icons
@@ -95,10 +126,15 @@ load_dconf:
 
 setup_discord_theme:
 	# Setup discord theme
-	@mkdir -p ~/.config/discocss
-	@curl -L https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css > ~/.config/discocss/custom.css
+	@/usr/bin/discord --start-minimized > /dev/null 2>&1 &
+	@mkdir -p ~/.config/discord
+	@curl -L https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css > ~/.config/discord/catppuccin-mocha-blue.theme.css
+	@python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip
+	@python3 -m beautifuldiscord --css ~/.config/discord/catppuccin-mocha-blue.theme.css
+	# Killing discord process
+	@kill $$(pidof -s Discord)
 
-look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors load_dconf
+look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors load_dconf setup_discord_theme
 
 setup_kitty:
 	# Setup kitty
@@ -106,6 +142,9 @@ setup_kitty:
 	@rm -rf ~/.config/kitty
 	# Coping files
 	@cp -r ./config/kitty ~/.config/kitty
+	# Set kitty as default terminal
+	@sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $$(which kitty) 50
+	@sudo update-alternatives --set x-terminal-emulator $$(which kitty)
 
 setup_bat:
 	# Setup bat theme
@@ -120,7 +159,7 @@ setup_bat:
 copy_configs:
 	# Coping config files
 	# Removing old files
-	@rm -rf ~/.config/flameshot
+	@sudo rm -rf ~/.config/flameshot /etc/timeshift/timeshift.json
 	# Coping files
 	@cp -r ./config/flameshot ~/.config/flameshot
 	@sudo cp ./config/timeshift.json /etc/timeshift/timeshift.json
@@ -160,47 +199,42 @@ update_zram:
 	@echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.d/00-custom.conf
 	@echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.d/00-custom.conf
 
-enable_osprober:
-	# Enabling osprober
-	@echo 'GRUB_DISABLE_OS_PROBER=false' | sudo tee -a /etc/default/grub
-	@sudo grub-mkconfig -o /boot/grub/grub.cfg
-
 docker_permissions:
 	# Docker permissions
 	@sudo usermod -aG docker $$(whoami)
 
 hide_apps:
 	# Hidding apps
-	@bash hide_apps.sh
-
-mimetypes:
-	# Mimetypes
-	@cp ./mimeapps.list ~/.config/mimeapps.list
+	@bash ./scripts/hide_apps.sh
 
 enable_services:
 	# Enabling services
+	# Docker
 	@sudo systemctl enable --now docker
-	@sudo systemctl enable --now gdm
+	# Numlock
+	@sudo sed -i 's/exit 0/if [ -x \/usr\/bin\/numlockx ]; then \/usr\/bin\/numlockx on; fi;\n\nexit 0/g' /etc/gdm/Init/Default
 
 clean:
-	# Cleaning cache
-	@yay -Sccd --noconfirm
 	# Removing unused packages
-	@yay -Rsn $$(yay -Qqdt) --noconfirm
+	@sudo dnf autoremove -y
+	# Cleaning cache
+	@sudo dnf clean all
 
 setup_all: 
 	@$(MAKE) install_system
+	@$(MAKE) install_multimedia_codecs
 	@$(MAKE) install_nvm
-	@$(MAKE) install_gnome_extensions
-	@$(MAKE) setup_term
 	@$(MAKE) install_flatpak
+	@$(MAKE) install_telegram
+	@$(MAKE) install_jetbrains_fonts
+	@$(MAKE) install_git_flow_cjs
+	@$(MAKE) setup_term
 	@$(MAKE) setup_nvim 
+	@$(MAKE) install_gnome_extensions
 	@$(MAKE) look
 	@$(MAKE) update_zram
-	@$(MAKE) enable_osprober
 	@$(MAKE) docker_permissions
 	@$(MAKE) hide_apps
-	@$(MAKE) mimetypes
 	@$(MAKE) copy_configs
 	@$(MAKE) clean
 	@$(MAKE) enable_services
