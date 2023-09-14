@@ -38,7 +38,7 @@ install_multimedia_codecs:
 install_flatpak:
 	# Installing flatpak
 	# Add flathub repo
-	@sudo flatpak remote-delete flathub
+	@set +e; sudo flatpak remote-delete flathub; set -e;
 	@sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	# Installing flatpak apps
 	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
@@ -126,7 +126,7 @@ load_dconf:
 
 setup_discord_theme:
 	# Setup discord theme
-	@/usr/bin/discord --start-minimized > /dev/null 2>&1 &
+	@/usr/bin/Discord --start-minimized > /dev/null 2>&1 &
 	@mkdir -p ~/.config/discord
 	@curl -L https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css > ~/.config/discord/catppuccin-mocha-blue.theme.css
 	@python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip
