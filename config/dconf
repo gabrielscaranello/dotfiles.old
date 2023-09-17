@@ -1,13 +1,29 @@
+[org/gnome/TextEditor]
+custom-font='JetBrainsMono Nerd Font 11'
+highlight-current-line=false
+restore-session=false
+style-scheme='Adwaita-dark'
+style-variant='dark'
+use-system-font=false
+
+[org/gnome/calendar]
+active-view='month'
+weather-settings=(false, true, '', @mv nothing)
+
 [org/gnome/desktop/app-folders]
 folder-children=['Utilities', 'YaST']
 
 [org/gnome/desktop/app-folders/folders/Utilities]
-apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop', 'org.gnome.font-viewer.desktop', 'qdbusviewer.desktop', 'linguist.desktop', 'designer.desktop', 'assistant.desktop']
+apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop', 'org.gnome.font-viewer.desktop', 'qdbusviewer.desktop', 'linguist.desktop', 'designer.desktop', 'assistant.desktop', 'yelp.desktop', 'org.gnome.clocks.desktop']
 categories=['X-GNOME-Utilities']
 name='X-GNOME-Utilities.directory'
 translate=true
 
+[org/gnome/desktop/datetime]
+automatic-timezone=false
+
 [org/gnome/desktop/input-sources]
+current=uint32 0
 sources=[('xkb', 'us+intl')]
 xkb-options=['terminate:ctrl_alt_bksp']
 
@@ -25,6 +41,9 @@ gtk-theme='Catppuccin-Mocha-Standard-Blue-Dark'
 icon-theme='Papirus-Dark'
 monospace-font-name='JetBrainsMono Nerd Font 10'
 
+[org/gnome/desktop/notifications]
+show-in-lock-screen=false
+
 [org/gnome/desktop/peripherals/keyboard]
 numlock-state=true
 
@@ -37,9 +56,15 @@ two-finger-scrolling-enabled=true
 [org/gnome/desktop/privacy]
 old-files-age=uint32 30
 recent-files-max-age=-1
+remember-recent-files=false
+remove-old-temp-files=true
+remove-old-trash-files=true
+report-technical-problems=true
 
+[org/gnome/desktop/screensaver]
+lock-delay=uint32 60
 [org/gnome/desktop/search-providers]
-disabled=['org.gnome.Nautilus.desktop']
+disabled=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.clocks.desktop', 'org.gnome.Characters.desktop']
 sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 
 [org/gnome/desktop/sound]
@@ -54,8 +79,16 @@ action-middle-click-titlebar='minimize'
 theme='Catppuccin-Mocha-Standard-Blue-Dark'
 titlebar-font='Roboto Bold 11'
 
+[org/gnome/login-screen]
+enable-fingerprint-authentication=true
+enable-password-authentication=true
+enable-smartcard-authentication=false
+
 [org/gnome/mutter]
 center-new-windows=true
+
+[org/gnome/nautilus/list-view]
+use-tree-view=true
 
 [org/gnome/nautilus/preferences]
 default-folder-viewer='icon-view'
@@ -67,7 +100,6 @@ show-delete-permanently=true
 
 [org/gnome/settings-daemon/plugins/color]
 night-light-enabled=true
-night-light-last-coordinates=(-24.310987681112419, -53.323599999999999)
 night-light-temperature=uint32 4700
 
 [org/gnome/settings-daemon/plugins/media-keys]
@@ -85,20 +117,11 @@ command='flameshot gui'
 name='flameshot'
 
 [org/gnome/shell]
-app-picker-layout=[{'org.gnome.Calculator.desktop': <{'position': <0>}>, 'org.gnome.Calendar.desktop': <{'position': <1>}>, 'org.gnome.Settings.desktop': <{'position': <2>}>, 'org.gnome.Contacts.desktop': <{'position': <3>}>, 'org.flameshot.Flameshot.desktop': <{'position': <4>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <5>}>, 'gnome-system-monitor.desktop': <{'position': <6>}>, 'org.freedesktop.Piper.desktop': <{'position': <7>}>, 'org.gnome.Software.desktop': <{'position': <8>}>, 'vlc.desktop': <{'position': <9>}>, 'Utilities': <{'position': <10>}>, 'org.gnome.Extensions.desktop': <{'position': <11>}>, 'org.qbittorrent.qBittorrent.desktop': <{'position': <12>}>, 'org.telegram.desktop._c69f69b6cebae31eec9c8fe40ae4a01b.desktop': <{'position': <13>}>, 'virtualbox.desktop': <{'position': <14>}>}]
-command-history=['r']
+app-picker-layout=[{'org.gnome.Calculator.desktop': <{'position': <0>}>, 'org.gnome.Calendar.desktop': <{'position': <1>}>, 'org.gnome.Settings.desktop': <{'position': <2>}>, 'org.gnome.Contacts.desktop': <{'position': <3>}>, 'org.flameshot.Flameshot.desktop': <{'position': <4>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <5>}>, 'gnome-system-monitor.desktop': <{'position': <6>}>, 'org.freedesktop.Piper.desktop': <{'position': <7>}>, 'org.gnome.Software.desktop': <{'position': <8>}>, 'vlc.desktop': <{'position': <9>}>, 'Utilities': <{'position': <10>}>, 'io.missioncenter.MissionCenter.desktop': <{'position': <11>}>, 'com.valvesoftware.Steam.desktop': <{'position': <12>}>, 'timeshift-gtk.desktop': <{'position': <13>}>}]
 disable-user-extensions=false
 disabled-extensions=['appindicatorsupport@rgcjonas.gmail.com']
-enabled-extensions=['blur-my-shell@aunetx', 'caffeine@patapon.info', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-selector@maestroschan.fr', 'order-extensions@wa4557.github.com', 'pano@elhan.io', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'AlphabeticalAppGrid@stuarthayhurst', 'top-bar-organizer@julian.gse.jsts.xyz', 'trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com', 'arch-update@RaphaelRochet']
-favorite-apps=['kitty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'firefox.desktop', 'chromium.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'discord.desktop']
-welcome-dialog-last-shown-version='44.2'
-
-[org/gnome/shell/extensions/arch-update]
-check-cmd="/bin/sh -c \"(/usr/bin/checkupdates; /usr/bin/yay -Qu --color never | sed 's/Get .*//') | sort -u -t' ' -k1,1; /usr/bin/flatpak remote-ls --columns=application -a --updates\""
-check-interval=60
-disable-parsing=true
-update-cmd='kitty --start-as=maximized --title "Update packages" -1 sh -c  "yay; flatpak update; sudo touch /var/lib/pacman/local/flatpak-arch-update; echo Done - Press enter to exit; read"'
-use-buildin-icons=true
+enabled-extensions=['blur-my-shell@aunetx', 'caffeine@patapon.info', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-selector@maestroschan.fr', 'order-extensions@wa4557.github.com', 'pano@elhan.io', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'AlphabeticalAppGrid@stuarthayhurst', 'top-bar-organizer@julian.gse.jsts.xyz', 'trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com', 'arch-update@RaphaelRochet', 'emoji-copy@felipeftn']
+favorite-apps=['kitty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'org.gnome.TextEditor.desktop', 'firefox.desktop', 'chromium-browser.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'com.spotify.Client.desktop', 'discord.desktop']
 
 [org/gnome/shell/extensions/blur-my-shell/appfolder]
 blur=true
@@ -126,8 +149,6 @@ duration-timer=2
 indicator-position-max=1
 restore-state=true
 show-indicator='only-active'
-toggle-state=true
-user-enabled=true
 
 [org/gnome/shell/extensions/color-picker]
 enable-shortcut=false
@@ -224,10 +245,9 @@ tweak-kitty-terminal=true
 [org/gnome/shell/extensions/top-bar-organizer]
 center-box-order=['dateMenu']
 left-box-order=['activities', 'vitalsMenu', 'appMenu']
-right-box-order=['TrayIconsReloaded', 'ArchUpdateIndicator', 'color-picker@tuberry', 'docker-menu', 'wireless-hid', 'screenRecording', 'screenSharing', 'dwellClick', 'a11y', 'keyboard', 'quickSettings']
+right-box-order=['TrayIconsReloaded', 'EmojisMenu', 'docker-menu', 'color-picker@tuberry', 'wireless-hid', 'screenRecording', 'screenSharing', 'dwellClick', 'a11y', 'keyboard', 'quickSettings']
 
 [org/gnome/shell/extensions/trayIconsReloaded]
-applications='[]'
 icon-brightness=0
 icon-contrast=0
 icon-margin-horizontal=0
@@ -241,9 +261,6 @@ position-weight=0
 tray-margin-left=0
 tray-margin-right=0
 
-[org/gnome/shell/extensions/user-theme]
-name='Catppuccin-Mocha-Standard-Blue-Dark'
-
 [org/gnome/shell/extensions/vitals]
 alphabetize=true
 fixed-widths=true
@@ -253,6 +270,17 @@ position-in-panel=0
 show-storage=false
 show-system=false
 update-time=2
+
+[org/gnome/shell/extensions/wireless-hid]
+hide-elan=false
+hide-unknown-battery-state=true
+
+[org/gnome/system/location]
+enabled=true
+
+[org/gtk/gtk4/settings/file-chooser]
+show-hidden=false
+sort-directories-first=true
 
 [org/gtk/settings/file-chooser]
 date-format='regular'
