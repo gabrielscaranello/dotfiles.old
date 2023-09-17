@@ -124,6 +124,11 @@ load_dconf:
 	# Loading dconf
 	@dconf load / < ./config/dconf
 
+sync_clock:
+	# Sync clock 
+	@sudo timedatectl set-local-rtc 0
+	@sudo hwclock --systohc
+
 setup_discord_theme:
 	# Setup discord theme
 	@/usr/bin/Discord --start-minimized > /dev/null 2>&1 &
@@ -236,6 +241,7 @@ setup_all:
 	@$(MAKE) docker_permissions
 	@$(MAKE) hide_apps
 	@$(MAKE) copy_configs
+	@$(MAKE) sync_clock
 	@$(MAKE) clean
 	@$(MAKE) enable_services
 
