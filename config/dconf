@@ -176,6 +176,7 @@ hovered-item-border-color='rgb(137,180,250)'
 incognito-window-background-color='rgba(7,7,33,0.92)'
 is-in-incognito=false
 keep-search-entry=false
+open-links-in-browser=false
 paste-on-select=false
 play-audio-on-copy=false
 send-notification-on-copy=false
