@@ -94,10 +94,10 @@ setup_discord_theme:
 	@/usr/bin/discord --start-minimized > /dev/null 2>&1 &
 	@mkdir -p ~/.config/discord
 	@curl -L https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css > ~/.config/discord/catppuccin-mocha-blue.theme.css
-	@python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip
-	@python3 -m beautifuldiscord --css ~/.config/discord/catppuccin-mocha-blue.theme.css
+	@mkdir -p /tmp/beautiful-discord
+	@bash -c "cd /tmp/beautiful-discord && virtualenv -p python3 venv && source venv/bin/activate && python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip && python3 -m beautifuldiscord --css ~/.config/discord/catppuccin-mocha-blue.theme.css"
 	# Killing discord process
-	@kill $$(pidof -s discord)
+	@kill $$(pidof -s Discord)
 
 look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors load_dconf
 

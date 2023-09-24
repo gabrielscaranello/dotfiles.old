@@ -69,6 +69,8 @@ pacman-contrib
 papirus-folders-catppuccin-git
 papirus-icon-themes
 piper
+python-pip
+python-pipx
 python-pynvim
 python-virtualenv
 python3

@@ -4,6 +4,7 @@
 APPS=(
     avahi-discover
     bssh
+    btop
     bvnc
     nm-connection-editor
     nvim
