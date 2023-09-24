@@ -89,7 +89,7 @@ app-picker-layout=[{'org.gnome.Calculator.desktop': <{'position': <0>}>, 'org.gn
 command-history=['r']
 disable-user-extensions=false
 disabled-extensions=['appindicatorsupport@rgcjonas.gmail.com']
-enabled-extensions=['blur-my-shell@aunetx', 'caffeine@patapon.info', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-selector@maestroschan.fr', 'order-extensions@wa4557.github.com', 'pano@elhan.io', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'AlphabeticalAppGrid@stuarthayhurst', 'top-bar-organizer@julian.gse.jsts.xyz', 'trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com', 'arch-update@RaphaelRochet']
+enabled-extensions=['blur-my-shell@aunetx', 'caffeine@patapon.info', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-copy@felipeftn', 'order-extensions@wa4557.github.com', 'pano@elhan.io', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'AlphabeticalAppGrid@stuarthayhurst', 'top-bar-organizer@julian.gse.jsts.xyz', 'trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com', 'arch-update@RaphaelRochet']
 favorite-apps=['kitty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'firefox.desktop', 'chromium.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'discord.desktop']
 welcome-dialog-last-shown-version='44.2'
 
@@ -155,6 +155,7 @@ hovered-item-border-color='rgb(137,180,250)'
 incognito-window-background-color='rgba(7,7,33,0.92)'
 is-in-incognito=false
 keep-search-entry=false
+open-links-in-browser=false
 paste-on-select=false
 play-audio-on-copy=false
 send-notification-on-copy=false

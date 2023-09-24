@@ -28,28 +28,26 @@ install_flatpak:
 
 install_gnome_extensions:
 	# Installing gnome extensions
-	# Intalling helper
-	@yay -S --noconfirm gnome-shell-extension-installer
 	# Installing extensions
 	@for i in $$(sed "s/[^0-9]//g" ./gnome_extensions); do gnome-shell-extension-installer --yes "$$i"; done
-	# Removing helper
-	@yay -Rsn --noconfirm gnome-shell-extension-installer
 
 install_nvm:
 	# Installing NVM
-	@bash nvm.sh
+	@bash ./scripts/nvm.sh
+
+install_telegram:
+	# Installing Telegram
+	@bash ./scripts/telegram.sh
 
 setup_gtk_theme:
 	# Setup gtk theme
-	# Installing dependencies
-	@yay -S --noconfirm python-virtualenv
 	# Removing old GTK Theme
 	@rm -rf ~/.themes/Catppuccin-Mocha-Standard-Blue-*
 	@rm -rf /tmp/gtk-theme
 	# Cloning GTK Theme
 	@git clone --recurse-submodules https://github.com/catppuccin/gtk.git /tmp/gtk-theme
 	# Installing build and setup GTK Theme
-	@cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless
+	@bash -c "cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless"
 	# Defining themes
 	@gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
@@ -59,8 +57,6 @@ setup_gtk_theme:
 	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
 	@sudo flatpak override --filesystem=$$HOME/.config/gtk-4.0
 	@sudo flatpak override --env=GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
-	# Remove dependencies
-	@yay -Rsn --noconfirm python-virtualenv
 
 setup_icon_theme:
 	# Defining icons
@@ -95,8 +91,13 @@ load_dconf:
 
 setup_discord_theme:
 	# Setup discord theme
-	@mkdir -p ~/.config/discocss
-	@curl -L https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css > ~/.config/discocss/custom.css
+	@/usr/bin/discord --start-minimized > /dev/null 2>&1 &
+	@mkdir -p ~/.config/discord
+	@curl -L https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css > ~/.config/discord/catppuccin-mocha-blue.theme.css
+	@python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip
+	@python3 -m beautifuldiscord --css ~/.config/discord/catppuccin-mocha-blue.theme.css
+	# Killing discord process
+	@kill $$(pidof -s discord)
 
 look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors load_dconf
 
@@ -120,7 +121,7 @@ setup_bat:
 copy_configs:
 	# Coping config files
 	# Removing old files
-	@rm -rf ~/.config/flameshot
+	@sudo rm -rf ~/.config/flameshot /etc/timeshift/timeshift.json
 	# Coping files
 	@cp -r ./config/flameshot ~/.config/flameshot
 	@sudo cp ./config/timeshift.json /etc/timeshift/timeshift.json
@@ -171,7 +172,7 @@ docker_permissions:
 
 hide_apps:
 	# Hidding apps
-	@bash hide_apps.sh
+	@bash ./scripts/hide_apps.sh
 
 mimetypes:
 	# Mimetypes
@@ -194,6 +195,7 @@ setup_all:
 	@$(MAKE) install_gnome_extensions
 	@$(MAKE) setup_term
 	@$(MAKE) install_flatpak
+	@$(MAKE) install_telegram
 	@$(MAKE) setup_nvim 
 	@$(MAKE) look
 	@$(MAKE) update_zram

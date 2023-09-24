@@ -1,9 +1,9 @@
 baobab
 bat
 bottom
+btop
 chromium
 dialog
-discocss-git
 discord
 docker
 docker-buildx
@@ -19,7 +19,7 @@ flatpak
 fwupd
 gdm
 gdu
-gitflow-avh
+gitflow-cjs
 gnome-bluetooth
 gnome-calculator
 gnome-calendar
@@ -31,11 +31,12 @@ gnome-icon-theme-extras
 gnome-info-collect
 gnome-keyring
 gnome-menus
+gnome-shell-extension-installer
 gnome-software-packagekit-plugin-git
 gnome-system-monitor
+gnome-text-editor
 gnome-themes-extra
 gnome-tweaks
-gnome-text-editor
 grim
 gst-libav
 gst-plugins-good
@@ -69,6 +70,7 @@ papirus-folders-catppuccin-git
 papirus-icon-themes
 piper
 python-pynvim
+python-virtualenv
 python3
 ripgrep
 sassc
