@@ -79,11 +79,6 @@ action-middle-click-titlebar='minimize'
 theme='Catppuccin-Mocha-Standard-Blue-Dark'
 titlebar-font='Roboto Bold 11'
 
-[org/gnome/login-screen]
-enable-fingerprint-authentication=true
-enable-password-authentication=true
-enable-smartcard-authentication=false
-
 [org/gnome/mutter]
 center-new-windows=true
 
