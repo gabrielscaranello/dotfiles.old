@@ -2,55 +2,41 @@
 
 add_repos:
 	# Adding repos
-	# RPM Fusion
-	@sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$$(rpm -E %fedora).noarch.rpm
-	# VSCode
-	@sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-	@sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-	# Bottom
-	@sudo dnf copr enable atim/bottom -y
-	# Lazygit
-	@sudo dnf copr enable atim/lazygit -y
-	# Lazydocker
-	@sudo dnf copr enable atim/lazydocker -y
+	# Code
+	@sudo rm -rf /etc/apt/sources.list.d/vscode.list /etc/apt/keyrings/packages.microsoft.gpg
+	@wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+	@sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+	@sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+	@rm -f packages.microsoft.gpg
 	# Docker
-	@sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+	@sudo rm -rf /etc/apt/keyrings/docker.gpg /etc/apt/sources.list.d/docker.list
+	@sudo install -m 0755 -d /etc/apt/keyrings
+	@curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+	@sudo chmod a+r /etc/apt/keyrings/docker.gpg
+	@echo "deb [arch="$$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+	#GDU
+	@set +e; sudo add-apt-repository -r -y ppa:daniel-milde/gdu; set -e;
+	@sudo add-apt-repository -y ppa:daniel-milde/gdu
 
-remove_unused_repos:
-	# Removing unused repos
-	@sudo rm -rf $$(cat ./repos_to_remove | tr '\n' ' ')
-
-update_system: remove_unused_repos
-	# Remove old packages
-	@sudo dnf remove -y $$(cat ./packages_to_remove | tr '\n' ' ')
+update_system:
+	# Add nala
+	@sudo apt install -y nala
+	# Install dependencies
+	@sudo nala install -y wget gpg apt-transport-https ca-certificates curl gnupg
+	@$(MAKE) add_repos
+	# Remove unused packages
+	@sudo nala purge -y $$(cat ./packages_to_remove | tr '\n' ' ')
 	# Updating system
-	@sudo dnf update -y
+	@sudo nala update
+	@sudo nala upgrade -y
 
-install_system: update_system add_repos
+install_system: update_system
 	# Installing system packages
-	@sudo dnf install -y $$(cat ./system_packages | tr '\n' ' ')
-
-install_multimedia_codecs:
-	# Installing multimedia codecs
-	@sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
-	@sudo dnf install -y lame\* --exclude=lame-devel
+	@sudo nala install -y $$(cat ./system_packages | tr '\n' ' ')
 
 install_flatpak:
-	# Installing flatpak
-	# Add flathub repo
-	@set +e; sudo flatpak remote-delete flathub; set -e;
-	@sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	# Installing flatpak apps
 	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
-
-install_gnome_extensions:
-	# Installing gnome extensions
-	# Intalling helper
-	@wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
-	@chmod +x gnome-shell-extension-installer
-	@sudo mv gnome-shell-extension-installer /usr/bin/
-	# Installing extensions
-	@for i in $$(sed "s/[^0-9]//g" ./gnome_extensions); do gnome-shell-extension-installer --yes "$$i"; done
 
 install_nvm:
 	# Installing NVM
@@ -59,6 +45,22 @@ install_nvm:
 install_telegram:
 	# Installing Telegram
 	@bash ./scripts/telegram.sh
+
+install_discord:
+	# Installing Discord
+	@bash ./scripts/discord.sh
+
+install_bottom:
+	# Installing Bottom
+	@bash ./scripts/bottom.sh
+
+install_lazygit:
+	# Installing Lazygit
+	@bash ./scripts/lazygit.sh
+
+install_lazydocker:
+	# Installing Lazydocker
+	@bash ./scripts/lazydocker.sh
 
 install_jetbrains_fonts:
 	# Installing Jetbrains Fonts
@@ -79,9 +81,9 @@ setup_gtk_theme:
 	# Installing build and setup GTK Theme
 	@bash -c "cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless"
 	# Defining themes
-	@gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	@gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	@dconf write /org/gnome/shell/extensions/user-theme/name "'Catppuccin-Mocha-Standard-Blue-Dark'"
+	@gsettings set org.cinnamon.theme name "Catppuccin-Mocha-Standard-Blue-Dark"
+	@gsettings set org.cinnamon.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
+	@gsettings set org.cinnamon.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	# Setup theme for flatpak apps
 	@sudo flatpak override --filesystem=$$HOME/.themes
 	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
@@ -96,16 +98,14 @@ setup_icon_theme:
 	# Installing catppuccin papirus folders
 	@bash -c "cd /tmp/catppuccin-papirus-folders && sudo cp -r src/* /usr/share/icons/Papirus && sudo make install"
 	@papirus-folders -C cat-mocha-blue
-	@gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+	@gsettings set org.cinnamon.desktop.interface icon-theme "Papirus-Dark"
 	@sudo flatpak override --filesystem=$$HOME/.icons
 
 setup_wallpaper:
 	# Coping wallpaper image
 	@cp ./assets/wallpaper.jpg ~/.wallpaper.jpg
 	# Defining wallpaper
-	@gsettings set org.gnome.desktop.background picture-uri "file:///$${HOME}/.wallpaper.jpg"
-	@gsettings set org.gnome.desktop.background picture-uri-dark "file:///$${HOME}/.wallpaper.jpg"
-	@gsettings set org.gnome.desktop.screensaver picture-uri "file:///$${HOME}/.wallpaper.jpg"
+	@gsettings set org.cinnamon.desktop.background picture-uri "file:///$${HOME}/.wallpaper.jpg"
 
 setup_cursors:
 	# Setup cursors
@@ -116,18 +116,13 @@ setup_cursors:
 	# Installing cursors
 	@unzip -oq /tmp/cursors/cursors/Catppuccin-Mocha-Light-Cursors.zip -d ~/.icons
 	# Defining cursors
-	@gsettings set org.gnome.desktop.interface cursor-theme "Catppuccin-Mocha-Light-Cursors"
+	@gsettings set org.cinnamon.desktop.interface cursor-theme "Catppuccin-Mocha-Light-Cursors"
 	# Defining cursor size
-	@gsettings set org.gnome.desktop.interface cursor-size 24
+	@gsettings set org.cinnamon.desktop.interface cursor-size 24
 
 load_dconf:
 	# Loading dconf
-	@dconf load / < ./config/dconf
-
-sync_clock:
-	# Sync clock 
-	@sudo timedatectl set-local-rtc 0
-	@sudo hwclock --systohc
+	# @dconf load / < ./config/dconf
 
 setup_discord_theme:
 	# Setup discord theme
@@ -147,9 +142,6 @@ setup_kitty:
 	@rm -rf ~/.config/kitty
 	# Coping files
 	@cp -r ./config/kitty ~/.config/kitty
-	# Set kitty as default terminal
-	@sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $$(which kitty) 50
-	@sudo update-alternatives --set x-terminal-emulator $$(which kitty)
 
 setup_bat:
 	# Setup bat theme
@@ -199,43 +191,48 @@ setup_nvim:
 
 update_zram:
 	# Updating zram
-	@echo 'zram-size=max(ram/2, 4096)' | sudo tee -a /etc/systemd/zram-generator.conf
+	@sudo swapoff --all
+	@sudo zramswap stop
+	@sudo sed -i '/^PERCENT/d' /etc/default/zramswap
+	@sudo sed -i '/^PRIORITY/d' /etc/default/zramswap
+	@echo 'PERCENT=50' | sudo tee -a /etc/default/zramswap
+	@echo 'PRIORITY=100' | sudo tee -a /etc/default/zramswap
 	# Adjust swappiness
 	@echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.d/00-custom.conf
 	@echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.d/00-custom.conf
+	@sudo zramswap start
+	# Remove old swapfile
+	@sudo rm -rf /swapfile
+	@sudo sed -i '/\/swapfile/d' /etc/fstab
 
 docker_permissions:
 	# Docker permissions
 	@sudo usermod -aG docker $$(whoami)
 
-hide_apps:
-	# Hidding apps
-	@bash ./scripts/hide_apps.sh
-
 enable_services:
 	# Enabling services
 	# Docker
 	@sudo systemctl enable --now docker
-	# Numlock
-	@sudo sed -i 's/exit 0/if [ -x \/usr\/bin\/numlockx ]; then \/usr\/bin\/numlockx on; fi;\n\nexit 0/g' /etc/gdm/Init/Default
 
 clean:
 	# Removing unused packages
-	@sudo dnf autoremove -y
+	@sudo nala autopurge -y
 	# Cleaning cache
-	@sudo dnf clean all
+	@sudo nala clean
 
 setup_all: 
 	@$(MAKE) install_system
-	@$(MAKE) install_multimedia_codecs
 	@$(MAKE) install_nvm
 	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
+	@$(MAKE) install_discord
+	@$(MAKE) install_bottom
+	@$(MAKE) install_lazygit
+	@$(MAKE) install_lazydocker
 	@$(MAKE) install_jetbrains_fonts
 	@$(MAKE) install_git_flow_cjs
 	@$(MAKE) setup_term
-	@$(MAKE) setup_nvim 
-	@$(MAKE) install_gnome_extensions
+	@$(MAKE) setup_nvim
 	@$(MAKE) look
 	@$(MAKE) update_zram
 	@$(MAKE) docker_permissions

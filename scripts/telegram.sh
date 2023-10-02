@@ -1,6 +1,6 @@
 #! /bin/bash
 
-version=$(curl -s https://api.github.com/repos/telegramdesktop/tdesktop/releases/latest | grep "tag_name" | cut -d '"' -f 4 | sed 's/^v//')
+version=$(curl -s https://api.github.com/repos/telegramdesktop/tdesktop/releases/latest | grep -Po '"tag_name": "v\K[^"]*')
 file_name="tsetup.$version.tar.xz"
 output_dir="/tmp/$file_name"
 download_url="https://github.com/telegramdesktop/tdesktop/releases/download/v$version/$file_name"
