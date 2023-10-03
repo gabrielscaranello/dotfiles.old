@@ -238,9 +238,7 @@ setup_all:
 	@$(MAKE) look
 	@$(MAKE) update_zram
 	@$(MAKE) docker_permissions
-	@$(MAKE) hide_apps
 	@$(MAKE) copy_configs
-	@$(MAKE) sync_clock
 	@$(MAKE) clean
 	@$(MAKE) enable_services
 
