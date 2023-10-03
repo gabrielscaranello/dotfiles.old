@@ -14,9 +14,12 @@ add_repos:
 	@curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 	@sudo chmod a+r /etc/apt/keyrings/docker.gpg
 	@echo "deb [arch="$$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-	#GDU
+	# GDU
 	@set +e; sudo add-apt-repository -r -y ppa:daniel-milde/gdu; set -e;
 	@sudo add-apt-repository -y ppa:daniel-milde/gdu
+	# Papirus icon theme
+	@set +e; sudo add-apt-repository -r -y ppa:papirus/papirus; set -e;
+	@sudo add-apt-repository -y ppa:papirus/papirus
 
 update_system:
 	# Add nala
@@ -150,7 +153,8 @@ setup_bat:
 	@git clone --depth=1 https://github.com/catppuccin/bat.git /tmp/bat
 	# Coping files
 	@mkdir -p ~/.local/bin
-	@unlink ~/.local/bin/bat && ln -s /usr/bin/batcat ~/.local/bin/bat
+	@set +e; unlink ~/.local/bin/bat; set -e;
+	@ln -s /usr/bin/batcat ~/.local/bin/bat
 	@mkdir -p "$$(batcat --config-dir)/themes"
 	@cp -r /tmp/bat/*.tmTheme "$$(batcat --config-dir)/themes"
 	@batcat cache --build
