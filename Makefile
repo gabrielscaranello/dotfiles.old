@@ -149,9 +149,11 @@ setup_bat:
 	@rm -rf /tmp/bat
 	@git clone --depth=1 https://github.com/catppuccin/bat.git /tmp/bat
 	# Coping files
-	@mkdir -p "$$(bat --config-dir)/themes"
-	@cp -r /tmp/bat/*.tmTheme "$$(bat --config-dir)/themes"
-	@bat cache --build
+	@mkdir -p ~/.local/bin
+	@unlink ~/.local/bin/bat && ln -s /usr/bin/batcat ~/.local/bin/bat
+	@mkdir -p "$$(batcat --config-dir)/themes"
+	@cp -r /tmp/bat/*.tmTheme "$$(batcat --config-dir)/themes"
+	@batcat cache --build
 
 copy_configs:
 	# Coping config files
