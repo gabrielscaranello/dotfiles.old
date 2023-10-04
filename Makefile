@@ -129,8 +129,10 @@ load_dconf:
 
 setup_discord_theme:
 	# Setup discord theme
-	@/usr/bin/discord --start-minimized > /dev/null 2>&1 &
 	@mkdir -p ~/.config/discord
+	@/usr/bin/discord --start-minimized > /dev/null 2>&1 &
+	# Sleep 2 seconds to wait discord start
+	@sleep 2
 	@curl -L https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css > ~/.config/discord/catppuccin-mocha-blue.theme.css
 	@python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip
 	@python3 -m beautifuldiscord --css ~/.config/discord/catppuccin-mocha-blue.theme.css
