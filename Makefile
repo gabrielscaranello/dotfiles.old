@@ -222,6 +222,10 @@ enable_services:
 	# Docker
 	@sudo systemctl enable --now docker
 
+purge_xterm:
+	# Purging xterm
+	@sudo nala purge -y xterm*
+
 clean:
 	# Removing unused packages
 	@sudo nala autopurge -y
@@ -245,6 +249,7 @@ setup_all:
 	@$(MAKE) update_zram
 	@$(MAKE) docker_permissions
 	@$(MAKE) copy_configs
+	@$(MAKE) purge_xterm
 	@$(MAKE) clean
 	@$(MAKE) enable_services
 
