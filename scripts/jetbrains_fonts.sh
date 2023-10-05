@@ -1,25 +1,26 @@
 #! /bin/bash
 
-file_name="JetBrainsMono.zip"
-download_url="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$file_name"
-output_dir="/tmp/$file_name"
-tmp_dir="/tmp/JetBrainsMono"
-font_dir="$tmp_dir/JetBrainsMonoNerdFont"
-fonts="$font_dir-Regular.ttf $font_dir-Bold.ttf $font_dir-Italic.ttf"
-target_dir="$HOME/.fonts"
+# Define variables
+FILE_NAME="JetBrainsMono.zip"
+DOWNLOAD_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$FILE_NAME"
+OUTPUT_DIR="/tmp/$FILE_NAME"
+TMP_DIR="/tmp/JetBrainsMono"
+FONT_DIR="$TMP_DIR/JetBrainsMonoNerdFont"
+FONTS_TO_INSTALL="$FONT_DIR-Regular.ttf $font_dir-Bold.ttf $font_dir-Italic.ttf"
+TARGET_DIR="$HOME/.fonts"
 
 # Remove old file
-rm -rf $output_dir $tmp_dir
+rm -rf $OUTPUT_DIR $TMP_DIR
 
 # Download file
-wget -c $download_url -O $output_dir
+wget -c $DOWNLOAD_URL -O $OUTPUT_DIR
 
 # Extract file
-unzip $output_dir -d $tmp_dir
+unzip $OUTPUT_DIR -d $TMP_DIR
 
 # Move fonts
-mkdir -p $target_dir
-cp $fonts $target_dir
+mkdir -p $TARGET_DIR
+cp $FONTS_TO_INSTALL $TARGET_DIR
 
 # Update font cache
 fc-cache -f

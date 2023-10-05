@@ -1,19 +1,20 @@
 #! /bin/bash
 
-file_name="nvim.appimage"
-output_file="/tmp/$file_name"
-download_url="https://github.com/neovim/neovim/releases/download/stable/$file_name"
-destination_dir="$HOME/.local/opt"
+# Define variables
+FILE_NAME="nvim.appimage"
+OUTPUT_FILE="/tmp/$FILE_NAME"
+DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/stable/$FILE_NAME"
+DESTINATION_DIR="$HOME/.local/opt"
 
 # Remove old file
-rm -rf $output_file
+rm -rf $OUTPUT_FILE
 
 # Download file
-wget -c $download_url -O $output_file
+wget -c $DOWNLOAD_URL -O $OUTPUT_FILE
 
 # Move to folder
-chmod u+x "${output_file}"
-mkdir -p $destination_dir
-mv $output_file $destination_dir
+chmod u+x "${OUTPUT_FILE}"
+mkdir -p $DESTINATION_DIR
+mv $OUTPUT_FILE $DESTINATION_DIR
 
 echo "Neovim installed..."

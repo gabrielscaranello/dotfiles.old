@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Variables
+# Define variables
 NODE_VERSION=18
 NVM_VERSION=0.39.3
 

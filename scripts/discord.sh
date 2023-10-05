@@ -1,16 +1,17 @@
 #! /bin/bash
 
-file_name="discord.deb"
-output_file="/tmp/$file_name"
-download_url="https://discord.com/api/download?platform=linux&format=deb"
+# Define variables
+FILE_NAME="discord.deb"
+OUTPUT_FILE="/tmp/$FILE_NAME"
+DOWNLOAD_URL="https://discord.com/api/download?platform=linux&format=deb"
 
 # Remove old file
-rm -rf $output_file
+rm -rf $OUTPUT_FILE
 
 # Download file
-wget -c $download_url -O $output_file
+wget -c $DOWNLOAD_URL -O $OUTPUT_FILE
 
 # Install
-sudo dpkg -i $output_file
+sudo dpkg -i $OUTPUT_FILE
 
 echo "Discord installed..."
