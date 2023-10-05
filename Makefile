@@ -83,10 +83,13 @@ setup_gtk_theme:
 	# Removing old GTK Theme
 	@rm -rf ~/.themes/Catppuccin-Mocha-Standard-Blue-*
 	@rm -rf /tmp/gtk-theme
+	@rm -rf ~/.config/gtk-4.0
 	# Cloning GTK Theme
 	@git clone --recurse-submodules https://github.com/catppuccin/gtk.git /tmp/gtk-theme
 	# Installing build and setup GTK Theme
 	@bash -c "cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless"
+	# Link to system
+	@sudo find /usr/share/themes -type l -name "Catppuccin*" -exec unlink {} \; && sudo ln -s ~/.themes/* /usr/share/themes
 	# Defining themes
 	@gsettings set org.cinnamon.theme name "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.cinnamon.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
@@ -118,10 +121,13 @@ setup_cursors:
 	# Setup cursors
 	# Cloning cursors
 	@rm -rf /tmp/cursors
+	@sudo unlink /usr/share/icons/Catppuccin-Mocha-Light-Cursors
 	@mkdir -p ~/.icons
 	@git clone --depth=1 https://github.com/catppuccin/cursors.git /tmp/cursors
 	# Installing cursors
 	@unzip -oq /tmp/cursors/cursors/Catppuccin-Mocha-Light-Cursors.zip -d ~/.icons
+	# Link to system
+	@sudo ln -s ~/.icons/Catppuccin-Mocha-Light-Cursors /usr/share/icons/Catppuccin-Mocha-Light-Cursors
 	# Defining cursors
 	@gsettings set org.cinnamon.desktop.interface cursor-theme "Catppuccin-Mocha-Light-Cursors"
 	# Defining cursor size
