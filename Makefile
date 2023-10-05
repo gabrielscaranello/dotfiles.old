@@ -192,6 +192,13 @@ setup_oh_my_zsh:
 
 setup_term: setup_kitty setup_oh_my_zsh setup_bat
 
+setup_psensor:
+	# Setup psensor
+	# Removing old files
+	@rm -rf ~/.psensor
+	# Coping files
+	@cp -r ./config/psensor ~/.psensor
+
 setup_nvim:
 	# Setup nvim
 	# Removing old files
@@ -249,6 +256,7 @@ setup_all:
 	@$(MAKE) install_jetbrains_fonts
 	@$(MAKE) install_git_flow_cjs
 	@$(MAKE) setup_term
+	@$(MAKE) setup_psensor
 	@$(MAKE) setup_nvim
 	@$(MAKE) look
 	@$(MAKE) update_zram
