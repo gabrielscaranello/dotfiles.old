@@ -135,7 +135,7 @@ setup_cursors:
 
 load_dconf:
 	# Loading dconf
-	# @dconf load / < ./config/dconf
+	@dconf load / < ./config/dconf
 
 setup_discord_theme:
 	# Setup discord theme
