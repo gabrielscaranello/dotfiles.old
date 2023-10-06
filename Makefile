@@ -231,6 +231,8 @@ enable_services:
 	# Enabling services
 	# Docker
 	@sudo systemctl enable --now docker
+	# Plank
+	@plank > /dev/null 2>&1 &
 
 purge_xterm:
 	# Purging xterm
