@@ -6,7 +6,7 @@ DOWNLOAD_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/$
 OUTPUT_DIR="/tmp/$FILE_NAME"
 TMP_DIR="/tmp/JetBrainsMono"
 FONT_DIR="$TMP_DIR/JetBrainsMonoNerdFont"
-FONTS_TO_INSTALL="$FONT_DIR-Regular.ttf $font_dir-Bold.ttf $font_dir-Italic.ttf"
+FONTS_TO_INSTALL="$FONT_DIR-Regular.ttf $FONT_DIR-Bold.ttf $FONT_DIR-Italic.ttf"
 TARGET_DIR="$HOME/.fonts"
 
 # Remove old file
