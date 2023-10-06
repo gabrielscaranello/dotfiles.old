@@ -180,6 +180,7 @@ copy_configs:
 	@cp -r ./config/flameshot ~/.config/flameshot
 	@cp -r ./config/psensor ~/.psensor
 	@sudo cp ./config/timeshift.json /etc/timeshift/timeshift.json
+	@sed 's,:home:,'"$HOME"',g' config/slick-greeter.conf | sudo tee /etc/lightdm/slick-greeter.conf > /dev/null
 
 setup_oh_my_zsh:
 	# Setup oh-my-zsh
