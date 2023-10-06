@@ -57,7 +57,6 @@ zoom-percent=150
 alttab-switcher-delay=100
 alttab-switcher-style='coverflow'
 alttab-switcher-warp-mouse-pointer=false
-command-history=[]
 desklet-snap-interval=25
 enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:right:5:systray@cinnamon.org:3', 'panel1:right:0:xapp-status@cinnamon.org:4', 'panel1:right:0:notifications@cinnamon.org:5', 'panel1:right:6:printers@cinnamon.org:6', 'panel1:right:7:removable-drives@cinnamon.org:7', 'panel1:right:8:keyboard@cinnamon.org:8', 'panel1:right:9:favorites@cinnamon.org:9', 'panel1:right:10:network@cinnamon.org:10', 'panel1:right:11:sound@cinnamon.org:11', 'panel1:right:12:power@cinnamon.org:12', 'panel1:center:0:calendar@cinnamon.org:13', 'panel1:right:4:inhibit@cinnamon.org:15', 'panel1:right:3:qredshift@quintao:19', 'panel1:right:1:color-picker@fmete:23', 'panel1:right:13:user@cinnamon.org:30']
 enabled-desklets=@as []
