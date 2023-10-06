@@ -205,6 +205,16 @@ setup_psensor:
 	# Coping files
 	@cp -r ./config/psensor ~/.psensor
 
+setup_cinnamon:
+	# Setup cinnamon
+	# Removing old files
+	@rm -rf ~/.config/cinnamon
+	# Installing cinnamon spices...
+	@bash ./scripts/spices.sh
+	# Cinnamon spices installed
+	# Coping files
+	@cp -r ./config/cinnamon ~/.config/cinnamon
+
 setup_nvim:
 	# Setup nvim
 	# Removing old files
@@ -263,6 +273,7 @@ setup_all:
 	@$(MAKE) install_git_flow_cjs
 	@$(MAKE) setup_term
 	@$(MAKE) setup_psensor
+	@$(MAKE) setup_cinnamon
 	@$(MAKE) setup_nvim
 	@$(MAKE) look
 	@$(MAKE) update_zram
