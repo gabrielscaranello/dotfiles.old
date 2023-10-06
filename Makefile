@@ -121,7 +121,7 @@ setup_cursors:
 	# Setup cursors
 	# Cloning cursors
 	@rm -rf /tmp/cursors
-	@sudo unlink /usr/share/icons/Catppuccin-Mocha-Light-Cursors
+	@sudo find /usr/share/icons -type l -name "Catppuccin*" -exec unlink {} \;
 	@mkdir -p ~/.icons
 	@git clone --depth=1 https://github.com/catppuccin/cursors.git /tmp/cursors
 	# Installing cursors
