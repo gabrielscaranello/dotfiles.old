@@ -174,9 +174,11 @@ setup_bat:
 copy_configs:
 	# Coping config files
 	# Removing old files
-	@sudo rm -rf ~/.config/flameshot /etc/timeshift/timeshift.json
+	@sudo rm -rf ~/.config/autostart ~/.config/flameshot ~/.psensor /etc/timeshift/timeshift.json
 	# Coping files
+	@cp -r ./config/autostart ~/.config/autostart
 	@cp -r ./config/flameshot ~/.config/flameshot
+	@cp -r ./config/psensor ~/.psensor
 	@sudo cp ./config/timeshift.json /etc/timeshift/timeshift.json
 
 setup_oh_my_zsh:
@@ -197,13 +199,6 @@ setup_oh_my_zsh:
 	@cp ./config/oh-my-zsh/zshrc ~/.zshrc
 
 setup_term: setup_kitty setup_oh_my_zsh setup_bat
-
-setup_psensor:
-	# Setup psensor
-	# Removing old files
-	@rm -rf ~/.psensor
-	# Coping files
-	@cp -r ./config/psensor ~/.psensor
 
 setup_cinnamon:
 	# Setup cinnamon
@@ -272,7 +267,6 @@ setup_all:
 	@$(MAKE) install_jetbrains_fonts
 	@$(MAKE) install_git_flow_cjs
 	@$(MAKE) setup_term
-	@$(MAKE) setup_psensor
 	@$(MAKE) setup_cinnamon
 	@$(MAKE) setup_nvim
 	@$(MAKE) look
