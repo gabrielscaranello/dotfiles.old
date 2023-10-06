@@ -81,6 +81,7 @@ install_git_flow_cjs:
 setup_gtk_theme:
 	# Setup gtk theme
 	# Removing old GTK Theme
+	@sudo rm -rf /usr/share/themes/Catppuccin-Mocha-Standard-Blue-*
 	@rm -rf ~/.themes/Catppuccin-Mocha-Standard-Blue-*
 	@rm -rf /tmp/gtk-theme
 	@rm -rf ~/.config/gtk-4.0
@@ -88,8 +89,8 @@ setup_gtk_theme:
 	@git clone --recurse-submodules https://github.com/catppuccin/gtk.git /tmp/gtk-theme
 	# Installing build and setup GTK Theme
 	@bash -c "cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless"
-	# Link to system
-	@sudo find /usr/share/themes -type l -name "Catppuccin*" -exec unlink {} \; && sudo ln -s ~/.themes/* /usr/share/themes
+	# Copy to system
+	@sudo cp -r ~/.themes/Catppuccin-Mocha-Standard-Blue-* /usr/share/themes
 	# Defining themes
 	@gsettings set org.cinnamon.theme name "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.cinnamon.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
@@ -113,21 +114,23 @@ setup_icon_theme:
 
 setup_wallpaper:
 	# Coping wallpaper image
-	@cp ./assets/wallpaper.jpg ~/.wallpaper.jpg
+	@sudo mkdir -p /usr/share/backgrounds/user
+	@sudo cp ./assets/wallpaper.jpg /usr/share/backgrounds/user/wallpaper.jpg
 	# Defining wallpaper
-	@gsettings set org.cinnamon.desktop.background picture-uri "file:///$${HOME}/.wallpaper.jpg"
+	@gsettings set org.cinnamon.desktop.background picture-uri "file:////usr/share/backgrounds/user/wallpaper.jpg"
 
 setup_cursors:
 	# Setup cursors
 	# Cloning cursors
 	@rm -rf /tmp/cursors
-	@sudo find /usr/share/icons -type l -name "Catppuccin*" -exec unlink {} \;
+	@sudo rm -rf /usr/share/icons/Catppuccin*
+	@rm -rf ~/.icons/Catppuccin-Mocha-Light-Cursors
 	@mkdir -p ~/.icons
 	@git clone --depth=1 https://github.com/catppuccin/cursors.git /tmp/cursors
 	# Installing cursors
 	@unzip -oq /tmp/cursors/cursors/Catppuccin-Mocha-Light-Cursors.zip -d ~/.icons
-	# Link to system
-	@sudo ln -s ~/.icons/Catppuccin-Mocha-Light-Cursors /usr/share/icons/Catppuccin-Mocha-Light-Cursors
+	# Copy to system
+	@sudo cp -r ~/.icons/Catppuccin-Mocha-Light-Cursors /usr/share/icons/Catppuccin-Mocha-Light-Cursors
 	# Defining cursors
 	@gsettings set org.cinnamon.desktop.interface cursor-theme "Catppuccin-Mocha-Light-Cursors"
 	# Defining cursor size

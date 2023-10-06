@@ -16,10 +16,8 @@ fi
 # Copy timeshift settings
 sed "$REPLACE_HOME" config/timeshift.json | sed 's,:documents_dir:,'"$DOCUMENTS_DIR"',g' | sudo tee /etc/timeshift/timeshift.json > /dev/null
 
-# Copy slick gretter settings
-sed "$REPLACE_HOME" config/slick-greeter.conf | sudo tee /etc/lightdm/slick-greeter.conf > /dev/null
-
 # Copy other settings
+sudo cp config/slick-greeter.conf /etc/lightdm/slick-greeter.conf
 cp -r ./config/autostart ~/.config/autostart
 cp -r ./config/flameshot ~/.config/flameshot
 cp -r ./config/plank ~/.config/plank
