@@ -173,14 +173,7 @@ setup_bat:
 
 copy_configs:
 	# Coping config files
-	# Removing old files
-	@sudo rm -rf ~/.config/autostart ~/.config/flameshot ~/.psensor /etc/timeshift/timeshift.json
-	# Coping files
-	@cp -r ./config/autostart ~/.config/autostart
-	@cp -r ./config/flameshot ~/.config/flameshot
-	@cp -r ./config/psensor ~/.psensor
-	@sudo cp ./config/timeshift.json /etc/timeshift/timeshift.json
-	@sed 's,:home:,'"$HOME"',g' config/slick-greeter.conf | sudo tee /etc/lightdm/slick-greeter.conf > /dev/null
+	@bash ./scripts/configs.sh
 
 setup_oh_my_zsh:
 	# Setup oh-my-zsh
@@ -203,13 +196,7 @@ setup_term: setup_kitty setup_oh_my_zsh setup_bat
 
 setup_cinnamon:
 	# Setup cinnamon
-	# Removing old files
-	@rm -rf ~/.config/cinnamon
-	# Installing cinnamon spices...
-	@bash ./scripts/spices.sh
-	# Cinnamon spices installed
-	# Coping files
-	@cp -r ./config/cinnamon ~/.config/cinnamon
+	@bash ./scripts/cinnamon.sh
 
 setup_nvim:
 	# Setup nvim

@@ -5,8 +5,10 @@ APPLETS=("color-picker@fmete" "qredshift@quintao")
 EXTENSIONS=("transparent-panels@germanfr")
 DOWNLOAD_URL="https://cinnamon-spices.linuxmint.com/files"
 CINNAMON_DIR="$HOME/.local/share/cinnamon"
+CINNAMON_CONFIG_DIR="$HOME/.config/cinnamon"
 APPLETS_DIR="$CINNAMON_DIR/applets"
 EXTENSIONS_DIR="$CINNAMON_DIR/extensions"
+USER_NAME="$(getent passwd $USER | cut -d ':' -f 5 | cut -d ',' -f 1)"
 
 # Install function
 install() {
@@ -21,9 +23,13 @@ install() {
 }
 
 # clean and recreate destination
-rm -rf $APPLETS_DIR $EXTENSIONS_DIR
-mkdir -p $APPLETS_DIR $EXTENSIONS_DIR
+rm -rf $APPLETS_DIR $EXTENSIONS_DIR $CINNAMON_CONFIG_DIR
+mkdir -p $APPLETS_DIR $EXTENSIONS_DIR $CINNAMON_CONFIG_DIR
 
 # Install
 for applet in "${APPLETS[@]}"; do install "${applet}" "applets" "$APPLETS_DIR"; done
 for extension in "${EXTENSIONS[@]}"; do install "${extension}" "extensions" "$EXTENSIONS_DIR"; done
+
+# Copy config
+cp -r ./config/cinnamon/* $CINNAMON_CONFIG_DIR
+sed -i 's,:user_name:,'"$USER_NAME"',g' $CINNAMON_CONFIG_DIR/spices/menu@cinnamon.org/0.json

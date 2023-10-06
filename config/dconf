@@ -205,11 +205,6 @@ color-scheme='prefer-dark'
 [org/x/editor/plugins]
 active-plugins=['docinfo', 'modelines', 'bracketcompletion', 'joinlines', 'filebrowser', 'sort', 'spell', 'time', 'open-uri-context-menu', 'textsize']
 
-[org/x/editor/plugins/filebrowser/on-load]
-root='file:///'
-tree-view=true
-virtual-root='file:///home/gabriel/.config/plank/dock1/launchers'
-
 [org/x/editor/preferences/ui]
 statusbar-visible=true
 

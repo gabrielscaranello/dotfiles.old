@@ -135,7 +135,7 @@
         "description": "Text",
         "tooltip": "Enter custom text to show in the panel.",
         "dependency": "menu-custom",
-        "value": " Gabriel Scaranello"
+        "value": " :user_name:"
     },
     "show-category-icons": {
         "type": "switch",
