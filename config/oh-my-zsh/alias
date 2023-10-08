@@ -1,7 +1,7 @@
-alias ace="node ace"
 alias ld="lazydocker"
 alias lg="lazygit"
 alias qd="quasar dev"
 alias vsc="code ."
 alias nvim="$HOME/.local/opt/nvim.appimage"
 alias vim="nvim"
+alias update="sudo nala upgrade && flatpak update"
