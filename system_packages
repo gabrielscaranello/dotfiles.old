@@ -25,10 +25,12 @@ psensor
 python3
 python3-neovim
 python3-pip
+python3-polib
 python3-virtualenv
 ripgrep
 sassc
 sqlite
+steam-installer
 ttf-mscorefonts-installer
 vlc
 xclip

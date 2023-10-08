@@ -20,6 +20,9 @@ add_repos:
 	# Papirus icon theme
 	@set +e; sudo add-apt-repository -r -y ppa:papirus/papirus; set -e;
 	@sudo add-apt-repository -y ppa:papirus/papirus
+	# Graphics drivers
+	@set +e; sudo add-apt-repository -r -y ppa:kisak/kisak-mesa; set -e;
+	@sudo add-apt-repository -y ppa:kisak/kisak-mesa
 
 update_system:
 	# Add nala
