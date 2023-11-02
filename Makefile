@@ -22,6 +22,16 @@ install_amd:
 	# Install packages from AMD
 	@yay -S --noconfirm $$(cat ./amd_packages | tr '\n', ' ')
 
+install_nvidia:
+	# Install packages from AMD
+	# disable gdm
+	@sudo systemctl disable gdm
+	# Install packages
+	@yay -S --noconfirm $$(cat ./nvidia_packages | tr '\n', ' ')
+	# enable services
+	@sudo systemctl enable gdm
+	@sudo systemctl enable switcheroo-control.service
+
 install_flatpak:
 	# Installing flatpak apps
 	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
