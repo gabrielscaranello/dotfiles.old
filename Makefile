@@ -75,7 +75,7 @@ setup_wallpaper:
 setup_cursors:
 	# Setup cursors
 	# Cloning cursors
-	@rm -rf /tmp/cursors
+	@rm -rf /tmp/cursors ~/.icons/Catppuccin*
 	@mkdir -p ~/.icons
 	@git clone --depth=1 https://github.com/catppuccin/cursors.git /tmp/cursors
 	# Installing cursors
@@ -91,11 +91,13 @@ load_dconf:
 
 setup_discord_theme:
 	# Setup discord theme
-	@/usr/bin/discord --start-minimized > /dev/null 2>&1 &
 	@mkdir -p ~/.config/discord
+	@/usr/bin/discord --start-minimized > /dev/null 2>&1 &
+	# Sleep 2 seconds to wait discord start
+	@sleep 2
 	@curl -L https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css > ~/.config/discord/catppuccin-mocha-blue.theme.css
-	@mkdir -p /tmp/beautiful-discord
-	@bash -c "cd /tmp/beautiful-discord && virtualenv -p python3 venv && source venv/bin/activate && python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip && python3 -m beautifuldiscord --css ~/.config/discord/catppuccin-mocha-blue.theme.css"
+	@python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip
+	@python3 -m beautifuldiscord --css ~/.config/discord/catppuccin-mocha-blue.theme.css
 	# Killing discord process
 	@kill $$(pidof -s Discord)
 
@@ -120,11 +122,7 @@ setup_bat:
 
 copy_configs:
 	# Coping config files
-	# Removing old files
-	@sudo rm -rf ~/.config/flameshot /etc/timeshift/timeshift.json
-	# Coping files
-	@cp -r ./config/flameshot ~/.config/flameshot
-	@sudo cp ./config/timeshift.json /etc/timeshift/timeshift.json
+	@bash ./scripts/configs.sh
 
 setup_oh_my_zsh:
 	# Setup oh-my-zsh
@@ -161,11 +159,6 @@ update_zram:
 	@echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.d/00-custom.conf
 	@echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.d/00-custom.conf
 
-enable_osprober:
-	# Enabling osprober
-	@echo 'GRUB_DISABLE_OS_PROBER=false' | sudo tee -a /etc/default/grub
-	@sudo grub-mkconfig -o /boot/grub/grub.cfg
-
 docker_permissions:
 	# Docker permissions
 	@sudo usermod -aG docker $$(whoami)
@@ -199,7 +192,6 @@ setup_all:
 	@$(MAKE) setup_nvim 
 	@$(MAKE) look
 	@$(MAKE) update_zram
-	@$(MAKE) enable_osprober
 	@$(MAKE) docker_permissions
 	@$(MAKE) hide_apps
 	@$(MAKE) mimetypes

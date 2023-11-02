@@ -1,5 +1,6 @@
-alias ace="node ace"
 alias ld="lazydocker"
 alias lg="lazygit"
 alias qd="quasar dev"
 alias vsc="code ."
+alias vim="nvim"
+alias v="nvim"

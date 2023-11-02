@@ -16,8 +16,8 @@
   "count_boot": "5",
   "date_format": "%Y-%m-%d %H:%M:%S",
   "exclude": [
-    "/home/gabriel/.local/shared/Trash",
-    "/home/gabriel/.steam/***",
+    ":home:/.local/shared/Trash",
+    ":home:/.steam/***",
     "/tmp",
     "***node_modules***",
     "***vendor***",
@@ -28,9 +28,9 @@
     "***dist***",
     "/var/lib/docker",
     "/var/lib/containerd",
-    "+ /home/gabriel/.**",
-    "+ /home/gabriel/Code/***",
-    "+ /home/gabriel/Documentos/***",
+    "+ :home:/.**",
+    "+ :home:/Code/***",
+    "+ :home:/:documents_dir:/***",
     "/root/**"
   ],
   "exclude-apps": []
