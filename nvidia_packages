@@ -7,3 +7,4 @@ nvidia
 nvidia-settings
 nvidia-utils
 switcheroo-control
+xorg-xwayland

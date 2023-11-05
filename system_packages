@@ -23,6 +23,8 @@ gitflow-cjs
 gnome-bluetooth
 gnome-calculator
 gnome-calendar
+gnome-characters
+gnome-color-manager
 gnome-contacts
 gnome-control-center
 gnome-disk-utility
@@ -31,12 +33,17 @@ gnome-icon-theme-extras
 gnome-info-collect
 gnome-keyring
 gnome-menus
+gnome-session
+gnome-settings-daemon
+gnome-shell
 gnome-shell-extension-installer
 gnome-software-packagekit-plugin-git
 gnome-system-monitor
 gnome-text-editor
 gnome-themes-extra
 gnome-tweaks
+gnome-user-share
+grilo-plugins
 grim
 gst-libav
 gst-plugins-good
@@ -53,6 +60,7 @@ kitty
 lazydocker
 lazygit
 libgda6
+malcontent
 mtools
 nautilus
 neovim
@@ -62,6 +70,7 @@ noto-fonts
 noto-fonts-emoji
 ntfs-3g
 numlockx
+orca
 os-prober
 packagekit
 pacman-contrib
@@ -74,8 +83,10 @@ python-pynvim
 python-virtualenv
 python3
 ripgrep
+rygel
 sassc
 sushi
+tecla
 timeshift
 tracker3-miners
 ttf-baekmuk

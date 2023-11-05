@@ -27,7 +27,7 @@ install_nvidia:
 	# disable gdm
 	@sudo systemctl disable gdm
 	# Install packages
-	@yay -S --noconfirm $$(cat ./nvidia_packages | tr '\n', ' ')
+	@yay -S $$(cat ./nvidia_packages | tr '\n', ' ')
 	# enable services
 	@sudo systemctl enable gdm
 	@sudo systemctl enable switcheroo-control.service
