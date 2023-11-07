@@ -180,7 +180,7 @@ hide_apps:
 
 mimetypes:
 	# Mimetypes
-	@cp ./mimeapps.list ~/.config/mimeapps.list
+	@cp ./config/mimeapps.list ~/.config/mimeapps.list
 
 enable_services:
 	# Enabling services
