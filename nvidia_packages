@@ -1,5 +1,4 @@
 envycontrol
-gdm-prime
 lib32-mesa
 lib32-nvidia-utils
 mesa
@@ -7,4 +6,3 @@ nvidia
 nvidia-settings
 nvidia-utils
 switcheroo-control
-xorg-xwayland

@@ -1,4 +1,4 @@
-# Makefile for arch
+# Makefile for arch cinnamon
 
 yay:
 	# Installing yay
@@ -23,23 +23,16 @@ install_amd:
 	@yay -S --noconfirm $$(cat ./amd_packages | tr '\n', ' ')
 
 install_nvidia:
-	# Install packages from AMD
-	# disable gdm
-	@sudo systemctl disable gdm
+	# Install packages from NVidia
 	# Install packages
 	@yay -S $$(cat ./nvidia_packages | tr '\n', ' ')
 	# enable services
-	@sudo systemctl enable gdm
-	@sudo systemctl enable switcheroo-control.service
+	@sudo systemctl enable --now switcheroo-control.service
+	@sudo envycontrol -s nvidia
 
 install_flatpak:
 	# Installing flatpak apps
 	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
-
-install_gnome_extensions:
-	# Installing gnome extensions
-	# Installing extensions
-	@for i in $$(sed "s/[^0-9]//g" ./gnome_extensions); do gnome-shell-extension-installer --yes "$$i"; done
 
 install_nvm:
 	# Installing NVM
@@ -52,16 +45,20 @@ install_telegram:
 setup_gtk_theme:
 	# Setup gtk theme
 	# Removing old GTK Theme
+	@sudo rm -rf /usr/share/themes/Catppuccin-Mocha-Standard-Blue-*
 	@rm -rf ~/.themes/Catppuccin-Mocha-Standard-Blue-*
 	@rm -rf /tmp/gtk-theme
+	@rm -rf ~/.config/gtk-4.0
 	# Cloning GTK Theme
 	@git clone --recurse-submodules https://github.com/catppuccin/gtk.git /tmp/gtk-theme
 	# Installing build and setup GTK Theme
 	@bash -c "cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless"
+	# Copy to system
+	@sudo cp -r ~/.themes/Catppuccin-Mocha-Standard-Blue-* /usr/share/themes
 	# Defining themes
-	@gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	@gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	@dconf write /org/gnome/shell/extensions/user-theme/name "'Catppuccin-Mocha-Standard-Blue-Dark'"
+	@gsettings set org.cinnamon.theme name "Catppuccin-Mocha-Standard-Blue-Dark"
+	@gsettings set org.cinnamon.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
+	@gsettings set org.cinnamon.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	# Setup theme for flatpak apps
 	@sudo flatpak override --filesystem=$$HOME/.themes
 	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
@@ -71,29 +68,32 @@ setup_gtk_theme:
 setup_icon_theme:
 	# Defining icons
 	@papirus-folders -C cat-mocha-blue
-	@gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+	@gsettings set org.cinnamon.desktop.interface icon-theme "Papirus-Dark"
 	@sudo flatpak override --filesystem=$$HOME/.icons
 
 setup_wallpaper:
 	# Coping wallpaper image
-	@cp ./assets/wallpaper.jpg ~/.wallpaper.jpg
+	@sudo mkdir -p /usr/share/backgrounds/user
+	@sudo cp ./assets/wallpaper.jpg /usr/share/backgrounds/user/wallpaper.jpg
 	# Defining wallpaper
-	@gsettings set org.gnome.desktop.background picture-uri "file:///$${HOME}/.wallpaper.jpg"
-	@gsettings set org.gnome.desktop.background picture-uri-dark "file:///$${HOME}/.wallpaper.jpg"
-	@gsettings set org.gnome.desktop.screensaver picture-uri "file:///$${HOME}/.wallpaper.jpg"
+	@gsettings set org.cinnamon.desktop.background picture-uri "file:////usr/share/backgrounds/user/wallpaper.jpg"
 
 setup_cursors:
 	# Setup cursors
 	# Cloning cursors
-	@rm -rf /tmp/cursors ~/.icons/Catppuccin*
+	@rm -rf /tmp/cursors
+	@sudo rm -rf /usr/share/icons/Catppuccin*
+	@rm -rf ~/.icons/Catppuccin-Mocha-Light-Cursors
 	@mkdir -p ~/.icons
 	@git clone --depth=1 https://github.com/catppuccin/cursors.git /tmp/cursors
 	# Installing cursors
 	@unzip -oq /tmp/cursors/cursors/Catppuccin-Mocha-Light-Cursors.zip -d ~/.icons
+	# Copy to system
+	@sudo cp -r ~/.icons/Catppuccin-Mocha-Light-Cursors /usr/share/icons/Catppuccin-Mocha-Light-Cursors
 	# Defining cursors
-	@gsettings set org.gnome.desktop.interface cursor-theme "Catppuccin-Mocha-Light-Cursors"
+	@gsettings set org.cinnamon.desktop.interface cursor-theme "Catppuccin-Mocha-Light-Cursors"
 	# Defining cursor size
-	@gsettings set org.gnome.desktop.interface cursor-size 24
+	@gsettings set org.cinnamon.desktop.interface cursor-size 24
 
 load_dconf:
 	# Loading dconf
@@ -111,7 +111,7 @@ setup_discord_theme:
 	# Killing discord process
 	@kill $$(pidof -s Discord)
 
-look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors load_dconf
+look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors load_dconf 
 
 setup_kitty:
 	# Setup kitty
@@ -153,6 +153,10 @@ setup_oh_my_zsh:
 
 setup_term: setup_kitty setup_oh_my_zsh setup_bat
 
+setup_cinnamon:
+	# Setup cinnamon
+	@bash ./scripts/cinnamon.sh
+
 setup_nvim:
 	# Setup nvim
 	# Removing old files
@@ -180,8 +184,8 @@ mimetypes:
 
 enable_services:
 	# Enabling services
-	@sudo systemctl enable --now docker
-	@sudo systemctl enable --now gdm
+	@sudo systemctl enable docker
+	@sudo systemctl enable lightdm
 
 clean:
 	# Cleaning cache
@@ -192,17 +196,17 @@ clean:
 setup_all: 
 	@$(MAKE) install_system
 	@$(MAKE) install_nvm
-	@$(MAKE) install_gnome_extensions
 	@$(MAKE) setup_term
 	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
 	@$(MAKE) setup_nvim 
+	@$(MAKE) setup_cinnamon
 	@$(MAKE) look
+	@$(MAKE) copy_configs
 	@$(MAKE) update_swap
 	@$(MAKE) docker_permissions
 	@$(MAKE) hide_apps
 	@$(MAKE) mimetypes
-	@$(MAKE) copy_configs
 	@$(MAKE) clean
 	@$(MAKE) enable_services
 

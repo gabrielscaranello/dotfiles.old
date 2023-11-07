@@ -1,0 +1,35 @@
+{
+    "section1": {
+        "type": "section",
+        "description": "Keyboard shortcuts"
+    },
+    "keyPower": {
+        "type": "keybinding",
+        "description": "Inhibit power management",
+        "default": "",
+        "tooltip": "Set keybinding(s) to inhibit power management.",
+        "value": ""
+    },
+    "keyNotifications": {
+        "type": "keybinding",
+        "description": "Inhibit notifications",
+        "default": "",
+        "tooltip": "Set keybinding(s) to inhibit notifications.",
+        "value": ""
+    },
+    "section2": {
+        "type": "section",
+        "description": ""
+    },
+    "btnSystemPowerSettings": {
+        "type": "button",
+        "description": "Open power settings",
+        "callback": "on_btn_open_system_power_settings_clicked"
+    },
+    "btnSystemNotificationSettings": {
+        "type": "button",
+        "description": "Open notification settings",
+        "callback": "on_btn_open_system_notification_settings_clicked"
+    },
+    "__md5__": "56e8861daa343dffe968f80e9a7fa5a2"
+}
