@@ -35,7 +35,7 @@ slog-interval=300
 alignment='center'
 auto-pinning=true
 current-workspace-only=false
-dock-items=['kitty.dockitem', 'nemo.dockitem', 'code.dockitem', 'firefox.dockitem', 'rest.insomnia.Insomnia.dockitem', 'org.onlyoffice.desktopeditors.dockitem', 'org.gimp.GIMP.dockitem', 'io.dbeaver.DBeaverCommunity.dockitem', 'com.spotify.Client.dockitem', 'discord.dockitem', 'org.telegram.desktop._f3fe17d408312a022c11c6c9d7a1beb8.dockitem']
+dock-items=['kitty.dockitem', 'nemo.dockitem', 'code.dockitem', 'firefox.dockitem', 'rest.insomnia.Insomnia.dockitem', 'org.onlyoffice.desktopeditors.dockitem', 'org.gimp.GIMP.dockitem', 'io.dbeaver.DBeaverCommunity.dockitem', 'com.spotify.Client.dockitem', 'discord.dockitem']
 hide-delay=0
 hide-mode='intelligent'
 icon-size=48
@@ -73,6 +73,7 @@ panel-zone-text-sizes='[{"panelId": 1, "left": 9.5, "center": 10.0, "right": 0.0
 panels-enabled=['1:0:top']
 panels-height=['1:24']
 window-effect-speed=1
+workspace-expo-view-as-grid=true
 
 [org/cinnamon/cinnamon-session]
 quit-time-delay=60
@@ -108,6 +109,9 @@ screensaver=['<Control><Alt>l', '<Super>l']
 switch-to-workspace-left=['<Control><Alt>Left', '<Super>Page_Up']
 switch-to-workspace-right=['<Control><Alt>Right', '<Super>Page_Down']
 
+[org/cinnamon/desktop/media-handling]
+autorun-never=false
+
 [org/cinnamon/desktop/notifications]
 bottom-notifications=true
 display-notifications=true
@@ -136,6 +140,7 @@ event-sounds=false
 volume-sound-enabled=false
 
 [org/cinnamon/desktop/wm/preferences]
+action-middle-click-titlebar='minimize'
 button-layout=':close'
 min-window-opacity=30
 mouse-button-modifier='<Super>'
@@ -143,6 +148,7 @@ titlebar-font='Roboto Medium 11'
 visual-bell=false
 
 [org/cinnamon/gestures]
+enabled=true
 pinch-percent-threshold=uint32 40
 swipe-percent-threshold=uint32 60
 
@@ -153,6 +159,7 @@ memory-limit=2048
 [org/cinnamon/muffin]
 attach-modal-dialogs=true
 draggable-border-width=10
+tile-maximize=true
 unredirect-fullscreen-windows=true
 workspaces-only-on-primary=true
 
@@ -160,6 +167,8 @@ workspaces-only-on-primary=true
 numlock-state='on'
 
 [org/cinnamon/settings-daemon/plugins/power]
+lid-close-ac-action='suspend'
+lid-close-battery-action='suspend'
 sleep-display-ac=1800
 sleep-display-battery=1800
 sleep-inactive-ac-timeout=0
@@ -176,6 +185,20 @@ plug-enabled=false
 switch-enabled=false
 tile-enabled=false
 unplug-enabled=false
+
+[org/cinnamon/theme]
+name='Catppuccin-Mocha-Standard-Blue-Dark'
+
+[org/gnome/desktop/a11y/applications]
+screen-keyboard-enabled=false
+screen-reader-enabled=false
+
+[org/gnome/desktop/a11y/mouse]
+dwell-click-enabled=false
+dwell-threshold=10
+dwell-time=1.2
+secondary-click-enabled=false
+secondary-click-time=1.2
 
 [org/gnome/desktop/interface]
 clock-format='24h'
@@ -208,15 +231,3 @@ active-plugins=['docinfo', 'modelines', 'bracketcompletion', 'joinlines', 'fileb
 [org/x/editor/preferences/ui]
 statusbar-visible=true
 
-[org/x/editor/state/window]
-bottom-panel-size=140
-side-panel-active-page=1541982214
-side-panel-size=200
-size=(650, 500)
-state=43908
-
-[org/x/warpinator/preferences]
-ask-for-send-permission=true
-autostart=false
-connect-id='MINT-B896783FB096829A40EB'
-no-overwrite=true
