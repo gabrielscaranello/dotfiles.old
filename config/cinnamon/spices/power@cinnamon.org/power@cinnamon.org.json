@@ -9,7 +9,7 @@
             "Show percentage and time remaining": "percentage_time",
             "Hide label": "nothing"
         },
-        "value": "nothing"
+        "value": "percentage"
     },
     "showmulti": {
         "type": "switch",

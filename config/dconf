@@ -36,22 +36,26 @@ alttab-switcher-delay=100
 alttab-switcher-style='coverflow'
 alttab-switcher-warp-mouse-pointer=false
 desklet-snap-interval=25
-enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:right:5:systray@cinnamon.org:3', 'panel1:right:0:xapp-status@cinnamon.org:4', 'panel1:right:0:notifications@cinnamon.org:5', 'panel1:right:6:printers@cinnamon.org:6', 'panel1:right:7:removable-drives@cinnamon.org:7', 'panel1:right:8:keyboard@cinnamon.org:8', 'panel1:right:9:favorites@cinnamon.org:9', 'panel1:right:10:network@cinnamon.org:10', 'panel1:right:11:sound@cinnamon.org:11', 'panel1:right:12:power@cinnamon.org:12', 'panel1:center:0:calendar@cinnamon.org:13', 'panel1:right:4:inhibit@cinnamon.org:15', 'panel1:right:3:qredshift@quintao:19', 'panel1:right:1:color-picker@fmete:23', 'panel1:right:13:user@cinnamon.org:30']
+enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:right:10:systray@cinnamon.org:3', 'panel1:right:6:xapp-status@cinnamon.org:4', 'panel1:right:5:notifications@cinnamon.org:5', 'panel1:right:11:printers@cinnamon.org:6', 'panel1:right:12:removable-drives@cinnamon.org:7', 'panel1:right:18:keyboard@cinnamon.org:8', 'panel1:right:13:favorites@cinnamon.org:9', 'panel1:right:14:network@cinnamon.org:10', 'panel1:right:15:sound@cinnamon.org:11', 'panel1:right:17:power@cinnamon.org:12', 'panel1:center:0:calendar@cinnamon.org:13', 'panel1:right:9:inhibit@cinnamon.org:15', 'panel1:right:8:qredshift@quintao:19', 'panel1:right:7:color-picker@fmete:23', 'panel1:right:19:user@cinnamon.org:30', 'panel2:center:0:grouped-window-list@cinnamon.org:31']
 enabled-desklets=@as []
-enabled-extensions=@as []
+enabled-extensions=['transparent-panels@germanfr']
 favorite-apps=@as []
 hotcorner-layout=['expo:true:0', 'scale:false:0', 'scale:true:0', 'desktop:true:0']
-next-applet-id=31
+next-applet-id=37
 next-desklet-id=3
 no-adjacent-panel-barriers=false
 panel-edit-mode=false
-panel-zone-icon-sizes='[{"panelId": 1, "left": 0, "center": 24, "right": 16}]'
-panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 24, "right": 16}]'
-panel-zone-text-sizes='[{"panelId": 1, "left": 9.5, "center": 10.0, "right": 0.0}]'
-panels-enabled=['1:0:top']
-panels-height=['1:24']
+panel-zone-icon-sizes='[{"panelId": 1, "left": 0, "center": 24, "right": 16}, {"left": 0, "center": 32, "right": 0, "panelId": 2}]'
+panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 24, "right": 16}, {"left": 28, "center": 28, "right": 28, "panelId": 2}]'
+panel-zone-text-sizes='[{"panelId": 1, "left": 9.5, "center": 10, "right": 10.0}, {"left": 0, "center": 0, "right": 0, "panelId": 2}]'
+panels-autohide=['1:false', '2:true']
+panels-enabled=['1:0:top', '2:0:bottom']
+panels-height=['1:24', '2:40']
+panels-hide-delay=['1:0', '2:0']
+panels-show-delay=['1:0', '2:0']
 window-effect-speed=1
 workspace-expo-view-as-grid=true
+workspace-osd-visible=true
 
 [org/cinnamon/cinnamon-session]
 quit-time-delay=60
@@ -61,7 +65,7 @@ exec='gnome-calculator'
 
 [org/cinnamon/desktop/applications/terminal]
 exec='kitty'
-exec-arg='--start-as=maximized'
+exec-arg=''
 
 [org/cinnamon/desktop/interface]
 clock-show-date=false
@@ -69,6 +73,9 @@ cursor-blink-time=1200
 first-day-of-week=7
 font-name='Roboto 11'
 gtk-enable-primary-paste=false
+keyboard-layout-prefer-variant-names=false
+keyboard-layout-show-flags=false
+keyboard-layout-use-upper=true
 text-scaling-factor=1.0
 
 [org/cinnamon/desktop/keybindings]
@@ -84,17 +91,27 @@ name='Flameshot'
 screensaver=['<Control><Alt>l', '<Super>l']
 
 [org/cinnamon/desktop/keybindings/wm]
+move-to-workspace-left=['<Control><Shift><Alt>Left', '<Shift><Super>Page_Up']
+move-to-workspace-right=['<Control><Shift><Alt>Right', '<Shift><Super>Page_Down']
 switch-to-workspace-left=['<Control><Alt>Left', '<Super>Page_Up']
 switch-to-workspace-right=['<Control><Alt>Right', '<Super>Page_Down']
 
 [org/cinnamon/desktop/media-handling]
-autorun-never=false
+autorun-never=true
+autorun-x-content-ignore=@as []
+autorun-x-content-open-folder=@as []
+autorun-x-content-start-app=@as []
 
 [org/cinnamon/desktop/notifications]
 bottom-notifications=true
 display-notifications=true
 notification-duration=4
 remove-old=true
+
+[org/cinnamon/desktop/peripherals/keyboard]
+delay=uint32 500
+numlock-state=true
+repeat-interval=uint32 30
 
 [org/cinnamon/desktop/peripherals/mouse]
 accel-profile='flat'
@@ -137,8 +154,10 @@ memory-limit=2048
 [org/cinnamon/muffin]
 attach-modal-dialogs=true
 draggable-border-width=10
+placement-mode='center'
 tile-maximize=true
 unredirect-fullscreen-windows=true
+workspace-cycle=false
 workspaces-only-on-primary=true
 
 [org/cinnamon/settings-daemon/peripherals/keyboard]
@@ -184,6 +203,9 @@ document-font-name='Liberation Sans 11'
 monospace-font-name='JetBrainsMono Nerd Font 10'
 toolkit-accessibility=false
 
+[org/gnome/libgnomekbd/keyboard]
+layouts=['us\tintl', 'br']
+
 [org/gnome/nm-applet]
 disable-connected-notifications=true
 
@@ -192,7 +214,7 @@ desktop-layout='false::false'
 font='Roboto 10'
 
 [org/nemo/preferences]
-show-hidden-files=true
+show-hidden-files=false
 
 [org/nemo/window-state]
 geometry='800x550+50+74'
@@ -208,4 +230,3 @@ active-plugins=['docinfo', 'modelines', 'bracketcompletion', 'joinlines', 'fileb
 
 [org/x/editor/preferences/ui]
 statusbar-visible=true
-
