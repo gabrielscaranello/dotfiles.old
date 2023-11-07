@@ -184,8 +184,11 @@ mimetypes:
 
 enable_services:
 	# Enabling services
+	@sudo systemctl enable bluetooth
+	@sudo systemctl enable cups
 	@sudo systemctl enable docker
 	@sudo systemctl enable lightdm
+	@sudo systemctl enable touchegg
 
 clean:
 	# Cleaning cache

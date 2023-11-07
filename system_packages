@@ -6,11 +6,7 @@ bottom
 btop
 caribou
 chromium
-cinnamon-control-center
-cinnamon-menus
-cinnamon-screensaver
-cinnamon-session
-cinnamon-settings-daemon
+cinnamon
 cinnamon-translations
 dialog
 discord
@@ -57,7 +53,7 @@ kitty
 lazydocker
 lazygit
 lightdm
-lightdm-gtk-greeter-settings
+lightdm-settings
 lightdm-slick-greeter
 mintlocale
 mtools
@@ -81,7 +77,9 @@ python-pip
 python-pipx
 python-pynvim
 python-virtualenv
+python-xlib
 python3
+redshift-minimal
 ripgrep
 sassc
 system-config-printer
