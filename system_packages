@@ -23,6 +23,7 @@ flameshot
 flatpak
 fwupd
 fwupd-efi
+gamemode
 gdu
 gitflow-cjs
 gnome-calculator
@@ -55,6 +56,7 @@ lazygit
 lightdm
 lightdm-settings
 lightdm-slick-greeter
+mangohud
 mintlocale
 mtools
 nemo
@@ -82,6 +84,7 @@ python3
 redshift-minimal
 ripgrep
 sassc
+steam
 system-config-printer
 tecla
 timeshift
