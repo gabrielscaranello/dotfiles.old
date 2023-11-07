@@ -31,28 +31,6 @@ sensor-update-interval=2
 slog-enabled=false
 slog-interval=300
 
-[net/launchpad/plank/docks/dock1]
-alignment='center'
-auto-pinning=true
-current-workspace-only=false
-dock-items=['kitty.dockitem', 'nemo.dockitem', 'code.dockitem', 'firefox.dockitem', 'rest.insomnia.Insomnia.dockitem', 'org.onlyoffice.desktopeditors.dockitem', 'org.gimp.GIMP.dockitem', 'io.dbeaver.DBeaverCommunity.dockitem', 'com.spotify.Client.dockitem', 'discord.dockitem']
-hide-delay=0
-hide-mode='intelligent'
-icon-size=48
-items-alignment='center'
-lock-items=true
-monitor=''
-offset=0
-pinned-only=true
-position='bottom'
-pressure-reveal=false
-show-dock-item=false
-theme='Transparent'
-tooltips-enabled=true
-unhide-delay=0
-zoom-enabled=true
-zoom-percent=150
-
 [org/cinnamon]
 alttab-switcher-delay=100
 alttab-switcher-style='coverflow'

@@ -6,7 +6,7 @@ REPLACE_HOME='s,:home:,'"$HOME"',g'
 USERS_DIR="$HOME/.config/user-dirs.dirs"
 
 # Remove old files
-sudo rm -rf ~/.config/autostart ~/.config/plank ~/.config/flameshot /etc/timeshift/timeshift.json /etc/lightdm/slick-greeter.conf
+sudo rm -rf ~/.config/flameshot /etc/timeshift/timeshift.json /etc/lightdm/slick-greeter.conf
 
 # Defining timeshift values
 if [ -f "$USERS_DIR" ]; then
@@ -19,6 +19,4 @@ sed "$REPLACE_HOME" config/timeshift.json | sed 's,:documents_dir:,'"$DOCUMENTS_
 # Copy other settings
 sudo cp config/slick-greeter.conf /etc/lightdm/slick-greeter.conf
 sudo sed -i 's/#greeter-session=example-gtk-gnome/greeter-session=lightdm-slick-greeter/' /etc/lightdm/lightdm.conf
-cp -r ./config/autostart ~/.config/autostart
 cp -r ./config/flameshot ~/.config/flameshot
-cp -r ./config/plank ~/.config/plank
