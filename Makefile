@@ -106,7 +106,7 @@ setup_discord_theme:
 	# Sleep 2 seconds to wait discord start
 	@sleep 2
 	@curl -L https://catppuccin.github.io/discord/dist/catppuccin-mocha-blue.theme.css > ~/.config/discord/catppuccin-mocha-blue.theme.css
-	@python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip
+	@PIP_BREAK_SYSTEM_PACKAGES=1 python3 -m pip install -U https://github.com/leovoel/BeautifulDiscord/archive/master.zip
 	@python3 -m beautifuldiscord --css ~/.config/discord/catppuccin-mocha-blue.theme.css
 	# Killing discord process
 	@kill $$(pidof -s Discord)
@@ -162,12 +162,9 @@ setup_nvim:
 	# Cloning user config
 	@git clone --depth 1 https://github.com/gabrielscaranello/astronvim-config ~/.config/nvim/lua/user
 
-update_zram:
-	# Updating zram
-	@echo 'zram-size=max(ram/2, 4096)' | sudo tee -a /etc/systemd/zram-generator.conf
-	# Adjust swappiness
-	@echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.d/00-custom.conf
-	@echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.d/00-custom.conf
+update_swap:
+	# Add swapfile
+	@bash ./scripts/swap.sh
 
 docker_permissions:
 	# Docker permissions
@@ -201,7 +198,7 @@ setup_all:
 	@$(MAKE) install_telegram
 	@$(MAKE) setup_nvim 
 	@$(MAKE) look
-	@$(MAKE) update_zram
+	@$(MAKE) update_swap
 	@$(MAKE) docker_permissions
 	@$(MAKE) hide_apps
 	@$(MAKE) mimetypes
