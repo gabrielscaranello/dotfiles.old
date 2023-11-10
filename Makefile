@@ -213,21 +213,9 @@ setup_nvim:
 	# Cloning user config
 	@git clone --depth 1 https://github.com/gabrielscaranello/astronvim-config ~/.config/nvim/lua/user
 
-update_zram:
-	# Updating zram
-	@sudo swapoff --all
-	@sudo zramswap stop
-	@sudo sed -i '/^PERCENT/d' /etc/default/zramswap
-	@sudo sed -i '/^PRIORITY/d' /etc/default/zramswap
-	@echo 'PERCENT=50' | sudo tee -a /etc/default/zramswap
-	@echo 'PRIORITY=100' | sudo tee -a /etc/default/zramswap
-	# Adjust swappiness
-	@echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.d/00-custom.conf
-	@echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.d/00-custom.conf
-	@sudo zramswap start
-	# Remove old swapfile
-	@sudo rm -rf /swapfile
-	@sudo sed -i '/\/swapfile/d' /etc/fstab
+update_swap:
+	# Add swapfile
+	@bash ./scripts/swap.sh
 
 docker_permissions:
 	# Docker permissions
@@ -266,7 +254,7 @@ setup_all:
 	@$(MAKE) setup_cinnamon
 	@$(MAKE) setup_nvim
 	@$(MAKE) look
-	@$(MAKE) update_zram
+	@$(MAKE) update_swap
 	@$(MAKE) docker_permissions
 	@$(MAKE) copy_configs
 	@$(MAKE) purge_xterm
