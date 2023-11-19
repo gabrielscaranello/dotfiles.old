@@ -17,6 +17,7 @@ firefox-i18n-pt-br
 flameshot
 flatpak
 fwupd
+gamemode
 gdm
 gdu
 gitflow-cjs
@@ -61,6 +62,7 @@ lazydocker
 lazygit
 libgda6
 malcontent
+mangohud
 mtools
 nautilus
 neovim
@@ -85,6 +87,7 @@ python3
 ripgrep
 rygel
 sassc
+steam
 sushi
 tecla
 timeshift

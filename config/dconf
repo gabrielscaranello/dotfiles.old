@@ -24,6 +24,7 @@ font-name='Roboto 11'
 gtk-theme='Catppuccin-Mocha-Standard-Blue-Dark'
 icon-theme='Papirus-Dark'
 monospace-font-name='JetBrainsMono Nerd Font 10'
+show-battery-percentage=true
 
 [org/gnome/desktop/peripherals/keyboard]
 numlock-state=true
@@ -32,6 +33,7 @@ numlock-state=true
 accel-profile='flat'
 
 [org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
 two-finger-scrolling-enabled=true
 
 [org/gnome/desktop/privacy]
@@ -68,6 +70,9 @@ show-delete-permanently=true
 [org/gnome/settings-daemon/plugins/color]
 night-light-enabled=true
 night-light-last-coordinates=(-24.310987681112419, -53.323599999999999)
+night-light-schedule-automatic=false
+night-light-schedule-from=4.0
+night-light-schedule-to=3.9833333333333334
 night-light-temperature=uint32 4700
 
 [org/gnome/settings-daemon/plugins/media-keys]
@@ -88,10 +93,24 @@ name='flameshot'
 app-picker-layout=[{'org.gnome.Calculator.desktop': <{'position': <0>}>, 'org.gnome.Calendar.desktop': <{'position': <1>}>, 'org.gnome.Settings.desktop': <{'position': <2>}>, 'org.gnome.Contacts.desktop': <{'position': <3>}>, 'org.flameshot.Flameshot.desktop': <{'position': <4>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <5>}>, 'gnome-system-monitor.desktop': <{'position': <6>}>, 'org.freedesktop.Piper.desktop': <{'position': <7>}>, 'org.gnome.Software.desktop': <{'position': <8>}>, 'vlc.desktop': <{'position': <9>}>, 'Utilities': <{'position': <10>}>, 'org.gnome.Extensions.desktop': <{'position': <11>}>, 'org.qbittorrent.qBittorrent.desktop': <{'position': <12>}>, 'org.telegram.desktop._c69f69b6cebae31eec9c8fe40ae4a01b.desktop': <{'position': <13>}>, 'virtualbox.desktop': <{'position': <14>}>}]
 command-history=['r']
 disable-user-extensions=false
-disabled-extensions=['appindicatorsupport@rgcjonas.gmail.com']
-enabled-extensions=['blur-my-shell@aunetx', 'caffeine@patapon.info', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-copy@felipeftn', 'order-extensions@wa4557.github.com', 'pano@elhan.io', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'AlphabeticalAppGrid@stuarthayhurst', 'top-bar-organizer@julian.gse.jsts.xyz', 'trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com', 'arch-update@RaphaelRochet']
+disabled-extensions=@as []
+enabled-extensions=['blur-my-shell@aunetx', 'caffeine@patapon.info', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-copy@felipeftn', 'pano@elhan.io', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com','trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com', 'arch-update@RaphaelRochet', 'Battery-Health-Charging@maniacx.github.com', 'GPU_profile_selector@lorenzo9904.gmail.com', 'appindicatorsupport@rgcjonas.gmail.com']
 favorite-apps=['kitty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'firefox.desktop', 'chromium.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'discord.desktop']
 welcome-dialog-last-shown-version='44.2'
+
+[org/gnome/shell/extensions/Battery-Health-Charging]
+charging-mode='max'
+ctl-path='/usr/local/bin/batteryhealthchargingctl-gabriel'
+device-type=12
+icon-style-type=0
+indicator-position-max=3
+polkit-installation-changed=true
+show-battery-panel2=false
+show-system-indicator=false
+
+[org/gnome/shell/extensions/GPU_profile_selector]
+coolbits=false
+force-topbar-view=false
 
 [org/gnome/shell/extensions/arch-update]
 check-cmd="/bin/sh -c \"(/usr/bin/checkupdates; /usr/bin/yay -Qu --color never | sed 's/Get .*//') | sort -u -t' ' -k1,1; /usr/bin/flatpak remote-ls --columns=application -a --updates\""
@@ -123,7 +142,7 @@ blur=true
 
 [org/gnome/shell/extensions/caffeine]
 duration-timer=2
-indicator-position-max=1
+indicator-position-max=3
 restore-state=true
 show-indicator='only-active'
 toggle-state=true
@@ -221,29 +240,6 @@ enable-preferences-entry=true
 global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 8>, 'smoothing': <uint32 0>, 'enabled': <true>}
 settings-version=uint32 5
 tweak-kitty-terminal=true
-
-[org/gnome/shell/extensions/top-bar-organizer]
-center-box-order=['dateMenu']
-left-box-order=['activities', 'vitalsMenu', 'appMenu']
-right-box-order=['TrayIconsReloaded', 'ArchUpdateIndicator', 'color-picker@tuberry', 'docker-menu', 'wireless-hid', 'screenRecording', 'screenSharing', 'dwellClick', 'a11y', 'keyboard', 'quickSettings']
-
-[org/gnome/shell/extensions/trayIconsReloaded]
-applications='[]'
-icon-brightness=0
-icon-contrast=0
-icon-margin-horizontal=0
-icon-padding-horizontal=12
-icon-padding-vertical=0
-icon-saturation=0
-icon-size=20
-icons-limit=4
-invoke-to-workspace=false
-position-weight=0
-tray-margin-left=0
-tray-margin-right=0
-
-[org/gnome/shell/extensions/user-theme]
-name='Catppuccin-Mocha-Standard-Blue-Dark'
 
 [org/gnome/shell/extensions/vitals]
 alphabetize=true

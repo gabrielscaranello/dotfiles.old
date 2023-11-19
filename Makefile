@@ -1,4 +1,4 @@
-# Makefile for arch
+# Makefile for arch - gnome - nvidia
 
 yay:
 	# Installing yay
@@ -23,11 +23,13 @@ install_amd:
 	@yay -S --noconfirm $$(cat ./amd_packages | tr '\n', ' ')
 
 install_nvidia:
-	# Install packages from AMD
+	# Install packages from NVidia
 	# disable gdm
 	@sudo systemctl disable gdm
 	# Install packages
 	@yay -S $$(cat ./nvidia_packages | tr '\n', ' ')
+	# Install extension to manager GPU selector
+	@gnome-shell-extension-installer --yes 5009
 	# enable services
 	@sudo systemctl enable gdm
 	@sudo systemctl enable switcheroo-control.service
@@ -76,11 +78,11 @@ setup_icon_theme:
 
 setup_wallpaper:
 	# Coping wallpaper image
-	@cp ./assets/wallpaper.jpg ~/.wallpaper.jpg
+	@cp ./assets/wallpaper.png ~/.wallpaper.png
 	# Defining wallpaper
-	@gsettings set org.gnome.desktop.background picture-uri "file:///$${HOME}/.wallpaper.jpg"
-	@gsettings set org.gnome.desktop.background picture-uri-dark "file:///$${HOME}/.wallpaper.jpg"
-	@gsettings set org.gnome.desktop.screensaver picture-uri "file:///$${HOME}/.wallpaper.jpg"
+	@gsettings set org.gnome.desktop.background picture-uri "file:///$${HOME}/.wallpaper.png"
+	@gsettings set org.gnome.desktop.background picture-uri-dark "file:///$${HOME}/.wallpaper.png"
+	@gsettings set org.gnome.desktop.screensaver picture-uri "file:///$${HOME}/.wallpaper.png"
 
 setup_cursors:
 	# Setup cursors
@@ -182,6 +184,10 @@ enable_services:
 	# Enabling services
 	@sudo systemctl enable --now docker
 	@sudo systemctl enable --now gdm
+
+battery_health_extension:
+	# Install battery health charging
+	@gnome-shell-extension-installer --yes 5724
 
 clean:
 	# Cleaning cache
