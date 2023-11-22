@@ -1,56 +1,23 @@
-[apps/psensor]
-graph-alpha-channel-enabled=false
-graph-background-alpha=1.0
-graph-background-color='#1e1e1e1e2e2e'
-graph-foreground-color='#cdcdd6d6f4f4'
-graph-monitoring-duration=20
-graph-smooth-curves-enabled=true
-graph-update-interval=2
-interface-hide-on-startup=true
-interface-menu-bar-disabled=true
-interface-sensorlist-position=0
-interface-temperature-unit=0
-interface-unity-launcher-count-disabled=true
-interface-window-decoration-disabled=false
-interface-window-divider-pos=315
-interface-window-h=319
-interface-window-keep-below-enabled=false
-interface-window-restore-enabled=true
-interface-window-w=1094
-interface-window-x=101
-interface-window-y=100
-notif-script=''
-provider-atiadlsdk-enabled=true
-provider-gtop2-enabled=true
-provider-hddtemp-enabled=false
-provider-libatasmart-enabled=false
-provider-lmsensors-enabled=true
-provider-nvctrl-enabled=false
-provider-udisks2-enabled=true
-sensor-update-interval=2
-slog-enabled=false
-slog-interval=300
-
 [org/cinnamon]
 alttab-switcher-delay=100
 alttab-switcher-style='coverflow'
 alttab-switcher-warp-mouse-pointer=false
 desklet-snap-interval=25
-enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:right:10:systray@cinnamon.org:3', 'panel1:right:6:xapp-status@cinnamon.org:4', 'panel1:right:5:notifications@cinnamon.org:5', 'panel1:right:11:printers@cinnamon.org:6', 'panel1:right:12:removable-drives@cinnamon.org:7', 'panel1:right:18:keyboard@cinnamon.org:8', 'panel1:right:13:favorites@cinnamon.org:9', 'panel1:right:14:network@cinnamon.org:10', 'panel1:right:15:sound@cinnamon.org:11', 'panel1:right:17:power@cinnamon.org:12', 'panel1:center:0:calendar@cinnamon.org:13', 'panel1:right:9:inhibit@cinnamon.org:15', 'panel1:right:8:qredshift@quintao:19', 'panel1:right:7:color-picker@fmete:23', 'panel1:right:19:user@cinnamon.org:30', 'panel2:center:0:grouped-window-list@cinnamon.org:31']
+enabled-applets=['panel1:right:8:systray@cinnamon.org:3', 'panel1:right:4:xapp-status@cinnamon.org:4', 'panel1:right:3:notifications@cinnamon.org:5', 'panel1:right:9:printers@cinnamon.org:6', 'panel1:right:10:removable-drives@cinnamon.org:7', 'panel1:right:16:keyboard@cinnamon.org:8', 'panel1:right:11:favorites@cinnamon.org:9', 'panel1:right:12:network@cinnamon.org:10', 'panel1:right:13:sound@cinnamon.org:11', 'panel1:right:15:power@cinnamon.org:12', 'panel1:right:17:calendar@cinnamon.org:13', 'panel1:right:7:inhibit@cinnamon.org:15', 'panel1:right:6:qredshift@quintao:19', 'panel1:right:5:color-picker@fmete:23', 'panel1:left:3:grouped-window-list@cinnamon.org:31', 'panel1:left:2:separator@cinnamon.org:37', 'panel1:right:19:cornerbar@cinnamon.org:39', 'panel1:left:0:Cinnamenu@json:43']
 enabled-desklets=@as []
 enabled-extensions=['transparent-panels@germanfr']
 favorite-apps=@as []
-hotcorner-layout=['expo:true:0', 'scale:false:0', 'scale:true:0', 'desktop:true:0']
-next-applet-id=37
+hotcorner-layout=['scale:true:0', 'scale:false:0', 'expo:true:0', 'desktop:true:0']
+next-applet-id=44
 next-desklet-id=3
 no-adjacent-panel-barriers=false
 panel-edit-mode=false
-panel-zone-icon-sizes='[{"panelId": 1, "left": 0, "center": 24, "right": 16}, {"left": 0, "center": 32, "right": 0, "panelId": 2}]'
-panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 24, "right": 16}, {"left": 28, "center": 28, "right": 28, "panelId": 2}]'
-panel-zone-text-sizes='[{"panelId": 1, "left": 9.5, "center": 10, "right": 10.0}, {"left": 0, "center": 0, "right": 0, "panelId": 2}]'
+panel-zone-icon-sizes='[{"left": 24, "center": 24, "right": 16, "panelId": 1}]'
+panel-zone-symbolic-icon-sizes='[{"left": 24, "center": 24, "right": 16, "panelId": 1}]'
+panel-zone-text-sizes='[{"left": 10.0, "center": 10.0, "right": 10.0, "panelId": 1}]'
 panels-autohide=['1:false', '2:true']
-panels-enabled=['1:0:top', '2:0:bottom']
-panels-height=['1:24', '2:40']
+panels-enabled=['1:0:bottom']
+panels-height=['1:32', '2:40']
 panels-hide-delay=['1:0', '2:0']
 panels-show-delay=['1:0', '2:0']
 window-effect-speed=1
@@ -129,6 +96,7 @@ remember-recent-files=false
 font-date='Roboto 24'
 font-message='Roboto 14'
 font-time='Roboto 64'
+layout-group=0
 
 [org/cinnamon/desktop/sound]
 event-sounds=false
@@ -159,9 +127,6 @@ tile-maximize=true
 unredirect-fullscreen-windows=true
 workspace-cycle=false
 workspaces-only-on-primary=true
-
-[org/cinnamon/settings-daemon/peripherals/keyboard]
-numlock-state='on'
 
 [org/cinnamon/settings-daemon/plugins/power]
 lid-close-ac-action='suspend'
@@ -197,12 +162,6 @@ dwell-time=1.2
 secondary-click-enabled=false
 secondary-click-time=1.2
 
-[org/gnome/desktop/interface]
-clock-format='24h'
-document-font-name='Liberation Sans 11'
-monospace-font-name='JetBrainsMono Nerd Font 10'
-toolkit-accessibility=false
-
 [org/gnome/libgnomekbd/keyboard]
 layouts=['us\tintl', 'br']
 
@@ -212,15 +171,6 @@ disable-connected-notifications=true
 [org/nemo/desktop]
 desktop-layout='false::false'
 font='Roboto 10'
-
-[org/nemo/preferences]
-show-hidden-files=false
-
-[org/nemo/window-state]
-geometry='800x550+50+74'
-maximized=false
-sidebar-bookmark-breakpoint=5
-start-with-sidebar=true
 
 [org/x/apps/portal]
 color-scheme='prefer-dark'
