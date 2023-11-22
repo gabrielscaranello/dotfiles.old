@@ -74,9 +74,9 @@ setup_icon_theme:
 setup_wallpaper:
 	# Coping wallpaper image
 	@sudo mkdir -p /usr/share/backgrounds/user
-	@sudo cp ./assets/wallpaper.jpg /usr/share/backgrounds/user/wallpaper.jpg
+	@sudo cp ./assets/wallpaper.png /usr/share/backgrounds/user/wallpaper.png
 	# Defining wallpaper
-	@gsettings set org.cinnamon.desktop.background picture-uri "file:////usr/share/backgrounds/user/wallpaper.jpg"
+	@gsettings set org.cinnamon.desktop.background picture-uri "file:////usr/share/backgrounds/user/wallpaper.png"
 
 setup_cursors:
 	# Setup cursors
