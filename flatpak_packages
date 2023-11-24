@@ -1,7 +1,7 @@
-com.mattjakeman.ExtensionManager
 com.spotify.Client
+com.valvesoftware.Steam
 io.dbeaver.DBeaverCommunity
-io.missioncenter.MissionCenter
+org.freedesktop.Platform.VulkanLayer.MangoHud
 org.gimp.GIMP
 org.onlyoffice.desktopeditors
 rest.insomnia.Insomnia

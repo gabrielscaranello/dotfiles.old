@@ -24,24 +24,14 @@ install_amd:
 
 install_nvidia:
 	# Install packages from NVidia
-	# disable gdm
-	@sudo systemctl disable gdm
 	# Install packages
 	@yay -S $$(cat ./nvidia_packages | tr '\n', ' ')
-	# Install extension to manager GPU selector
-	@gnome-shell-extension-installer --yes 5009
 	# enable services
-	@sudo systemctl enable gdm
 	@sudo systemctl enable switcheroo-control.service
 
 install_flatpak:
 	# Installing flatpak apps
 	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
-
-install_gnome_extensions:
-	# Installing gnome extensions
-	# Installing extensions
-	@for i in $$(sed "s/[^0-9]//g" ./gnome_extensions); do gnome-shell-extension-installer --yes "$$i"; done
 
 install_nvm:
 	# Installing NVM
@@ -97,10 +87,6 @@ setup_cursors:
 	# Defining cursor size
 	@gsettings set org.gnome.desktop.interface cursor-size 24
 
-load_dconf:
-	# Loading dconf
-	@dconf load / < ./config/dconf
-
 setup_discord_theme:
 	# Setup discord theme
 	@mkdir -p ~/.config/discord
@@ -113,7 +99,7 @@ setup_discord_theme:
 	# Killing discord process
 	@kill $$(pidof -s Discord)
 
-look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors load_dconf
+# look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors
 
 setup_kitty:
 	# Setup kitty
@@ -176,18 +162,10 @@ hide_apps:
 	# Hidding apps
 	@bash ./scripts/hide_apps.sh
 
-mimetypes:
-	# Mimetypes
-	@cp ./mimeapps.list ~/.config/mimeapps.list
-
 enable_services:
 	# Enabling services
 	@sudo systemctl enable --now docker
-	@sudo systemctl enable --now gdm
-
-battery_health_extension:
-	# Install battery health charging
-	@gnome-shell-extension-installer --yes 5724
+	@sudo systemctl enable --now sddm
 
 clean:
 	# Cleaning cache
