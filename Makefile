@@ -164,6 +164,7 @@ hide_apps:
 
 enable_services:
 	# Enabling services
+	@sudo systemctl enable --now dnsmasq.service
 	@sudo systemctl enable --now docker
 	@sudo systemctl enable --now sddm
 
