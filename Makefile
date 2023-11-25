@@ -41,25 +41,15 @@ install_telegram:
 	# Installing Telegram
 	@bash ./scripts/telegram.sh
 
-setup_gtk_theme:
-	# Setup gtk theme
-	# Removing old GTK Theme
-	@rm -rf ~/.themes/Catppuccin-Mocha-Standard-Blue-*
-	@rm -rf /tmp/gtk-theme
-	# Cloning GTK Theme
-	@git clone --recurse-submodules https://github.com/catppuccin/gtk.git /tmp/gtk-theme
-	# Installing build and setup GTK Theme
-	@bash -c "cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless"
-	# Defining themes
-	@gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	@gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	@dconf write /org/gnome/shell/extensions/user-theme/name "'Catppuccin-Mocha-Standard-Blue-Dark'"
-	# Setup theme for flatpak apps
-	@sudo flatpak override --filesystem=$$HOME/.themes
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-4.0
-	@sudo flatpak override --env=GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
-
+install_kde_theme:
+	# Setup kde theme
+	# Removing old files
+	@rm -rf /tmp/catppuccin-kde
+	# Cloning theme
+	@git clone --depth=1 https://github.com/catppuccin/kde /tmp/catppuccin-kde
+	# Installing theme
+	@cd /tmp && bash /tmp/catppuccin-kde/install.sh
+	
 setup_icon_theme:
 	# Defining icons
 	@papirus-folders -C cat-mocha-blue
@@ -99,7 +89,7 @@ setup_discord_theme:
 	# Killing discord process
 	@kill $$(pidof -s Discord)
 
-# look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors
+look: install_kde_theme
 
 setup_kitty:
 	# Setup kitty
