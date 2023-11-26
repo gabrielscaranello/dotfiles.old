@@ -29,6 +29,8 @@ gst-libav
 gst-plugins-good
 gwenview
 kcalc
+kde-gtk-config
+kdeplasma-addons
 keychain
 kitty
 kmenuedit
@@ -38,7 +40,7 @@ kscreenlocker
 kwallet-pam
 lazydocker
 lazygit
-kdeplasma-addons
+lightly-boehs-git
 lua
 luarocks
 man-db
@@ -52,6 +54,8 @@ numlockx
 okular
 openssh
 packagekit-qt5
+papirus-folders-catppuccin-git
+papirus-icon-theme
 partitionmanager
 pasma-desktop
 phonon-qt5-vlc
@@ -60,6 +64,7 @@ plasma-browser-integration
 plasma-desktop
 plasma-disks
 plasma-firewall
+plasma-integration
 plasma-nm
 plasma-systemmonitor
 plasma-workspace
@@ -71,7 +76,6 @@ python-pipx
 python-pynvim
 python-virtualenv
 python3
-kde-gtk-config
 ripgrep
 sassc
 sddm
@@ -81,7 +85,6 @@ timeshift
 ttf-baekmuk
 ttf-dejavu
 ttf-hannom
-plasma-integration
 ttf-jetbrains-mono-nerd
 ttf-liberation
 ttf-ms-fonts
