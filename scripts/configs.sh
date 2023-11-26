@@ -18,3 +18,4 @@ sed "$REPLACE_HOME" config/timeshift.json | sed 's,:documents_dir:,'"$DOCUMENTS_
 
 # Copy other settings
 cp -r ./config/flameshot ~/.config/flameshot
+sudo cp ./config/kwallet-pam-sddm /etc/pam.d/sddm

@@ -41,30 +41,11 @@ install_telegram:
 	# Installing Telegram
 	@bash ./scripts/telegram.sh
 
-install_kde_theme:
-	# Setup kde theme
-	# Removing old files
-	@rm -rf /tmp/catppuccin-kde
-	# Cloning theme
-	@git clone --depth=1 https://github.com/catppuccin/kde /tmp/catppuccin-kde
-	# Installing theme
-	@cd /tmp && bash /tmp/catppuccin-kde/install.sh
-	
-setup_icon_theme:
-	# Defining icons
-	@papirus-folders -C cat-mocha-blue
-	@gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-	@sudo flatpak override --filesystem=$$HOME/.icons
-
-setup_wallpaper:
+setup_look_files:
 	# Coping wallpaper image
 	@cp ./assets/wallpaper.png ~/.wallpaper.png
-	# Defining wallpaper
-	@gsettings set org.gnome.desktop.background picture-uri "file:///$${HOME}/.wallpaper.png"
-	@gsettings set org.gnome.desktop.background picture-uri-dark "file:///$${HOME}/.wallpaper.png"
-	@gsettings set org.gnome.desktop.screensaver picture-uri "file:///$${HOME}/.wallpaper.png"
 
-setup_cursors:
+install_cursors:
 	# Setup cursors
 	# Cloning cursors
 	@rm -rf /tmp/cursors ~/.icons/Catppuccin*
@@ -72,10 +53,11 @@ setup_cursors:
 	@git clone --depth=1 https://github.com/catppuccin/cursors.git /tmp/cursors
 	# Installing cursors
 	@unzip -oq /tmp/cursors/cursors/Catppuccin-Mocha-Light-Cursors.zip -d ~/.icons
-	# Defining cursors
-	@gsettings set org.gnome.desktop.interface cursor-theme "Catppuccin-Mocha-Light-Cursors"
-	# Defining cursor size
-	@gsettings set org.gnome.desktop.interface cursor-size 24
+
+load_kde_config:
+	# Load kde config
+
+look: install_cursors setup_look_files load_kde_config
 
 setup_discord_theme:
 	# Setup discord theme
@@ -88,8 +70,6 @@ setup_discord_theme:
 	@python3 -m beautifuldiscord --css ~/.config/discord/catppuccin-mocha-blue.theme.css
 	# Killing discord process
 	@kill $$(pidof -s Discord)
-
-look: install_kde_theme
 
 setup_kitty:
 	# Setup kitty
@@ -154,9 +134,11 @@ hide_apps:
 
 enable_services:
 	# Enabling services
-	@sudo systemctl enable --now dnsmasq.service
-	@sudo systemctl enable --now docker
-	@sudo systemctl enable --now sddm
+	@sudo systemctl enable bluetooth.service
+	@sudo systemctl enable cronie.service
+	@sudo systemctl enable cups
+	@sudo systemctl enable docker
+	@sudo systemctl enable sddm
 
 clean:
 	# Cleaning cache
