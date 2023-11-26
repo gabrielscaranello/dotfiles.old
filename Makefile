@@ -43,16 +43,15 @@ install_telegram:
 
 setup_look_files:
 	# Coping wallpaper image
-	@cp ./assets/wallpaper.png ~/.wallpaper.png
+	@mkdir -p ~/.local/share/wallpapers
+	@cp ./assets/wallpaper.png ~/.local/share/wallpapers/default.png
+	# Copy colorschema
+	@mkdir -p ~/.local/share/color-schemes
+	@cp ./config/plasma/CatppuccinMochaBlue.colors ~/.local/share/color-schemes
 
 install_cursors:
 	# Setup cursors
-	# Cloning cursors
-	@rm -rf /tmp/cursors ~/.icons/Catppuccin*
-	@mkdir -p ~/.icons
-	@git clone --depth=1 https://github.com/catppuccin/cursors.git /tmp/cursors
-	# Installing cursors
-	@unzip -oq /tmp/cursors/cursors/Catppuccin-Mocha-Light-Cursors.zip -d ~/.icons
+	@bash ./scripts/cursor.sh
 
 load_kde_config:
 	# Load kde config
