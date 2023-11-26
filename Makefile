@@ -148,7 +148,6 @@ clean:
 setup_all: 
 	@$(MAKE) install_system
 	@$(MAKE) install_nvm
-	@$(MAKE) install_gnome_extensions
 	@$(MAKE) setup_term
 	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
@@ -157,7 +156,6 @@ setup_all:
 	@$(MAKE) update_swap
 	@$(MAKE) docker_permissions
 	@$(MAKE) hide_apps
-	@$(MAKE) mimetypes
 	@$(MAKE) copy_configs
 	@$(MAKE) clean
 	@$(MAKE) enable_services
