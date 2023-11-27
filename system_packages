@@ -44,6 +44,7 @@ lightly-boehs-git
 lua
 luarocks
 man-db
+mangohud
 mousepad
 mtools
 neovim
@@ -80,6 +81,7 @@ ripgrep
 sassc
 sddm
 sddm-kcm
+steam
 system-config-printer
 timeshift
 ttf-baekmuk
