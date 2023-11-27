@@ -29,7 +29,7 @@ git
 gitflow-cjs
 go
 gst-libav
-gst-plugins-bad
+gst-plugins-good
 gwenview
 insomnium-bin
 jre-openjdk
@@ -63,7 +63,6 @@ packagekit-qt5
 papirus-folders-catppuccin-git
 papirus-icon-theme
 partitionmanager
-pasma-desktop
 phonon-qt5-vlc
 piper
 plasma-browser-integration

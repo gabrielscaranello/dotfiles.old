@@ -41,18 +41,12 @@ setup_look_files:
 	# Coping wallpaper image
 	@mkdir -p ~/.local/share/wallpapers
 	@cp ./assets/wallpaper.png ~/.local/share/wallpapers/default.png
-	# Copy colorschema
-	@mkdir -p ~/.local/share/color-schemes
-	@cp ./config/plasma/CatppuccinMochaBlue.colors ~/.local/share/color-schemes
 
 install_cursors:
 	# Setup cursors
 	@bash ./scripts/cursor.sh
 
-load_kde_config:
-	# Load kde config
-
-look: install_cursors setup_look_files load_kde_config
+look: install_cursors setup_look_files
 
 setup_discord_theme:
 	# Setup discord theme

@@ -1,0 +1,17 @@
+[Added Associations]
+inode/directory=org.kde.dolphin.desktop;
+text/plain=org.xfce.mousepad.desktop;
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
+x-scheme-handler/geo=openstreetmap-geo-handler.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/insomnia=insomnium.desktop;Insomnium.desktop;
+
+[Default Applications]
+inode/directory=org.kde.dolphin.desktop;
+text/plain=org.xfce.mousepad.desktop;
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
+x-scheme-handler/geo=openstreetmap-geo-handler.desktop;
+x-scheme-handler/http=firefox.desktop;
+x-scheme-handler/https=firefox.desktop;
+x-scheme-handler/insomnia=insomnium.desktop
