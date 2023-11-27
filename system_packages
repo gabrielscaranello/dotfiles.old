@@ -19,7 +19,6 @@ ffmpegthumbs
 firefox
 firefox-i18n-pt-br
 flameshot
-flatpak
 fwupd-efi
 gamemode
 gdu
@@ -86,6 +85,7 @@ ripgrep
 sassc
 sddm
 sddm-kcm
+spotify
 steam
 system-config-printer
 timeshift

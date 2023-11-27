@@ -29,10 +29,6 @@ install_nvidia:
 	# enable services
 	@sudo systemctl enable switcheroo-control.service
 
-install_flatpak:
-	# Installing flatpak apps
-	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
-
 install_nvm:
 	# Installing NVM
 	@bash ./scripts/nvm.sh
@@ -149,7 +145,6 @@ setup_all:
 	@$(MAKE) install_system
 	@$(MAKE) install_nvm
 	@$(MAKE) setup_term
-	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
 	@$(MAKE) setup_nvim 
 	@$(MAKE) look
