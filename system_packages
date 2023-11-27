@@ -6,6 +6,7 @@ btop
 calindori
 chromium
 cups
+dbeaver
 dialog
 discord
 discover
@@ -22,12 +23,14 @@ flatpak
 fwupd-efi
 gamemode
 gdu
+gimp
 git
 gitflow-cjs
 go
 gst-libav
 gst-plugins-good
 gwenview
+jre-openjdk
 kcalc
 kde-gtk-config
 kdeplasma-addons
