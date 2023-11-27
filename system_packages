@@ -20,8 +20,8 @@ ffmpegthumbs
 firefox
 firefox-i18n-pt-br
 flameshot
-fwupd-efi
 fwupd
+fwupd-efi
 gamemode
 gdu
 gimp
@@ -39,7 +39,6 @@ kdeplasma-addons
 keychain
 kitty
 kmenuedit
-kmix
 kscreen
 kscreenlocker
 kwallet-pam
@@ -73,6 +72,7 @@ plasma-disks
 plasma-firewall
 plasma-integration
 plasma-nm
+plasma-pa
 plasma-systemmonitor
 plasma-workspace
 polkit-kde-agent
