@@ -1,11 +1,7 @@
 #! /bin/bash
 
 # Variables
-APPS=(
-    btop
-    nvim
-    org.gnome.Extensions
-)
+APPS=()
 
 for app in ${APPS[@]}; do
     location="/usr/share/applications/${app}.desktop"
