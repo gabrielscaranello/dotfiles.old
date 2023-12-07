@@ -15,6 +15,7 @@ wget -c $download_url -O $output_dir
 
 # Extract file
 tar -xf $output_dir -C /tmp
+mkdir -p $target_dir
 mv $extract_dir $target_dir
 
 echo "Telegram installed into $target_dir"

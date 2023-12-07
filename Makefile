@@ -22,10 +22,14 @@ install_amd:
 	# Install packages from AMD
 	@yay -S --noconfirm $$(cat ./amd_packages | tr '\n', ' ')
 
+install_steam:
+	# Install packages from AMD
+	@yay -S --noconfirm $$(cat ./steam_packages | tr '\n', ' ')
+
 install_nvidia:
 	# Install packages from NVidia
 	# Install packages
-	@yay -S $$(cat ./nvidia_packages | tr '\n', ' ')
+	@yay -S --noconfirm $$(cat ./nvidia_packages | tr '\n', ' ')
 	# enable services
 	@sudo systemctl enable switcheroo-control.service
 
@@ -128,6 +132,7 @@ enable_services:
 	@sudo systemctl enable cups
 	@sudo systemctl enable docker
 	@sudo systemctl enable sddm
+	@sudo systemctl enable power-profiles-daemon.service
 
 clean:
 	# Cleaning cache

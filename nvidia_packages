@@ -2,7 +2,7 @@ envycontrol
 lib32-mesa
 lib32-nvidia-utils
 mesa
-nvidia-lts
+nvidia
 nvidia-settings
 nvidia-utils
 switcheroo-control
