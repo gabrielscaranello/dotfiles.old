@@ -5,7 +5,6 @@ bottom
 breeze-gtk
 btop
 calindori
-chromium
 cups
 dbeaver
 dialog
@@ -24,11 +23,10 @@ fwupd
 fwupd-efi
 gdu
 gimp
-power-profiles-daemon
-thermald
 git
 gitflow-cjs
 go
+google-chrome
 gst-libav
 gst-plugins-good
 gwenview
@@ -73,6 +71,7 @@ plasma-pa
 plasma-systemmonitor
 plasma-workspace
 polkit-kde-agent
+power-profiles-daemon
 powerdevil
 print-manager
 python-pip
@@ -86,6 +85,7 @@ sddm
 sddm-kcm
 spotify
 system-config-printer
+thermald
 timeshift
 ttf-baekmuk
 ttf-carlito
