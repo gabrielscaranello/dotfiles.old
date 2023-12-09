@@ -25,6 +25,7 @@ flameshot
 fwupd
 fwupd-efi
 gdu
+ghostwriter
 gimp
 git
 gitflow-cjs
@@ -35,7 +36,7 @@ gst-plugins-good
 gwenview
 insomnium-bin
 jre-openjdk
-kcalc
+kalk
 kde-gtk-config
 kdeplasma-addons
 keychain
@@ -50,7 +51,6 @@ lightly-boehs-git
 lua
 luarocks
 man-db
-mousepad
 mtools
 neovim
 noto-fonts

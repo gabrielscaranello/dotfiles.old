@@ -5,13 +5,11 @@ APPS=(
 	assistant
 	avahi-discover
 	bssh
-	btop
 	bvnc
 	designer
 	linguist
 	lstopo
 	nm-connection-editor
-	nvim
 	qdbusviewer
 	qv4l2
 	qvidcap
