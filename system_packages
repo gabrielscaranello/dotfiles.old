@@ -1,4 +1,7 @@
 ark
+aspell
+aspell-en
+aspell-pt
 bat
 bluedevil
 bottom
@@ -83,6 +86,7 @@ ripgrep
 sassc
 sddm
 sddm-kcm
+sonnet5
 spotify
 system-config-printer
 thermald
@@ -95,6 +99,7 @@ ttf-jetbrains-mono-nerd
 ttf-liberation
 ttf-ms-fonts
 ttf-roboto
+ufw
 unzip
 visual-studio-code-bin
 vlc
