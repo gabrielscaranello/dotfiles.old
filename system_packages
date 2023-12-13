@@ -77,6 +77,7 @@ polkit-kde-agent
 power-profiles-daemon
 powerdevil
 print-manager
+protobuf
 python-pip
 python-pipx
 python-pynvim
