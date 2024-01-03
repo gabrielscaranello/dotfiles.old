@@ -22,6 +22,10 @@ install_amd:
 	# Install packages from AMD
 	@yay -S --noconfirm $$(cat ./amd_packages | tr '\n', ' ')
 
+install_steam:
+	# Install packages from AMD
+	@yay -S --noconfirm $$(cat ./steam_packages | tr '\n', ' ')
+
 install_nvidia:
 	# Install packages from NVidia
 	# disable gdm
@@ -33,10 +37,6 @@ install_nvidia:
 	# enable services
 	@sudo systemctl enable gdm
 	@sudo systemctl enable switcheroo-control.service
-
-install_flatpak:
-	# Installing flatpak apps
-	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
 
 install_gnome_extensions:
 	# Installing gnome extensions
@@ -64,17 +64,11 @@ setup_gtk_theme:
 	@gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	@dconf write /org/gnome/shell/extensions/user-theme/name "'Catppuccin-Mocha-Standard-Blue-Dark'"
-	# Setup theme for flatpak apps
-	@sudo flatpak override --filesystem=$$HOME/.themes
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-4.0
-	@sudo flatpak override --env=GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
 
 setup_icon_theme:
 	# Defining icons
 	@papirus-folders -C cat-mocha-blue
 	@gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-	@sudo flatpak override --filesystem=$$HOME/.icons
 
 setup_wallpaper:
 	# Coping wallpaper image
@@ -84,18 +78,9 @@ setup_wallpaper:
 	@gsettings set org.gnome.desktop.background picture-uri-dark "file:///$${HOME}/.wallpaper.png"
 	@gsettings set org.gnome.desktop.screensaver picture-uri "file:///$${HOME}/.wallpaper.png"
 
-setup_cursors:
+install_cursors:
 	# Setup cursors
-	# Cloning cursors
-	@rm -rf /tmp/cursors ~/.icons/Catppuccin*
-	@mkdir -p ~/.icons
-	@git clone --depth=1 https://github.com/catppuccin/cursors.git /tmp/cursors
-	# Installing cursors
-	@unzip -oq /tmp/cursors/cursors/Catppuccin-Mocha-Light-Cursors.zip -d ~/.icons
-	# Defining cursors
-	@gsettings set org.gnome.desktop.interface cursor-theme "Catppuccin-Mocha-Light-Cursors"
-	# Defining cursor size
-	@gsettings set org.gnome.desktop.interface cursor-size 24
+	@bash ./scripts/cursor.sh
 
 load_dconf:
 	# Loading dconf
@@ -113,7 +98,7 @@ setup_discord_theme:
 	# Killing discord process
 	@kill $$(pidof -s Discord)
 
-look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors load_dconf
+look: setup_gtk_theme setup_icon_theme setup_wallpaper install_cursors load_dconf
 
 setup_kitty:
 	# Setup kitty
@@ -182,8 +167,11 @@ mimetypes:
 
 enable_services:
 	# Enabling services
-	@sudo systemctl enable --now docker
-	@sudo systemctl enable --now gdm
+	@sudo systemctl enable bluetooth.service
+	@sudo systemctl enable cups
+	@sudo systemctl enable docker
+	@sudo systemctl enable gdm
+	@sudo systemctl enable power-profiles-daemon.service
 
 battery_health_extension:
 	# Install battery health charging
@@ -200,7 +188,6 @@ setup_all:
 	@$(MAKE) install_nvm
 	@$(MAKE) install_gnome_extensions
 	@$(MAKE) setup_term
-	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
 	@$(MAKE) setup_nvim 
 	@$(MAKE) look
