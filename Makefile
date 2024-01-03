@@ -98,7 +98,7 @@ setup_discord_theme:
 	# Killing discord process
 	@kill $$(pidof -s Discord)
 
-look: setup_gtk_theme setup_icon_theme setup_wallpaper install_cursors load_dconf
+look: setup_wallpaper install_cursors load_dconf
 
 setup_kitty:
 	# Setup kitty
