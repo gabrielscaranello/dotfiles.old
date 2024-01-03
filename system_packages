@@ -24,6 +24,7 @@ gimp
 git
 gitflow-cjs
 gnome-bluetooth
+gnome-browser-connector
 gnome-calculator
 gnome-calendar
 gnome-characters
@@ -53,6 +54,7 @@ grim
 gst-libav
 gst-plugins-good
 gtk-engine-murrine
+gufw
 gvfs
 gvfs-afc
 gvfs-goa
@@ -107,7 +109,6 @@ ttf-liberation
 ttf-ms-fonts
 ttf-roboto
 ufw
-gufw
 unzip
 visual-studio-code-bin
 vlc
