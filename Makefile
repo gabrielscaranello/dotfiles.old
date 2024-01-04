@@ -1,4 +1,4 @@
-# Makefile for arch - gnome - nvidia
+# Makefile for arch - KDE Plasma
 
 yay:
 	# Installing yay
