@@ -84,6 +84,7 @@ setup_gtk_theme:
 	@gsettings set org.gnome.desktop.interface gtk-theme "ZorinBlue-Dark"
 	@gsettings set org.gnome.desktop.wm.preferences theme "ZorinBlue-Dark"
 	@dconf write /org/gnome/shell/extensions/user-theme/name "'ZorinBlue-Dark'"
+	@set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
 setup_icon_theme:
 	# Defining icons
