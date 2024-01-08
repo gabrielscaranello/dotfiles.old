@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Define variables
-NODE_VERSION=18
+NODE_VERSION=20
 NVM_VERSION=0.39.3
 
 # Cloning NVM
@@ -22,4 +22,3 @@ npm i -g yarn
 
 # Installing Node Packages
 yarn global add $(cat ./node_packages | tr '\n' ' ')
-
