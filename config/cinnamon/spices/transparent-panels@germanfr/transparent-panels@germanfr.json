@@ -13,7 +13,7 @@
             "Semi-transparent": "panel-semi-transparent"
         },
         "tooltip": "Choose the type of transparency you want.",
-        "value": "panel-transparent-with-shadow"
+        "value": "panel-transparent"
     },
     "theme-defined": {
         "type": "switch",
@@ -27,7 +27,7 @@
         "default": false,
         "description": "Remove theme transparency (experimental)",
         "tooltip": "Remove panel transparency when it's not transparent.",
-        "value": true
+        "value": false
     },
     "section-filters": {
         "type": "section",

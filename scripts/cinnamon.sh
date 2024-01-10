@@ -32,4 +32,3 @@ for extension in "${EXTENSIONS[@]}"; do install "${extension}" "extensions" "$EX
 
 # Copy config
 cp -r ./config/cinnamon/* $CINNAMON_CONFIG_DIR
-sed -i 's,:user_name:,'"$USER_NAME"',g' $CINNAMON_CONFIG_DIR/spices/menu@cinnamon.org/0.json

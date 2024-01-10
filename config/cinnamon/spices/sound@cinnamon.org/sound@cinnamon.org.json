@@ -23,6 +23,13 @@
         "tooltip": "Set keybinding(s) to show the sound applet menu.",
         "value": "<Shift><Super>s"
     },
+    "alwaysShowMuteInput": {
+        "type": "switch",
+        "description": "Always show input switch",
+        "tooltip": "Always show the 'Mute input' switch in the context menu.",
+        "default": false,
+        "value": false
+    },
     "_knownPlayers": {
         "type": "generic",
         "default": [
@@ -33,9 +40,7 @@
         "value": [
             "banshee",
             "vlc",
-            "rhythmbox",
-            "firefox",
-            "spotify"
+            "rhythmbox"
         ]
     },
     "section2": {
@@ -71,6 +76,18 @@
         },
         "description": "Action on middle click",
         "value": "mute"
+    },
+    "middleShiftClickAction": {
+        "type": "combobox",
+        "default": "in_mute",
+        "options": {
+            "Toggle Mute": "mute",
+            "Toggle Mute output": "out_mute",
+            "Toggle Mute input": "in_mute",
+            "Toggle Play / Pause": "player"
+        },
+        "description": "Action on shift+middle click",
+        "value": "in_mute"
     },
     "horizontalScroll": {
         "type": "switch",
@@ -114,5 +131,5 @@
         "description": "Show song artist and title in tooltip",
         "value": false
     },
-    "__md5__": "cd7a99af6fce1f04852ac27d13a3bf55"
+    "__md5__": "ceea7709f6c96376c9f83b9b8ddce0b5"
 }

@@ -30,9 +30,9 @@ install_nvidia:
 	@sudo systemctl enable --now switcheroo-control.service
 	@sudo envycontrol -s nvidia
 
-install_flatpak:
-	# Installing flatpak apps
-	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
+install_steam:
+	# Install packages from Steam
+	@yay -S --noconfirm $$(cat ./steam_packages | tr '\n', ' ')
 
 install_nvm:
 	# Installing NVM
@@ -59,17 +59,11 @@ setup_gtk_theme:
 	@gsettings set org.cinnamon.theme name "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.cinnamon.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.cinnamon.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	# Setup theme for flatpak apps
-	@sudo flatpak override --filesystem=$$HOME/.themes
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-4.0
-	@sudo flatpak override --env=GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
 
 setup_icon_theme:
 	# Defining icons
 	@papirus-folders -C cat-mocha-blue
 	@gsettings set org.cinnamon.desktop.interface icon-theme "Papirus-Dark"
-	@sudo flatpak override --filesystem=$$HOME/.icons
 
 setup_wallpaper:
 	# Coping wallpaper image
@@ -188,6 +182,7 @@ enable_services:
 	@sudo systemctl enable cups
 	@sudo systemctl enable docker
 	@sudo systemctl enable lightdm
+	@sudo systemctl enable power-profiles-daemon.service
 	@sudo systemctl enable touchegg
 
 clean:
@@ -200,7 +195,6 @@ setup_all:
 	@$(MAKE) install_system
 	@$(MAKE) install_nvm
 	@$(MAKE) setup_term
-	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
 	@$(MAKE) setup_nvim 
 	@$(MAKE) setup_cinnamon

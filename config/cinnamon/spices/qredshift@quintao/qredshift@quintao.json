@@ -44,6 +44,7 @@
             "title": "Options",
             "keys": [
                 "enabled",
+                "enableAtStartup",
                 "autoUpdate",
                 "autoUpdateInterval",
                 "adjustmentMethod",
@@ -106,6 +107,13 @@
         "description": "Enabled",
         "value": true
     },
+    "enableAtStartup": {
+        "type": "checkbox",
+        "default": false,
+        "description": "Activate QRedshift as soon as Cinnamon starts up",
+        "tooltip": "(even if it has previously been deactivated)",
+        "value": false
+    },
     "autoUpdate": {
         "type": "checkbox",
         "dependency": "enabledNight=true",
@@ -123,17 +131,14 @@
         "units": "Seconds",
         "step": 1,
         "description": "Update interval",
-        "value": 60.0
+        "value": 60
     },
     "adjustmentMethod": {
         "type": "combobox",
         "default": "randr",
         "description": "Adjustment Method",
         "options": {
-            "wayland": "wayland",
-            "drm": "drm",
             "randr": "randr",
-            "vidmode": "vidmode",
             "dummy": "dummy"
         },
         "tooltip": "Method to use to set color temperature",
@@ -362,5 +367,5 @@
         "type": "label",
         "description": "If you like and use this applet take the time to visit it's page on Cinnamon Spices and give it a star. You only need a github account to do this."
     },
-    "__md5__": "5759908398bd26afb9c0516dfe1360cf"
+    "__md5__": "d4eb4a3692744d4dacf803da73bcc1c3"
 }

@@ -1,8 +1,8 @@
 #! /bin/bash
 
 # Variables
-NODE_VERSION=18
-NVM_VERSION=0.39.3
+NODE_VERSION=20
+NVM_VERSION=0.39.7
 
 # Cloning NVM
 wget -qO- "https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh" | bash
@@ -22,4 +22,3 @@ npm i -g yarn
 
 # Installing Node Packages
 yarn global add $(cat ./node_packages | tr '\n' ' ')
-

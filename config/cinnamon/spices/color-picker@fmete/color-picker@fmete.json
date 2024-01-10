@@ -14,7 +14,7 @@
             "RGB-Color: (250,250,250)": "4"
         },
         "tooltip": "Select the format of the color code, which will be copied to the clipboard by the color picker.",
-        "value": "2"
+        "value": "1"
     },
     "div1": {
         "type": "separator"
@@ -28,7 +28,7 @@
         "default": "true",
         "description": "Show picked color code in a popup notification",
         "tooltip": "Show the picked color code, which has been copied to the clipboard, in a popup notification.",
-        "value": true
+        "value": "true"
     },
     "icon-name": {
         "type": "iconfilechooser",

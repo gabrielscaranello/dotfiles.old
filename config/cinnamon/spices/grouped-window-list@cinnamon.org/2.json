@@ -131,7 +131,7 @@
             "Cycle apps": 2,
             "Cycle windows": 3
         },
-        "value": 1
+        "value": 2
     },
     "left-click-action": {
         "type": "combobox",
@@ -142,7 +142,7 @@
             "Toggle activation of last focused window": 2,
             "Cycle windows": 3
         },
-        "value": 2
+        "value": 3
     },
     "middle-click-action": {
         "type": "combobox",
@@ -163,15 +163,17 @@
             "org.gnome.Terminal.desktop"
         ],
         "value": [
-            "kitty.desktop",
             "nemo.desktop",
+            "kitty.desktop",
             "code.desktop",
             "firefox.desktop",
-            "rest.insomnia.Insomnia.desktop:flatpak",
-            "org.onlyoffice.desktopeditors.desktop:flatpak",
-            "org.gimp.GIMP.desktop:flatpak",
-            "io.dbeaver.DBeaverCommunity.desktop:flatpak",
-            "com.spotify.Client.desktop:flatpak",
+            "google-chrome.desktop",
+            "io.dbeaver.DBeaver.desktop",
+            "insomnium.desktop",
+            "onlyoffice-desktopeditors.desktop",
+            "gimp.desktop",
+            "spotify.desktop",
+            "steam.desktop",
             "discord.desktop",
             "org.telegram.desktop._f3fe17d408312a022c11c6c9d7a1beb8.desktop"
         ]

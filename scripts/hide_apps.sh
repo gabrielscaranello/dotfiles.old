@@ -8,7 +8,6 @@ APPS=(
 	bvnc
 	lstopo
 	nm-connection-editor
-	nvim
 	org.gnome.Extensions
 	qv4l2
 	qvidcap
