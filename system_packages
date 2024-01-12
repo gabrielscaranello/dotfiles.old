@@ -60,7 +60,9 @@ lazygit
 lightdm
 lightdm-settings
 lightdm-slick-greeter
+lua
 luarocks
+man-db
 mintlocale
 mtools
 nemo
@@ -73,12 +75,14 @@ noto-fonts-emoji
 ntfs-3g
 numlockx
 onlyoffice-bin
+openssh
 packagekit
 pacman-contrib
 papirus-folders-catppuccin-git
 papirus-icon-themes
 piper
 power-profiles-daemon
+protobuf
 python-pip
 python-pipx
 python-polib
@@ -115,6 +119,7 @@ xdg-desktop-portal-xapp
 xdg-user-dirs
 xdg-user-dirs-gtk
 xdg-utils
+xorg
 xorg-xclipboard
 zsh
 zsh-completions
