@@ -1,4 +1,2 @@
 @nestjs/cli
 @quasar/cli
-@vue/cli
-tree-sitter-cli

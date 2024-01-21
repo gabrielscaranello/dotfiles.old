@@ -1,129 +1,19 @@
-[org/gnome/TextEditor]
-custom-font='JetBrainsMono Nerd Font 11'
-highlight-current-line=false
-restore-session=false
-style-scheme='Adwaita-dark'
-style-variant='dark'
-use-system-font=false
-
-[org/gnome/calendar]
-active-view='month'
-weather-settings=(false, true, '', @mv nothing)
-
-[org/gnome/desktop/app-folders]
-folder-children=['Utilities', 'YaST']
-
-[org/gnome/desktop/app-folders/folders/Utilities]
-apps=['org.gnome.tweaks.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop', 'org.gnome.font-viewer.desktop', 'qdbusviewer.desktop', 'linguist.desktop', 'designer.desktop', 'assistant.desktop', 'yelp.desktop', 'org.gnome.clocks.desktop']
-categories=['X-GNOME-Utilities']
-name='X-GNOME-Utilities.directory'
-translate=true
-
-[org/gnome/desktop/datetime]
-automatic-timezone=false
-
-[org/gnome/desktop/input-sources]
-current=uint32 0
-sources=[('xkb', 'us+intl')]
-xkb-options=['terminate:ctrl_alt_bksp']
-
-[org/gnome/desktop/interface]
-clock-show-seconds=true
-clock-show-weekday=true
-color-scheme='prefer-dark'
-cursor-size=24
-cursor-theme='Catppuccin-Mocha-Light-Cursors'
-document-font-name='Roboto 11'
-font-antialiasing='grayscale'
-font-hinting='slight'
-font-name='Roboto 11'
-gtk-theme='Catppuccin-Mocha-Standard-Blue-Dark'
-icon-theme='Papirus-Dark'
-monospace-font-name='JetBrainsMono Nerd Font 10'
-
-[org/gnome/desktop/notifications]
-show-in-lock-screen=false
-
-[org/gnome/desktop/peripherals/keyboard]
-numlock-state=true
-
-[org/gnome/desktop/peripherals/mouse]
-accel-profile='flat'
-
-[org/gnome/desktop/peripherals/touchpad]
-two-finger-scrolling-enabled=true
-
-[org/gnome/desktop/privacy]
-old-files-age=uint32 30
-recent-files-max-age=-1
-remember-recent-files=false
-remove-old-temp-files=true
-remove-old-trash-files=true
-report-technical-problems=true
-
-[org/gnome/desktop/screensaver]
-lock-delay=uint32 60
-[org/gnome/desktop/search-providers]
-disabled=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.clocks.desktop', 'org.gnome.Characters.desktop']
-sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
-
-[org/gnome/desktop/sound]
-event-sounds=false
-theme-name='__custom'
-
-[org/gnome/desktop/wm/keybindings]
-show-desktop=['<Super>d']
-
-[org/gnome/desktop/wm/preferences]
-action-middle-click-titlebar='minimize'
-theme='Catppuccin-Mocha-Standard-Blue-Dark'
-titlebar-font='Roboto Bold 11'
-
-[org/gnome/mutter]
-center-new-windows=true
-
-[org/gnome/nautilus/list-view]
-use-tree-view=true
-
-[org/gnome/nautilus/preferences]
-default-folder-viewer='icon-view'
-migrated-gtk-settings=true
-search-filter-time-type='last_modified'
-search-view='list-view'
-show-create-link=true
-show-delete-permanently=true
-
-[org/gnome/settings-daemon/plugins/color]
-night-light-enabled=true
-night-light-temperature=uint32 4700
-
-[org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-home=['<Super>e']
-
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
-binding='<Control><Alt>t'
-command='kitty --start-as=maximized'
-name='kitty'
-
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
-binding='<Shift><Super>s'
-command='flameshot gui'
-name='flameshot'
-
-[org/gnome/shell]
-app-picker-layout=[{'org.gnome.Calculator.desktop': <{'position': <0>}>, 'org.gnome.Calendar.desktop': <{'position': <1>}>, 'org.gnome.Settings.desktop': <{'position': <2>}>, 'org.gnome.Contacts.desktop': <{'position': <3>}>, 'org.flameshot.Flameshot.desktop': <{'position': <4>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <5>}>, 'gnome-system-monitor.desktop': <{'position': <6>}>, 'org.freedesktop.Piper.desktop': <{'position': <7>}>, 'org.gnome.Software.desktop': <{'position': <8>}>, 'vlc.desktop': <{'position': <9>}>, 'Utilities': <{'position': <10>}>, 'io.missioncenter.MissionCenter.desktop': <{'position': <11>}>, 'com.valvesoftware.Steam.desktop': <{'position': <12>}>, 'timeshift-gtk.desktop': <{'position': <13>}>}]
-disable-user-extensions=false
-disabled-extensions=['appindicatorsupport@rgcjonas.gmail.com']
-enabled-extensions=['blur-my-shell@aunetx', 'caffeine@patapon.info', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-selector@maestroschan.fr', 'order-extensions@wa4557.github.com', 'pano@elhan.io', 'rounded-window-corners@yilozt', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'AlphabeticalAppGrid@stuarthayhurst', 'top-bar-organizer@julian.gse.jsts.xyz', 'trayIconsReloaded@selfmade.pl', 'wireless-hid@chlumskyvaclav.gmail.com', 'arch-update@RaphaelRochet', 'emoji-copy@felipeftn']
-favorite-apps=['kitty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'org.gnome.TextEditor.desktop', 'firefox.desktop', 'chromium-browser.desktop', 'rest.insomnia.Insomnia.desktop', 'org.onlyoffice.desktopeditors.desktop', 'org.gimp.GIMP.desktop', 'io.dbeaver.DBeaverCommunity.desktop', 'com.spotify.Client.desktop', 'discord.desktop']
-
 [org/gnome/shell/extensions/blur-my-shell/appfolder]
 blur=true
+customize=false
 style-dialogs=2
 
 [org/gnome/shell/extensions/blur-my-shell/applications]
 blur=false
+
+[org/gnome/shell/extensions/blur-my-shell/dash-to-dock]
+blur=true
+
+[org/gnome/shell/extensions/blur-my-shell/dash-to-panel]
+blur-original-panel=false
+
+[org/gnome/shell/extensions/blur-my-shell/hidetopbar]
+compatibility=false
 
 [org/gnome/shell/extensions/blur-my-shell/lockscreen]
 blur=true
@@ -134,14 +24,23 @@ style-components=1
 
 [org/gnome/shell/extensions/blur-my-shell/panel]
 blur=true
+customize=false
+override-background=true
+override-background-dynamically=true
+static-blur=true
+style-panel=0
 unblur-in-overview=true
 
 [org/gnome/shell/extensions/blur-my-shell/screenshot]
 blur=true
 
+[org/gnome/shell/extensions/blur-my-shell/window-list]
+blur=false
+
 [org/gnome/shell/extensions/caffeine]
-duration-timer=2
-indicator-position-max=1
+countdown-timer=10
+duration-timer=1
+indicator-position-max=4
 restore-state=true
 show-indicator='only-active'
 
@@ -162,6 +61,7 @@ overlay-icon-size=128.0
 perspective-correction-method='Move Camera'
 position='Bottom'
 preview-to-monitor-ratio=0.90000000000000002
+switcher-background-color=(0.53725490196078429, 0.70588235294117652, 0.98039215686274506)
 switcher-looping-method='Flip Stack'
 switcher-style='Coverflow'
 
@@ -170,10 +70,16 @@ active-item-border-color='rgb(137,180,250)'
 hovered-item-border-color='rgb(137,180,250)'
 incognito-window-background-color='rgba(7,7,33,0.92)'
 is-in-incognito=false
+item-date-font-family='Roboto'
+item-date-font-size=11
+item-title-font-family='Roboto'
+item-title-font-size=20
 keep-search-entry=false
 open-links-in-browser=false
 paste-on-select=false
 play-audio-on-copy=false
+search-bar-font-family='Roboto'
+search-bar-font-size=14
 send-notification-on-copy=false
 show-indicator=false
 window-background-color='rgba(17,17,27,0.92)'
@@ -231,31 +137,8 @@ body-font-size=14
 header-bg-color='rgb(137,180,250)'
 header-color='rgb(255,255,255)'
 
-[org/gnome/shell/extensions/rounded-window-corners]
-custom-rounded-corner-settings=@a{sv} {}
-enable-preferences-entry=true
-global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 8>, 'smoothing': <uint32 0>, 'enabled': <true>}
-settings-version=uint32 5
-tweak-kitty-terminal=true
-
-[org/gnome/shell/extensions/top-bar-organizer]
-center-box-order=['dateMenu']
-left-box-order=['activities', 'vitalsMenu', 'appMenu']
-right-box-order=['TrayIconsReloaded', 'EmojisMenu', 'docker-menu', 'color-picker@tuberry', 'wireless-hid', 'screenRecording', 'screenSharing', 'dwellClick', 'a11y', 'keyboard', 'quickSettings']
-
-[org/gnome/shell/extensions/trayIconsReloaded]
-icon-brightness=0
-icon-contrast=0
-icon-margin-horizontal=0
-icon-padding-horizontal=12
-icon-padding-vertical=0
-icon-saturation=0
-icon-size=20
-icons-limit=4
-invoke-to-workspace=false
-position-weight=0
-tray-margin-left=0
-tray-margin-right=0
+[org/gnome/shell/extensions/user-theme]
+name='Catppuccin-Mocha-Standard-Blue-Dark'
 
 [org/gnome/shell/extensions/vitals]
 alphabetize=true
@@ -268,25 +151,7 @@ show-system=false
 update-time=2
 
 [org/gnome/shell/extensions/wireless-hid]
-hide-elan=false
+hide-elan=true
 hide-unknown-battery-state=true
+panel-box-index=4
 
-[org/gnome/system/location]
-enabled=true
-
-[org/gtk/gtk4/settings/file-chooser]
-show-hidden=false
-sort-directories-first=true
-
-[org/gtk/settings/file-chooser]
-date-format='regular'
-location-mode='path-bar'
-show-hidden=false
-show-size-column=true
-show-type-column=true
-sort-column='name'
-sort-directories-first=false
-sort-order='ascending'
-type-format='category'
-window-position=(345, 82)
-window-size=(1231, 902)

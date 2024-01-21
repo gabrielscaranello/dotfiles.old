@@ -30,18 +30,24 @@ install_system: update_system add_repos
 	# Installing system packages
 	@sudo dnf install -y $$(cat ./system_packages | tr '\n' ' ')
 
+install_steam:
+	# Installing steam packages
+	@sudo dnf install -y $$(cat ./steam_packages | tr '\n' ' ')
+
 install_multimedia_codecs:
 	# Installing multimedia codecs
 	@sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
 	@sudo dnf install -y lame\* --exclude=lame-devel
 
-install_flatpak:
-	# Installing flatpak
-	# Add flathub repo
-	@set +e; sudo flatpak remote-delete flathub; set -e;
-	@sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-	# Installing flatpak apps
-	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
+install_nvidia_drivers:
+	# Add envycontrol copr
+	@sudo dnf copr enable sunwire/envycontrol -y
+	# Installing nvidia drivers
+	@sudo dnf install akmod-nvidia xorg-x11-drv-nvidia xorg-x11-drv-nvidia-cuda python3-envycontrol
+	# Enable akmods
+	@sudo akmods --force
+	# Enable dracut
+	@sudo dracut --force
 
 install_gnome_extensions:
 	# Installing gnome extensions
@@ -55,6 +61,10 @@ install_gnome_extensions:
 install_nvm:
 	# Installing NVM
 	@bash ./scripts/nvm.sh
+
+install_insomnium:
+	# Installing Insomnium
+	@bash ./scripts/insomnium.sh
 
 install_telegram:
 	# Installing Telegram
@@ -82,11 +92,6 @@ setup_gtk_theme:
 	@gsettings set org.gnome.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.gnome.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	@dconf write /org/gnome/shell/extensions/user-theme/name "'Catppuccin-Mocha-Standard-Blue-Dark'"
-	# Setup theme for flatpak apps
-	@sudo flatpak override --filesystem=$$HOME/.themes
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-4.0
-	@sudo flatpak override --env=GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
 
 setup_icon_theme:
 	# Defining icons
@@ -97,7 +102,6 @@ setup_icon_theme:
 	@bash -c "cd /tmp/catppuccin-papirus-folders && sudo cp -r src/* /usr/share/icons/Papirus && sudo make install"
 	@papirus-folders -C cat-mocha-blue
 	@gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-	@sudo flatpak override --filesystem=$$HOME/.icons
 
 setup_wallpaper:
 	# Coping wallpaper image
@@ -167,7 +171,6 @@ copy_configs:
 	@sudo rm -rf ~/.config/flameshot /etc/timeshift/timeshift.json
 	# Coping files
 	@cp -r ./config/flameshot ~/.config/flameshot
-	@sudo cp ./config/timeshift.json /etc/timeshift/timeshift.json
 
 setup_oh_my_zsh:
 	# Setup oh-my-zsh
@@ -216,8 +219,6 @@ enable_services:
 	# Enabling services
 	# Docker
 	@sudo systemctl enable --now docker
-	# Numlock
-	@sudo sed -i 's/exit 0/if [ -x \/usr\/bin\/numlockx ]; then \/usr\/bin\/numlockx on; fi;\n\nexit 0/g' /etc/gdm/Init/Default
 
 clean:
 	# Removing unused packages
@@ -229,8 +230,8 @@ setup_all:
 	@$(MAKE) install_system
 	@$(MAKE) install_multimedia_codecs
 	@$(MAKE) install_nvm
-	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
+	@$(MAKE) install_insomnium
 	@$(MAKE) install_jetbrains_fonts
 	@$(MAKE) install_git_flow_cjs
 	@$(MAKE) setup_term
