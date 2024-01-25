@@ -47,7 +47,7 @@ kscreenlocker
 kwallet-pam
 lazydocker
 lazygit
-lightly-boehs-git
+lightly-git 
 lua
 luarocks
 man-db

@@ -128,7 +128,6 @@ hide_apps:
 enable_services:
 	# Enabling services
 	@sudo systemctl enable bluetooth.service
-	@sudo systemctl enable cronie.service
 	@sudo systemctl enable cups
 	@sudo systemctl enable docker
 	@sudo systemctl enable sddm
