@@ -23,13 +23,13 @@ install() {
 }
 
 # clean and recreate destination
-rm -rf $APPLETS_DIR $EXTENSIONS_DIR $CINNAMON_CONFIG_DIR
-mkdir -p $APPLETS_DIR $EXTENSIONS_DIR $CINNAMON_CONFIG_DIR
+rm -rf $APPLETS_DIR $EXTENSIONS_DIR # $CINNAMON_CONFIG_DIR
+mkdir -p $APPLETS_DIR $EXTENSIONS_DIR # $CINNAMON_CONFIG_DIR
 
 # Install
 for applet in "${APPLETS[@]}"; do install "${applet}" "applets" "$APPLETS_DIR"; done
 for extension in "${EXTENSIONS[@]}"; do install "${extension}" "extensions" "$EXTENSIONS_DIR"; done
 
 # Copy config
-cp -r ./config/cinnamon/* $CINNAMON_CONFIG_DIR
-sed -i 's,:user_name:,'"$USER_NAME"',g' $CINNAMON_CONFIG_DIR/spices/menu@cinnamon.org/0.json
+# cp -r ./config/cinnamon/* $CINNAMON_CONFIG_DIR
+# sed -i 's,:user_name:,'"$USER_NAME"',g' $CINNAMON_CONFIG_DIR/spices/menu@cinnamon.org/0.json

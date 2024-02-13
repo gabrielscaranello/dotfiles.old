@@ -8,6 +8,14 @@ add_repos:
 	@sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 	@sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 	@rm -f packages.microsoft.gpg
+	# Onlyoffice
+	@sudo rm -rf /usr/share/keyrings/onlyoffice.gpg /etc/apt/sources.list.d/onlyoffice.list
+	@mkdir -p -m 700 ~/.gnupg
+	@gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
+	@chmod 644 /tmp/onlyoffice.gpg
+	@sudo chown root:root /tmp/onlyoffice.gpg
+	@sudo mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
+	@echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | sudo tee -a /etc/apt/sources.list.d/onlyoffice.list
 	# Docker
 	@sudo rm -rf /etc/apt/keyrings/docker.gpg /etc/apt/sources.list.d/docker.list
 	@sudo install -m 0755 -d /etc/apt/keyrings
@@ -20,9 +28,12 @@ add_repos:
 	# Papirus icon theme
 	@set +e; sudo add-apt-repository -r -y ppa:papirus/papirus; set -e;
 	@sudo add-apt-repository -y ppa:papirus/papirus
-	# Graphics drivers
-	@set +e; sudo add-apt-repository -r -y ppa:kisak/kisak-mesa; set -e;
-	@sudo add-apt-repository -y ppa:kisak/kisak-mesa
+	# Neovim
+	@set +e; sudo add-apt-repository -r -y ppa:neovim-ppa/unstable; set -e;
+	@sudo add-apt-repository -y ppa:neovim-ppa/unstable
+	# Golang
+	@set +e; sudo add-apt-repository -r -y ppa:longsleep/golang-backports; set -e;
+	@sudo add-apt-repository -y ppa:longsleep/golang-backports
 
 update_system:
 	# Add nala
@@ -33,16 +44,11 @@ update_system:
 	# Remove unused packages
 	@sudo nala purge -y $$(cat ./packages_to_remove | tr '\n' ' ')
 	# Updating system
-	@sudo nala update
 	@sudo nala upgrade -y
 
 install_system: update_system
 	# Installing system packages
 	@sudo nala install -y $$(cat ./system_packages | tr '\n' ' ')
-
-install_flatpak:
-	# Installing flatpak apps
-	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
 
 install_nvm:
 	# Installing NVM
@@ -55,6 +61,10 @@ install_telegram:
 install_discord:
 	# Installing Discord
 	@bash ./scripts/discord.sh
+
+install_dbeaver:
+	# Installing DBeaver
+	@bash ./scripts/dbeaver.sh
 
 install_bottom:
 	# Installing Bottom
@@ -71,10 +81,6 @@ install_lazydocker:
 install_jetbrains_fonts:
 	# Installing Jetbrains Fonts
 	@bash ./scripts/jetbrains_fonts.sh
-
-install_neovim:
-	# Installing Neovim
-	@bash ./scripts/neovim.sh
 
 install_git_flow_cjs:
 	# Installing Git flow CJS
@@ -98,11 +104,6 @@ setup_gtk_theme:
 	@gsettings set org.cinnamon.theme name "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.cinnamon.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.cinnamon.desktop.wm.preferences theme "Catppuccin-Mocha-Standard-Blue-Dark"
-	# Setup theme for flatpak apps
-	@sudo flatpak override --filesystem=$$HOME/.themes
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-3.0
-	@sudo flatpak override --filesystem=$$HOME/.config/gtk-4.0
-	@sudo flatpak override --env=GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
 
 setup_icon_theme:
 	# Defining icons
@@ -113,14 +114,13 @@ setup_icon_theme:
 	@bash -c "cd /tmp/catppuccin-papirus-folders && sudo cp -r src/* /usr/share/icons/Papirus && sudo make install"
 	@papirus-folders -C cat-mocha-blue
 	@gsettings set org.cinnamon.desktop.interface icon-theme "Papirus-Dark"
-	@sudo flatpak override --filesystem=$$HOME/.icons
 
 setup_wallpaper:
 	# Coping wallpaper image
 	@sudo mkdir -p /usr/share/backgrounds/user
-	@sudo cp ./assets/wallpaper.jpg /usr/share/backgrounds/user/wallpaper.jpg
+	@sudo cp ./assets/wallpaper.png /usr/share/backgrounds/user/wallpaper.png
 	# Defining wallpaper
-	@gsettings set org.cinnamon.desktop.background picture-uri "file:////usr/share/backgrounds/user/wallpaper.jpg"
+	@gsettings set org.cinnamon.desktop.background picture-uri "file:////usr/share/backgrounds/user/wallpaper.png"
 
 setup_cursors:
 	# Setup cursors
@@ -141,7 +141,7 @@ setup_cursors:
 
 load_dconf:
 	# Loading dconf
-	@dconf load / < ./config/dconf
+	# @dconf load / < ./config/dconf
 
 setup_discord_theme:
 	# Setup discord theme
@@ -241,13 +241,11 @@ clean:
 setup_all: 
 	@$(MAKE) install_system
 	@$(MAKE) install_nvm
-	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
 	@$(MAKE) install_discord
 	@$(MAKE) install_bottom
 	@$(MAKE) install_lazygit
 	@$(MAKE) install_lazydocker
-	@$(MAKE) install_neovim
 	@$(MAKE) install_jetbrains_fonts
 	@$(MAKE) install_git_flow_cjs
 	@$(MAKE) setup_term
