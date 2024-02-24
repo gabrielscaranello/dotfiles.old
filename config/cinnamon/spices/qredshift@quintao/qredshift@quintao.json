@@ -44,6 +44,7 @@
             "title": "Options",
             "keys": [
                 "enabled",
+                "enableAtStartup",
                 "autoUpdate",
                 "autoUpdateInterval",
                 "adjustmentMethod",
@@ -104,7 +105,15 @@
         "type": "checkbox",
         "default": false,
         "description": "Enabled",
+        "tooltip": "Automatically disabled under Wayland due to redshift not being yet supported by Wayland",
         "value": true
+    },
+    "enableAtStartup": {
+        "type": "checkbox",
+        "default": false,
+        "description": "Reactivate QRedshift as soon as Cinnamon starts up",
+        "tooltip": "Won't work under Wayland due to redshift not being yet supported by Wayland",
+        "value": false
     },
     "autoUpdate": {
         "type": "checkbox",
@@ -123,7 +132,7 @@
         "units": "Seconds",
         "step": 1,
         "description": "Update interval",
-        "value": 60.0
+        "value": 60
     },
     "adjustmentMethod": {
         "type": "combobox",
@@ -215,7 +224,7 @@
         "units": "K",
         "step": 5,
         "description": "Temperature",
-        "value": 4900
+        "value": 4700.0
     },
     "dayBrightness": {
         "type": "spinbutton",
@@ -362,5 +371,5 @@
         "type": "label",
         "description": "If you like and use this applet take the time to visit it's page on Cinnamon Spices and give it a star. You only need a github account to do this."
     },
-    "__md5__": "5759908398bd26afb9c0516dfe1360cf"
+    "__md5__": "b3ee04b37f373becf34278ca711f12ac"
 }

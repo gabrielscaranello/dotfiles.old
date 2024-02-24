@@ -167,12 +167,12 @@
             "nemo.desktop",
             "code.desktop",
             "firefox.desktop",
-            "rest.insomnia.Insomnia.desktop:flatpak",
-            "org.onlyoffice.desktopeditors.desktop:flatpak",
-            "org.gimp.GIMP.desktop:flatpak",
-            "io.dbeaver.DBeaverCommunity.desktop:flatpak",
-            "com.spotify.Client.desktop:flatpak",
+            "google-chrome.desktop",
+            "onlyoffice-desktopeditors.desktop",
+            "dbeaver-ce.desktop",
+            "gimp.desktop",
             "discord.desktop",
+            "steam.desktop",
             "org.telegram.desktop._f3fe17d408312a022c11c6c9d7a1beb8.desktop"
         ]
     },

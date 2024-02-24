@@ -1,4 +1,4 @@
-# Makefile for fedora
+# Makefile for mint
 
 add_repos:
 	# Adding repos
@@ -62,6 +62,10 @@ install_discord:
 	# Installing Discord
 	@bash ./scripts/discord.sh
 
+install_chrome:
+	# Installing Google Chrome
+	@bash ./scripts/chrome.sh
+
 install_dbeaver:
 	# Installing DBeaver
 	@bash ./scripts/dbeaver.sh
@@ -98,8 +102,12 @@ setup_gtk_theme:
 	@git clone --recurse-submodules https://github.com/catppuccin/gtk.git /tmp/gtk-theme
 	# Installing build and setup GTK Theme
 	@bash -c "cd /tmp/gtk-theme && virtualenv -p python3 venv && source venv/bin/activate && pip install -r requirements.txt && python install.py mocha -a blue -s standard -l --tweaks rimless"
-	# Copy to system
-	@sudo cp -r ~/.themes/Catppuccin-Mocha-Standard-Blue-* /usr/share/themes
+	# Move to system
+	@sudo mv ~/.themes/Catppuccin-Mocha-Standard-Blue-* /usr/share/themes
+	# Link gtk-4
+	@ln -fs /usr/share/themes/Catppuccin-Mocha-Standard-Blue-Dark/gtk-4.0/assets ~/.config/gtk-4.0/assets
+	@ln -fs /usr/share/themes/Catppuccin-Mocha-Standard-Blue-Dark/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css
+	@ln -fs /usr/share/themes/Catppuccin-Mocha-Standard-Blue-Dark/gtk-4.0/gtk-dark.css ~/.config/gtk-4.0/gtk-dark.css
 	# Defining themes
 	@gsettings set org.cinnamon.theme name "Catppuccin-Mocha-Standard-Blue-Dark"
 	@gsettings set org.cinnamon.desktop.interface gtk-theme "Catppuccin-Mocha-Standard-Blue-Dark"
@@ -124,24 +132,14 @@ setup_wallpaper:
 
 setup_cursors:
 	# Setup cursors
-	# Cloning cursors
-	@rm -rf /tmp/cursors
-	@sudo rm -rf /usr/share/icons/Catppuccin*
-	@rm -rf ~/.icons/Catppuccin-Mocha-Light-Cursors
-	@mkdir -p ~/.icons
-	@git clone --depth=1 https://github.com/catppuccin/cursors.git /tmp/cursors
-	# Installing cursors
-	@unzip -oq /tmp/cursors/cursors/Catppuccin-Mocha-Light-Cursors.zip -d ~/.icons
-	# Copy to system
-	@sudo cp -r ~/.icons/Catppuccin-Mocha-Light-Cursors /usr/share/icons/Catppuccin-Mocha-Light-Cursors
 	# Defining cursors
-	@gsettings set org.cinnamon.desktop.interface cursor-theme "Catppuccin-Mocha-Light-Cursors"
+	@gsettings set org.cinnamon.desktop.interface cursor-theme "Bibata-Modern-Ice"
 	# Defining cursor size
-	@gsettings set org.cinnamon.desktop.interface cursor-size 24
+	@gsettings set org.cinnamon.desktop.interface cursor-size 20
 
 load_dconf:
 	# Loading dconf
-	# @dconf load / < ./config/dconf
+	@dconf load / < ./config/dconf
 
 setup_discord_theme:
 	# Setup discord theme
@@ -155,7 +153,7 @@ setup_discord_theme:
 	# Killing discord process
 	@kill $$(pidof -s Discord)
 
-look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors load_dconf
+look: setup_gtk_theme setup_icon_theme setup_wallpaper setup_cursors setup_discord_theme load_dconf
 
 setup_kitty:
 	# Setup kitty
@@ -225,8 +223,6 @@ enable_services:
 	# Enabling services
 	# Docker
 	@sudo systemctl enable --now docker
-	# Plank
-	@plank > /dev/null 2>&1 &
 
 purge_xterm:
 	# Purging xterm
@@ -241,13 +237,15 @@ clean:
 setup_all: 
 	@$(MAKE) install_system
 	@$(MAKE) install_nvm
-	@$(MAKE) install_telegram
-	@$(MAKE) install_discord
 	@$(MAKE) install_bottom
-	@$(MAKE) install_lazygit
-	@$(MAKE) install_lazydocker
-	@$(MAKE) install_jetbrains_fonts
+	@$(MAKE) install_chrome
+	@$(MAKE) install_dbeaver
+	@$(MAKE) install_discord
 	@$(MAKE) install_git_flow_cjs
+	@$(MAKE) install_jetbrains_fonts
+	@$(MAKE) install_lazydocker
+	@$(MAKE) install_lazygit
+	@$(MAKE) install_telegram
 	@$(MAKE) setup_term
 	@$(MAKE) setup_cinnamon
 	@$(MAKE) setup_nvim
