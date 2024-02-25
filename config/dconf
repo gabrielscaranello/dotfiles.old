@@ -129,10 +129,12 @@ screensaver=['<Control><Alt>l', '<Super>l']
 screenshot=@as []
 
 [org/cinnamon/desktop/keybindings/wm]
+maximize=@as []
 move-to-workspace-left=['<Control><Shift><Alt>Left', '<Shift><Super>Page_Up']
 move-to-workspace-right=['<Control><Shift><Alt>Right', '<Shift><Super>Page_Down']
 switch-to-workspace-left=['<Control><Alt>Left', '<Super>Page_Up']
 switch-to-workspace-right=['<Control><Alt>Right', '<Super>Page_Down']
+toggle-maximized=['<Alt>F10', '<Super>m']
 
 [org/cinnamon/desktop/media-handling]
 autorun-never=false
@@ -372,7 +374,6 @@ skip-newer=false
 show-path=false
 
 [org/gnome/gnome-system-monitor]
-current-tab='disks'
 maximized=false
 network-total-in-bits=false
 show-dependencies=false
@@ -390,6 +391,7 @@ layouts=['us\tintl', 'br']
 
 [org/gnome/nm-applet]
 disable-connected-notifications=true
+disable-disconnected-notifications=true
 
 [org/gnome/nm-applet/eap/0cb0bfc3-3b6b-358e-bf51-7db524960a84]
 ignore-ca-cert=false
@@ -415,7 +417,6 @@ sort-column='name'
 sort-directories-first=false
 sort-order='ascending'
 type-format='category'
-window-position=(359, 71)
 window-size=(1203, 902)
 
 [org/nemo/desktop]
