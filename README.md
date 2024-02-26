@@ -3,8 +3,8 @@
 <!--toc:start-->
 - [Dotfiles \[Linux Mint\]](#dotfiles-linux-mint)
   - [About](#about)
-  - [Installation](#installation)
   - [Why I use Linux Mint?](#why-i-use-linux-mint)
+  - [Installation details](#installation-details)
   - [Usage](#usage)
   - [Preview](#preview)
   - [Links](#links)
@@ -19,7 +19,18 @@ daily life. Use as an example, never as an absolute truth! 😉
 
 Thanks if you have suggestions for improvement. Make forks at will... 🫣
 
-## Installation
+## Why I use Linux Mint?  
+
+I've been in the "Linux world" since 2018 and over the years I've installed and tested many distros, from different bases, such as Ubuntu, Fedora, PopOS, ZorinOS, Arch Linux and also Linux Mint.  
+
+During this adventure I learned a lot, how each of the distros behave, their concepts and philosophies.
+I really liked being able to install Arch Linux, I tested it with several interfaces, such as Gnome, Plasma and Cinnamon. But in the end I decided to go back to using Linux Mint instead of Arch Linux.  
+
+**Why use Linux Mint?** This was the first distro I used that opened the doors to this world, I used it for almost two years before testing other distros, and I feel at home returning to it now. I see it as a strong foundation for both new and advanced users.  
+
+I believe the Linux world is amazing, and applying it to building desktop systems is extremely important. Each person should be able to choose the OS that will best serve them to perform their day to day work and have fun. 
+
+## Installation details
 
 Make an installation using ISO file found in [official website](https://www.linuxmint.com/).
 
@@ -37,17 +48,6 @@ Make an installation using ISO file found in [official website](https://www.linu
 | Installed Apps       | All included in [system_packages](./system_packages) file                                                                                                   |
 | More Apps            | Bottom, DBeaver, Discord, Gitflow CJS, Lazydocker, Lazygit                                                                                                  |
 
-
-## Why I use Linux Mint?
-
-I've been in the "Linux world" since 2018 and over the years I've installed and tested many distros, from different bases, such as Ubuntu, Fedora, PopOS, ZorinOS, Arch Linux and also Linux Mint.  
-
-During this adventure I learned a lot, how each of the distros behave, their concepts and philosophies.
-I really liked being able to install Arch Linux, I tested it with several interfaces, such as Gnome, Plasma and Cinnamon. But in the end I decided to go back to using Linux Mint instead of Arch Linux.  
-
-**Why use Linux Mint?** This was the first distro I used that opened the doors to this world, I used it for almost two years before testing other distros, and I feel at home returning to it now. I see it as a strong foundation for both new and advanced users.  
-
-I believe the Linux world is amazing, and applying it to building desktop systems is extremely important. Each person should be able to choose the OS that will best serve them to perform their day to day work and have fun. 
 
 ## Usage
 
