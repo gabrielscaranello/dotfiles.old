@@ -10,14 +10,14 @@ OPT_DIR="$HOME/.local/opt"
 TARGET_DIR="$OPT_DIR/telegram-desktop"
 
 # Remove old file
-rm -rf $OUTPUT_DIR $TARGET_DIR $EXTRACT_DIR
+rm -rf "$OUTPUT_DIR" "$TARGET_DIR" $EXTRACT_DIR
 
 # Download file
-wget -c $DOWNLOAD_URL -O $OUTPUT_DIR
+wget -c "$DOWNLOAD_URL" -O "$OUTPUT_DIR"
 
 # Extract file
-mkdir -p $OPT_DIR
-tar -xf $OUTPUT_DIR -C /tmp
-mv $EXTRACT_DIR $TARGET_DIR
+mkdir -p "$OPT_DIR"
+tar -xf "$OUTPUT_DIR" -C /tmp
+mv $EXTRACT_DIR "$TARGET_DIR"
 
 echo "Telegram installed into $TARGET_DIR"

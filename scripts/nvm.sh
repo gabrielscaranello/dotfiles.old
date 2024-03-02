@@ -1,4 +1,5 @@
 #! /bin/bash
+# shellcheck disable=2155,2002,2046
 
 # Define variables
 NODE_VERSION=20
@@ -22,4 +23,3 @@ npm i -g yarn
 
 # Installing Node Packages
 yarn global add $(cat ./node_packages | tr '\n' ' ')
-

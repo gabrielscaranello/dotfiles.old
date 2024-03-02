@@ -9,14 +9,14 @@ EXTRACT_DIR="/tmp/lazygit"
 TARGET_DIR="/usr/local/bin"
 
 # Remove old file
-rm -rf $OUTPUT_FILE $EXTRACT_DIR
+rm -rf "$OUTPUT_FILE" $EXTRACT_DIR
 
 # Download file
-wget -c $DOWNLOAD_URL -O $OUTPUT_FILE
+wget -c "$DOWNLOAD_URL" -O "$OUTPUT_FILE"
 
 # Extract file
 mkdir -p $EXTRACT_DIR
-tar xf $OUTPUT_FILE -C /tmp
+tar xf "$OUTPUT_FILE" -C /tmp
 sudo install $EXTRACT_DIR $TARGET_DIR
 
 echo "Lazygit installed..."

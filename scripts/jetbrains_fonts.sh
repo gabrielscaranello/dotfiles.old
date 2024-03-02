@@ -10,17 +10,17 @@ FONTS_TO_INSTALL="$FONT_DIR-Regular.ttf $FONT_DIR-Bold.ttf $FONT_DIR-Italic.ttf"
 TARGET_DIR="$HOME/.fonts"
 
 # Remove old file
-rm -rf $OUTPUT_DIR $TMP_DIR
+rm -rf "$OUTPUT_DIR" "$TMP_DIR"
 
 # Download file
-wget -c $DOWNLOAD_URL -O $OUTPUT_DIR
+wget -c "$DOWNLOAD_URL" -O "$OUTPUT_DIR"
 
 # Extract file
-unzip $OUTPUT_DIR -d $TMP_DIR
+unzip "$OUTPUT_DIR" -d "$TMP_DIR"
 
 # Move fonts
-mkdir -p $TARGET_DIR
-cp $FONTS_TO_INSTALL $TARGET_DIR
+mkdir -p "$TARGET_DIR"
+cp "$FONTS_TO_INSTALL" "$TARGET_DIR"
 
 # Update font cache
 fc-cache -f

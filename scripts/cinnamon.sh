@@ -11,7 +11,7 @@ EXTENSIONS_DIR="$CINNAMON_DIR/extensions"
 
 # Install function
 install() {
-	local package=("$1")
+	local package="$1"
 	local type="$2"
 	local destination="$3"
 	local file_name="$package.zip"
