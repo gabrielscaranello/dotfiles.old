@@ -1,230 +1,226 @@
-[apps/psensor]
-graph-alpha-channel-enabled=false
-graph-background-alpha=1.0
-graph-background-color='#1e1e1e1e2e2e'
-graph-foreground-color='#cdcdd6d6f4f4'
-graph-monitoring-duration=20
-graph-smooth-curves-enabled=true
-graph-update-interval=2
-interface-hide-on-startup=true
-interface-menu-bar-disabled=true
-interface-sensorlist-position=0
-interface-temperature-unit=0
-interface-unity-launcher-count-disabled=true
-interface-window-decoration-disabled=false
-interface-window-divider-pos=315
-interface-window-h=319
-interface-window-keep-below-enabled=false
-interface-window-restore-enabled=true
-interface-window-w=1094
-interface-window-x=101
-interface-window-y=100
-notif-script=''
-provider-atiadlsdk-enabled=true
-provider-gtop2-enabled=true
-provider-hddtemp-enabled=false
-provider-libatasmart-enabled=false
-provider-lmsensors-enabled=true
-provider-nvctrl-enabled=false
-provider-udisks2-enabled=true
-sensor-update-interval=2
-slog-enabled=false
-slog-interval=300
+[com/zorin/desktop/auto-theme]
+day-theme='ZorinBlue-Light'
+enabled=false
+night-theme='ZorinBlue-Dark'
+schedule-from=20.0
+schedule-to=6.0
 
-[org/cinnamon]
-alttab-switcher-delay=100
-alttab-switcher-style='coverflow'
-alttab-switcher-warp-mouse-pointer=false
-desklet-snap-interval=25
-enabled-applets=['panel1:left:0:menu@cinnamon.org:0', 'panel1:right:10:systray@cinnamon.org:3', 'panel1:right:6:xapp-status@cinnamon.org:4', 'panel1:right:5:notifications@cinnamon.org:5', 'panel1:right:11:printers@cinnamon.org:6', 'panel1:right:12:removable-drives@cinnamon.org:7', 'panel1:right:18:keyboard@cinnamon.org:8', 'panel1:right:13:favorites@cinnamon.org:9', 'panel1:right:14:network@cinnamon.org:10', 'panel1:right:15:sound@cinnamon.org:11', 'panel1:right:17:power@cinnamon.org:12', 'panel1:center:0:calendar@cinnamon.org:13', 'panel1:right:9:inhibit@cinnamon.org:15', 'panel1:right:8:qredshift@quintao:19', 'panel1:right:7:color-picker@fmete:23', 'panel1:right:19:user@cinnamon.org:30', 'panel2:center:0:grouped-window-list@cinnamon.org:31']
-enabled-desklets=@as []
-enabled-extensions=['transparent-panels@germanfr']
-favorite-apps=@as []
-hotcorner-layout=['expo:true:0', 'scale:false:0', 'scale:true:0', 'desktop:true:0']
-next-applet-id=37
-next-desklet-id=3
-no-adjacent-panel-barriers=false
-panel-edit-mode=false
-panel-zone-icon-sizes='[{"panelId": 1, "left": 0, "center": 24, "right": 16}, {"left": 0, "center": 32, "right": 0, "panelId": 2}]'
-panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 28, "center": 24, "right": 16}, {"left": 28, "center": 28, "right": 28, "panelId": 2}]'
-panel-zone-text-sizes='[{"panelId": 1, "left": 9.5, "center": 10, "right": 10.0}, {"left": 0, "center": 0, "right": 0, "panelId": 2}]'
-panels-autohide=['1:false', '2:true']
-panels-enabled=['1:0:top', '2:0:bottom']
-panels-height=['1:24', '2:40']
-panels-hide-delay=['1:0', '2:0']
-panels-show-delay=['1:0', '2:0']
-window-effect-speed=1
-workspace-expo-view-as-grid=true
-workspace-osd-visible=true
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
 
-[org/cinnamon/cinnamon-session]
-quit-time-delay=60
+[org/gnome/desktop/input-sources]
+per-window=false
+sources=[('xkb', 'us+intl'), ('xkb', 'br')]
+xkb-options=@as []
 
-[org/cinnamon/desktop/applications/calculator]
-exec='gnome-calculator'
+[org/gnome/desktop/interface]
+clock-show-seconds=true
+clock-show-weekday=true
+color-scheme='prefer-dark'
+cursor-size=20
+cursor-theme='Bibata-Modern-Ice'
+enable-hot-corners=true
+font-antialiasing='grayscale'
+font-hinting='slight'
+gtk-theme='ZorinBlue-Dark'
+icon-theme='ZorinBlue-Dark'
+show-battery-percentage=true
 
-[org/cinnamon/desktop/applications/terminal]
-exec='kitty'
-exec-arg=''
+[org/gnome/desktop/peripherals/mouse]
+accel-profile='flat'
 
-[org/cinnamon/desktop/interface]
-clock-show-date=false
-cursor-blink-time=1200
-first-day-of-week=7
-font-name='Roboto 11'
-gtk-enable-primary-paste=false
-keyboard-layout-prefer-variant-names=false
-keyboard-layout-show-flags=false
-keyboard-layout-use-upper=true
-text-scaling-factor=1.0
+[org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
+two-finger-scrolling-enabled=true
 
-[org/cinnamon/desktop/keybindings]
-custom-list=['custom0', '__dummy__']
-looking-glass-keybinding=@as []
+[org/gnome/desktop/privacy]
+old-files-age=uint32 30
+recent-files-max-age=30
+remember-recent-files=false
+remove-old-temp-files=true
+remove-old-trash-files=true
 
-[org/cinnamon/desktop/keybindings/custom-keybindings/custom0]
-binding=['<Primary><Super>s', '<Shift><Super>s']
+[org/gnome/desktop/search-providers]
+disabled=['org.gnome.Nautilus.desktop', 'org.gnome.Characters.desktop', 'org.gnome.clocks.desktop', 'org.gnome.Terminal.desktop']
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
+
+[org/gnome/desktop/wm/preferences]
+action-middle-click-titlebar='minimize'
+button-layout='appmenu:close'
+theme='ZorinBlue-Dark'
+
+[org/gnome/gedit/plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/gabriel'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[org/gnome/mutter]
+center-new-windows=true
+overlay-key='Super_L'
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=true
+night-light-schedule-automatic=false
+night-light-schedule-from=4.0
+night-light-schedule-to=3.9833333333333334
+night-light-temperature=uint32 4700
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Primary><Super>s'
 command='flameshot gui'
 name='Flameshot'
 
-[org/cinnamon/desktop/keybindings/media-keys]
-screensaver=['<Control><Alt>l', '<Super>l']
+[org/gnome/shell]
+disable-user-extensions=false
+disabled-extensions=['apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'zorin-menu@zorinos.com', 'zorin-taskbar@zorinos.com', 'zorin-window-move-effect@zorinos.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['drive-menu@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'x11gestures@joseexposito.github.io', 'zorin-appindicator@zorinos.com', 'zorin-desktop-icons@zorinos.com', 'zorin-printers@zorinos.com', 'color-picker@tuberry', 'CoverflowAltTab@palatis.blogspot.com', 'easy_docker_containers@red.software.systems', 'emoji-copy@felipeftn', 'pano@elhan.io', 'Vitals@CoreCoding.com', 'wireless-hid@chlumskyvaclav.gmail.com', 'top-bar-organizer@julian.gse.jsts.xyz', 'blur-my-shell@aunetx', 'caffeine@patapon.info']
+last-selected-power-profile='performance'
 
-[org/cinnamon/desktop/keybindings/wm]
-move-to-workspace-left=['<Control><Shift><Alt>Left', '<Shift><Super>Page_Up']
-move-to-workspace-right=['<Control><Shift><Alt>Right', '<Shift><Super>Page_Down']
-switch-to-workspace-left=['<Control><Alt>Left', '<Super>Page_Up']
-switch-to-workspace-right=['<Control><Alt>Right', '<Super>Page_Down']
+[org/gnome/shell/extensions/Battery-Health-Charging]
+charging-mode='max'
+ctl-path='/usr/local/bin/batteryhealthchargingctl-gabriel'
+device-type=12
+icon-style-type=0
+indicator-position-max=3
+polkit-installation-changed=true
+show-battery-panel2=false
+show-system-indicator=false
 
-[org/cinnamon/desktop/media-handling]
-autorun-never=true
-autorun-x-content-ignore=@as []
-autorun-x-content-open-folder=@as []
-autorun-x-content-start-app=@as []
+[org/gnome/shell/extensions/blur-my-shell/appfolder]
+blur=true
+style-dialogs=2
 
-[org/cinnamon/desktop/notifications]
-bottom-notifications=true
-display-notifications=true
-notification-duration=4
-remove-old=true
+[org/gnome/shell/extensions/blur-my-shell/applications]
+blur=false
 
-[org/cinnamon/desktop/peripherals/keyboard]
-delay=uint32 500
-numlock-state=true
-repeat-interval=uint32 30
+[org/gnome/shell/extensions/blur-my-shell/lockscreen]
+blur=true
 
-[org/cinnamon/desktop/peripherals/mouse]
-accel-profile='flat'
-double-click=400
-drag-threshold=8
-speed=0.0
+[org/gnome/shell/extensions/blur-my-shell/overview]
+blur=true
+style-components=1
 
-[org/cinnamon/desktop/peripherals/touchpad]
-speed=0.0
+[org/gnome/shell/extensions/blur-my-shell/panel]
+blur=true
+unblur-in-overview=true
 
-[org/cinnamon/desktop/privacy]
-remember-recent-files=false
+[org/gnome/shell/extensions/blur-my-shell/screenshot]
+blur=true
 
-[org/cinnamon/desktop/screensaver]
-font-date='Roboto 24'
-font-message='Roboto 14'
-font-time='Roboto 64'
+[org/gnome/shell/extensions/caffeine]
+duration-timer=2
+restore-state=true
+show-indicator='only-active'
+toggle-state=true
+user-enabled=true
 
-[org/cinnamon/desktop/sound]
-event-sounds=false
-volume-sound-enabled=false
+[org/gnome/shell/extensions/color-picker]
+enable-shortcut=false
+notify-style=uint32 0
+preview-style=uint32 1
 
-[org/cinnamon/desktop/wm/preferences]
-action-middle-click-titlebar='minimize'
-button-layout=':close'
-min-window-opacity=30
-mouse-button-modifier='<Super>'
-titlebar-font='Roboto Medium 11'
-visual-bell=false
+[org/gnome/shell/extensions/coverflowalttab]
+animation-time=0.25
+dim-factor=0.5
+easing-function='ease-in-out-circ'
+hide-panel=false
+highlight-mouse-over=false
+icon-style='Overlay'
+offset=0
+overlay-icon-size=128.0
+perspective-correction-method='Move Camera'
+position='Bottom'
+preview-to-monitor-ratio=0.90000000000000002
+switcher-looping-method='Flip Stack'
+switcher-style='Coverflow'
 
-[org/cinnamon/gestures]
-enabled=true
-pinch-percent-threshold=uint32 40
-swipe-percent-threshold=uint32 60
+[org/gnome/shell/extensions/pano]
+active-item-border-color='rgb(137,180,250)'
+hovered-item-border-color='rgb(137,180,250)'
+incognito-window-background-color='rgba(7,7,33,0.92)'
+is-in-incognito=false
+keep-search-entry=false
+open-links-in-browser=false
+paste-on-select=false
+play-audio-on-copy=false
+send-notification-on-copy=false
+show-indicator=false
+window-background-color='rgba(17,17,27,0.92)'
+window-height=400
 
-[org/cinnamon/launcher]
-check-frequency=300
-memory-limit=2048
+[org/gnome/shell/extensions/pano/code-item]
+body-bg-color='rgb(30,30,46)'
+body-font-family='JetBrainsMono Nerd Font'
+body-font-size=13
+char-length=600
+header-bg-color='rgb(203,166,247)'
 
-[org/cinnamon/muffin]
-attach-modal-dialogs=true
-draggable-border-width=10
-placement-mode='center'
-tile-maximize=true
-unredirect-fullscreen-windows=true
-workspace-cycle=false
-workspaces-only-on-primary=true
+[org/gnome/shell/extensions/pano/color-item]
+header-bg-color='rgb(203,166,247)'
+metadata-font-family='Roboto'
+metadata-font-size=16
 
-[org/cinnamon/settings-daemon/peripherals/keyboard]
-numlock-state='on'
+[org/gnome/shell/extensions/pano/emoji-item]
+body-bg-color='rgb(249,226,175)'
+header-bg-color='rgb(243,139,168)'
+header-color='rgb(255,255,255)'
 
-[org/cinnamon/settings-daemon/plugins/power]
-sleep-display-ac=1800
-sleep-display-battery=1800
-sleep-inactive-ac-timeout=0
-sleep-inactive-battery-timeout=0
+[org/gnome/shell/extensions/pano/file-item]
+body-bg-color='rgb(30,30,46)'
+body-color='rgb(250,250,250)'
+body-font-family='Roboto'
+body-font-size=13
+header-bg-color='rgb(116,199,236)'
 
-[org/cinnamon/settings-daemon/plugins/xsettings]
-menus-have-icons=true
+[org/gnome/shell/extensions/pano/image-item]
+body-bg-color='rgb(69,71,90)'
+header-bg-color='rgb(243,139,168)'
+metadata-bg-color='rgba(30,30,46,0.79)'
+metadata-font-family='Roboto'
+metadata-font-size=12
 
-[org/cinnamon/sounds]
-login-enabled=false
-logout-enabled=false
-notification-enabled=false
-plug-enabled=false
-switch-enabled=false
-tile-enabled=false
-unplug-enabled=false
+[org/gnome/shell/extensions/pano/link-item]
+body-bg-color='rgb(116,199,236)'
+header-bg-color='rgb(137,180,250)'
+header-color='rgb(255,255,255)'
+metadata-bg-color='rgb(30,30,46)'
+metadata-description-font-family='Roboto'
+metadata-description-font-size=11
+metadata-link-font-family='Roboto'
+metadata-link-font-size=11
+metadata-title-color='rgb(255,255,255)'
+metadata-title-font-family='Roboto'
+metadata-title-font-size=12
 
-[org/cinnamon/theme]
-name='Catppuccin-Mocha-Standard-Blue-Dark'
+[org/gnome/shell/extensions/pano/text-item]
+body-bg-color='rgb(30,30,46)'
+body-color='rgb(205,214,244)'
+body-font-family='Roboto'
+body-font-size=14
+header-bg-color='rgb(137,180,250)'
+header-color='rgb(255,255,255)'
 
-[org/gnome/desktop/a11y/applications]
-screen-keyboard-enabled=false
-screen-reader-enabled=false
+[org/gnome/shell/extensions/top-bar-organizer]
+center-box-order=['dateMenu']
+left-box-order=['activities', 'vitalsMenu', 'appMenu']
+right-box-order=['docker-menu', 'color-picker@tuberry', 'appindicator-kstatusnotifieritem-software-update-available', 'dwellClick', 'EmojisMenu', 'wireless-hid', 'a11y', 'drive-menu', 'printers', 'keyboard', 'screenSharing', 'screenRecording', 'quickSettings']
 
-[org/gnome/desktop/a11y/mouse]
-dwell-click-enabled=false
-dwell-threshold=10
-dwell-time=1.2
-secondary-click-enabled=false
-secondary-click-time=1.2
+[org/gnome/shell/extensions/user-theme]
+name='ZorinBlue-Dark'
 
-[org/gnome/desktop/interface]
-clock-format='24h'
-document-font-name='Liberation Sans 11'
-monospace-font-name='JetBrainsMono Nerd Font 10'
-toolkit-accessibility=false
+[org/gnome/shell/extensions/vitals]
+alphabetize=true
+fixed-widths=true
+hide-icons=false
+hot-sensors=['_memory_usage_', '_processor_usage_', '__temperature_max__']
+position-in-panel=0
+show-storage=false
+show-system=false
+update-time=2
 
-[org/gnome/libgnomekbd/keyboard]
-layouts=['us\tintl', 'br']
-
-[org/gnome/nm-applet]
-disable-connected-notifications=true
-
-[org/nemo/desktop]
-desktop-layout='false::false'
-font='Roboto 10'
-
-[org/nemo/preferences]
-show-hidden-files=false
-
-[org/nemo/window-state]
-geometry='800x550+50+74'
-maximized=false
-sidebar-bookmark-breakpoint=5
-start-with-sidebar=true
-
-[org/x/apps/portal]
-color-scheme='prefer-dark'
-
-[org/x/editor/plugins]
-active-plugins=['docinfo', 'modelines', 'bracketcompletion', 'joinlines', 'filebrowser', 'sort', 'spell', 'time', 'open-uri-context-menu', 'textsize']
-
-[org/x/editor/preferences/ui]
-statusbar-visible=true

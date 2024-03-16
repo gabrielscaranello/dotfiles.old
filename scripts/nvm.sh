@@ -2,7 +2,7 @@
 
 # Define variables
 NODE_VERSION=20
-NVM_VERSION=0.39.3
+NVM_VERSION=0.39.7
 
 # Cloning NVM
 wget -qO- "https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh" | bash

@@ -17,6 +17,13 @@ add_repos:
 	# GDU
 	@set +e; sudo add-apt-repository -r -y ppa:daniel-milde/gdu; set -e;
 	@sudo add-apt-repository -y ppa:daniel-milde/gdu
+	# Golang
+	@set +e; sudo add-apt-repository -r -y ppa:longsleep/golang-backports; set -e;
+	@sudo add-apt-repository -y ppa:longsleep/golang-backports
+	# Spotify
+	@sudo rm -rf /etc/apt/trusted.gpg.d/spotify.gpg /etc/apt/sources.list.d/spotify.list
+	@curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+	@echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 update_system:
 	# Add nala
@@ -27,7 +34,6 @@ update_system:
 	# Remove unused packages
 	@sudo nala purge -y $$(cat ./packages_to_remove | tr '\n' ' ')
 	# Updating system
-	@sudo nala update
 	@sudo nala upgrade -y
 
 install_system: update_system
@@ -49,6 +55,10 @@ install_telegram:
 install_firefox:
 	# Installing Firefox
 	@bash ./scripts/firefox.sh
+
+install_chrome:
+	# Installing Google Chrome
+	@bash ./scripts/chrome.sh
 
 install_discord:
 	# Installing Discord
@@ -92,11 +102,11 @@ setup_icon_theme:
 
 setup_wallpaper:
 	# Coping wallpaper image
-	@cp ./assets/wallpaper.jpg ~/.wallpaper.jpg
+	@cp ./assets/wallpaper.png ~/.wallpaper.png
 	# Defining wallpaper
-	@gsettings set org.gnome.desktop.background picture-uri "file:///$${HOME}/.wallpaper.jpg"
-	@gsettings set org.gnome.desktop.background picture-uri-dark "file:///$${HOME}/.wallpaper.jpg"
-	@gsettings set org.gnome.desktop.screensaver picture-uri "file:///$${HOME}/.wallpaper.jpg"
+	@gsettings set org.gnome.desktop.background picture-uri "file:///$${HOME}/.wallpaper.png"
+	@gsettings set org.gnome.desktop.background picture-uri-dark "file:///$${HOME}/.wallpaper.png"
+	@gsettings set org.gnome.desktop.screensaver picture-uri "file:///$${HOME}/.wallpaper.png"
 
 install_cursor:
 	# Installing cursor
@@ -104,7 +114,7 @@ install_cursor:
 
 load_dconf:
 	# Loading dconf
-	# @dconf load / < ./config/dconf
+	@dconf load / < ./config/dconf
 
 setup_discord_theme:
 	# Setup discord theme
@@ -126,23 +136,32 @@ setup_kitty:
 	@rm -rf ~/.config/kitty
 	# Coping files
 	@cp -r ./config/kitty ~/.config/kitty
+	# Set default term
+	@sudo update-alternatives --set x-terminal-emulator $$(which kitty)
 
 setup_bat:
 	# Setup bat theme
-	# Cloning theme
-	@rm -rf /tmp/bat
-	@git clone --depth=1 https://github.com/catppuccin/bat.git /tmp/bat
-	# Coping files
+	# Download theme
+	@mkdir -p "$$(batcat --config-dir)/themes"
+	@wget -P "$$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+	@batcat cache --build
+	# Link batcat to bat
 	@mkdir -p ~/.local/bin
 	@set +e; unlink ~/.local/bin/bat; set -e;
 	@ln -s /usr/bin/batcat ~/.local/bin/bat
-	@mkdir -p "$$(batcat --config-dir)/themes"
-	@cp -r /tmp/bat/*.tmTheme "$$(batcat --config-dir)/themes"
-	@batcat cache --build
 
 copy_configs:
 	# Coping config files
 	@bash ./scripts/configs.sh
+
+install_gnome_extensions:
+	# Installing gnome extensions
+	# Intalling helper
+	@wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+	@chmod +x gnome-shell-extension-installer
+	@sudo mv gnome-shell-extension-installer /usr/bin/
+	# Installing extensions
+	@for i in $$(sed "s/[^0-9]//g" ./gnome_extensions); do gnome-shell-extension-installer --yes "$$i"; done
 
 setup_oh_my_zsh:
 	# Setup oh-my-zsh
@@ -161,7 +180,7 @@ setup_oh_my_zsh:
 	@cp ./config/oh-my-zsh/profile ~/.profile
 	@cp ./config/oh-my-zsh/zshrc ~/.zshrc
 
-setup_term: setup_kitty setup_oh_my_zsh setup_bat
+setup_term: setup_kitty setup_oh_my_zsh
 
 setup_nvim:
 	# Setup nvim
@@ -197,6 +216,8 @@ setup_all:
 	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
 	@$(MAKE) install_discord
+	@$(MAKE) install_firefox
+	@$(MAKE) install_chrome
 	@$(MAKE) install_bottom
 	@$(MAKE) install_lazygit
 	@$(MAKE) install_lazydocker
@@ -208,6 +229,7 @@ setup_all:
 	@$(MAKE) look
 	@$(MAKE) update_swap
 	@$(MAKE) docker_permissions
+	@$(MAKE) install_gnome_extensions
 	@$(MAKE) copy_configs
 	@$(MAKE) clean
 	@$(MAKE) enable_services
