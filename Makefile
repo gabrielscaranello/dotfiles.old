@@ -116,13 +116,11 @@ setup_kitty:
 
 setup_bat:
 	# Setup bat theme
-	# Cloning theme
-	@rm -rf /tmp/bat
-	@git clone --depth=1 https://github.com/catppuccin/bat.git /tmp/bat
-	# Coping files
-	@mkdir -p "$$(bat --config-dir)/themes"
-	@cp -r /tmp/bat/*.tmTheme "$$(bat --config-dir)/themes"
-	@bat cache --build
+	# Download theme
+	@mkdir -p "$$(batcat --config-dir)/themes"
+	@wget -P "$$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+	# Update cache
+	@batcat cache --build
 
 copy_configs:
 	# Coping config files
