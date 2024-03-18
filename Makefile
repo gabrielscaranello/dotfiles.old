@@ -117,10 +117,10 @@ setup_kitty:
 setup_bat:
 	# Setup bat theme
 	# Download theme
-	@mkdir -p "$$(batcat --config-dir)/themes"
+	@mkdir -p "$$(bat --config-dir)/themes"
 	@wget -P "$$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 	# Update cache
-	@batcat cache --build
+	@bat cache --build
 
 copy_configs:
 	# Coping config files
