@@ -1,4 +1,4 @@
-# Makefile for fedora
+# Makefile for zorin
 
 add_repos:
 	# Adding repos
@@ -24,6 +24,13 @@ add_repos:
 	@sudo rm -rf /etc/apt/trusted.gpg.d/spotify.gpg /etc/apt/sources.list.d/spotify.list
 	@curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 	@echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+	# Onlyoffice
+	@mkdir -p -m 700 ~/.gnupg
+	@gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
+	@chmod 644 /tmp/onlyoffice.gpg
+	@sudo chown root:root /tmp/onlyoffice.gpg
+	@sudo mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
+	@echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | sudo tee -a /etc/apt/sources.list.d/onlyoffice.list
 
 update_system:
 	# Add nala
@@ -39,10 +46,6 @@ update_system:
 install_system: update_system
 	# Installing system packages
 	@sudo nala install -y $$(cat ./system_packages | tr '\n' ' ')
-
-install_flatpak:
-	# Installing flatpak apps
-	@flatpak install flathub --assumeyes $$(cat ./flatpak_packages | tr '\n' ' ')
 
 install_nvm:
 	# Installing NVM
@@ -63,6 +66,10 @@ install_chrome:
 install_discord:
 	# Installing Discord
 	@bash ./scripts/discord.sh
+
+install_dbeaver:
+	# Installing Dbeaver
+	@bash ./scripts/dbeaver.sh
 
 install_bottom:
 	# Installing Bottom
@@ -210,10 +217,11 @@ clean:
 	# Cleaning cache
 	@sudo nala clean
 
+update_discord: install_discord setup_discord_theme
+
 setup_all: 
 	@$(MAKE) install_system
 	@$(MAKE) install_nvm
-	@$(MAKE) install_flatpak
 	@$(MAKE) install_telegram
 	@$(MAKE) install_discord
 	@$(MAKE) install_firefox
@@ -222,6 +230,7 @@ setup_all:
 	@$(MAKE) install_lazygit
 	@$(MAKE) install_lazydocker
 	@$(MAKE) install_neovim
+	@$(MAKE) install_dbeaver
 	@$(MAKE) install_jetbrains_fonts
 	@$(MAKE) install_git_flow_cjs
 	@$(MAKE) setup_term

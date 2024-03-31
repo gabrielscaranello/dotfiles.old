@@ -11,16 +11,16 @@ file-roller
 flameshot
 fonts-roboto
 g++
-gamemode
 gcc
 gdu
+gimp
 gir1.2-gda-5.0
 gir1.2-gsound-1.0
 gnome-shell-extension-manager
 golang
 kitty
 luarocks
-mangohud
+onlyoffice-desktopeditors
 piper
 protobuf-compiler
 python3
@@ -31,7 +31,6 @@ ripgrep
 sassc
 spotify-client
 sqlite
-steam-installer
 ttf-mscorefonts-installer
 vlc
 xclip
