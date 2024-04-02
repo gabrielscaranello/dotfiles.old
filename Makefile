@@ -91,6 +91,10 @@ install_neovim:
 	# Installing Neovim
 	@bash ./scripts/neovim.sh
 
+install_obsidian:
+	# Installing Obsidian
+	@bash ./scripts/obsidian.sh
+
 install_git_flow_cjs:
 	# Installing Git flow CJS
 	@wget -q  https://raw.githubusercontent.com/CJ-Systems/gitflow-cjs/develop/contrib/gitflow-installer.sh -O /tmp/gitflow-installer.sh
@@ -230,6 +234,7 @@ setup_all:
 	@$(MAKE) install_lazygit
 	@$(MAKE) install_lazydocker
 	@$(MAKE) install_neovim
+	@$(MAKE) install_obsidian
 	@$(MAKE) install_dbeaver
 	@$(MAKE) install_jetbrains_fonts
 	@$(MAKE) install_git_flow_cjs
