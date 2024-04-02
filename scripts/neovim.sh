@@ -1,20 +1,19 @@
 #! /bin/bash
 
 # Define variables
-FILE_NAME="nvim.appimage"
-OUTPUT_FILE="/tmp/$FILE_NAME"
-DOWNLOAD_URL="https://github.com/neovim/neovim/releases/download/stable/$FILE_NAME"
-DESTINATION_DIR="$HOME/.local/opt"
+GIT_URL="https://github.com/neovim/neovim"
+BRANCH="stable"
+WORK_DIR="/tmp/neovim"
 
-# Remove old file
-rm -rf $OUTPUT_FILE
+# Remove old files
+rm -rf $WORK_DIR
 
-# Download file
-wget -c $DOWNLOAD_URL -O $OUTPUT_FILE
+# Clone repository
+git clone -b "$BRANCH" "$GIT_URL" "$WORK_DIR"
 
-# Move to folder
-chmod u+x "${OUTPUT_FILE}"
-mkdir -p $DESTINATION_DIR
-mv $OUTPUT_FILE $DESTINATION_DIR
+# Install
+cd "$WORK_DIR"
+make
+cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb && cd "$WORK_DIR"
 
 echo "Neovim installed..."

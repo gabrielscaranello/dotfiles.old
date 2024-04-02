@@ -193,15 +193,6 @@ setup_oh_my_zsh:
 
 setup_term: setup_kitty setup_oh_my_zsh
 
-setup_nvim:
-	# Setup nvim
-	# Removing old files
-	@rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim 
-	# Cloning AstroNvim
-	@git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-	# Cloning user config
-	@git clone --depth 1 https://github.com/gabrielscaranello/astronvim-config ~/.config/nvim/lua/user
-
 update_swap:
 	# Add swapfile
 	@bash ./scripts/swap.sh
@@ -239,7 +230,6 @@ setup_all:
 	@$(MAKE) install_jetbrains_fonts
 	@$(MAKE) install_git_flow_cjs
 	@$(MAKE) setup_term
-	@$(MAKE) setup_nvim
 	@$(MAKE) look
 	@$(MAKE) update_swap
 	@$(MAKE) docker_permissions
