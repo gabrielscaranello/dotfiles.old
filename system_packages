@@ -10,6 +10,7 @@ docker-ce
 docker-ce-cli
 docker-compose
 docker-compose-plugin
+fd-find
 file-roller
 flameshot
 fonts-roboto
