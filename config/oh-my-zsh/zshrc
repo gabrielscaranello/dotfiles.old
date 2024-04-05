@@ -10,11 +10,8 @@ plugins=(git dnf composer yarn npm laravel zsh-autosuggestions docker-compose gi
 
 source $ZSH/oh-my-zsh.sh
 
-
 # Source files
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 [[ ! -f ~/.profile ]] || source ~/.profile
-
 [[ ! -f ~/.alias ]] || source ~/.alias

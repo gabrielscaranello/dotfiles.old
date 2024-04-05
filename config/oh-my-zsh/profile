@@ -16,20 +16,9 @@ if [ -d "$HOME/.local/bin" ]; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Android and Flutter files
-PATH="/usr/local/android-studio/bin:$PATH"
-PATH="$HOME/.config/composer/vendor/bin:$PATH"
-PATH="$HOME/.yarn/bin:$PATH"
-PATH="$HOME/development/flutter/bin:$PATH"
-PATH="$HOME/development/flutter/.pub-cache/bin:$PATH"
-export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-PATH="$PATH:$ANDROID_SDK_ROOT/tools"
-PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
-PATH="$PATH:/opt/gradle/gradle-7.0.2/bin:$PATH"
-
 # NVM
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Bat
-export BAT_THEME="Catppuccin Mocha"
+BAT_THEME="Catppuccin Mocha"

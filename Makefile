@@ -154,12 +154,8 @@ setup_bat:
 	# Setup bat theme
 	# Download theme
 	@mkdir -p "$$(batcat --config-dir)/themes"
-	@wget -P "$$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
+	@wget -P "$$(batcat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme
 	@batcat cache --build
-	# Link batcat to bat
-	@mkdir -p ~/.local/bin
-	@set +e; unlink ~/.local/bin/bat; set -e;
-	@ln -s /usr/bin/batcat ~/.local/bin/bat
 
 copy_configs:
 	# Coping config files
