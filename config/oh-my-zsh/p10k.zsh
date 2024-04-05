@@ -195,7 +195,7 @@
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=232
   typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=7
   # Custom icon.
-  # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$'\uF120'
 
   ################################[ prompt_char: prompt symbol ]################################
   # Transparent background.
@@ -1125,21 +1125,21 @@
 
   ##############################[ node_version: node.js version ]###############################
   # Node version color.
-  typeset -g POWERLEVEL9K_NODE_VERSION_FOREGROUND=7
-  typeset -g POWERLEVEL9K_NODE_VERSION_BACKGROUND=2
+  typeset -g POWERLEVEL9K_NODE_VERSION_FOREGROUND=255
+  typeset -g POWERLEVEL9K_NODE_VERSION_BACKGROUND='#377d3f'
   # Show node version only when in a directory tree containing package.json.
   typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=true
   # Custom icon.
-  # typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='󰎙'
 
   #######################[ go_version: go version (https://golang.org) ]########################
   # Go version color.
   typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=255
-  typeset -g POWERLEVEL9K_GO_VERSION_BACKGROUND=2
+  typeset -g POWERLEVEL9K_GO_VERSION_BACKGROUND='#60d4fa'
   # Show go version only when in a go project subdirectory.
   typeset -g POWERLEVEL9K_GO_VERSION_PROJECT_ONLY=true
   # Custom icon.
-  # typeset -g POWERLEVEL9K_GO_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_GO_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
 
   #################[ rust_version: rustc version (https://www.rust-lang.org) ]##################
   # Rust version color.
@@ -1161,8 +1161,8 @@
 
   #####################[ php_version: php version (https://www.php.net/) ]######################
   # PHP version color.
-  typeset -g POWERLEVEL9K_PHP_VERSION_FOREGROUND=0
-  typeset -g POWERLEVEL9K_PHP_VERSION_BACKGROUND=5
+  typeset -g POWERLEVEL9K_PHP_VERSION_FOREGROUND=255
+  typeset -g POWERLEVEL9K_PHP_VERSION_BACKGROUND='#4d588e'
   # Show PHP version only when in a PHP project subdirectory.
   typeset -g POWERLEVEL9K_PHP_VERSION_PROJECT_ONLY=true
   # Custom icon.
@@ -1170,10 +1170,10 @@
 
   ##########[ laravel_version: laravel php framework version (https://laravel.com/) ]###########
   # Laravel version color.
-  typeset -g POWERLEVEL9K_LARAVEL_VERSION_FOREGROUND=1
-  typeset -g POWERLEVEL9K_LARAVEL_VERSION_BACKGROUND=7
+  typeset -g POWERLEVEL9K_LARAVEL_VERSION_FOREGROUND='#f7f7f7'
+  typeset -g POWERLEVEL9K_LARAVEL_VERSION_BACKGROUND='#f9322c'
   # Custom icon.
-  # typeset -g POWERLEVEL9K_LARAVEL_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_LARAVEL_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
 
   #############[ rbenv: ruby version from rbenv (https://github.com/rbenv/rbenv) ]##############
   # Rbenv color.
