@@ -25,6 +25,8 @@ gnome-shell-extension-manager
 golang
 jq
 kitty
+libtool
+libuv1-dev
 luarocks
 ninja-build
 onlyoffice-desktopeditors
