@@ -23,6 +23,7 @@ gir1.2-gda-5.0
 gir1.2-gsound-1.0
 gnome-shell-extension-manager
 golang
+jq
 kitty
 luarocks
 ninja-build
@@ -37,6 +38,7 @@ ripgrep
 sassc
 spotify-client
 sqlite
+tidy
 ttf-mscorefonts-installer
 unzip
 vlc
