@@ -1,6 +1,7 @@
 bat
 btop
 build-essential
+cargo
 cmake
 code
 containerd.io
@@ -25,6 +26,8 @@ gnome-shell-extension-manager
 golang
 jq
 kitty
+libcurl4-gnutls-dev
+libssl-dev
 libtool
 libuv1-dev
 luarocks
