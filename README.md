@@ -1,5 +1,15 @@
 # Dotfiles \[Linux Mint\]
 
+> [!CAUTION]  
+> This repository is archived and should no longer receive updates or support.  
+> Guides for distros other than Linux Mint may be out of date.  
+> Scripts from all distros may or may not be working.  
+
+> [!NOTE]  
+> To view information of different distros you can see all [branches](https://github.com/gabrielscaranello/dotfiles.old/branches).
+
+---
+
 <!--toc:start-->
 - [Dotfiles \[Linux Mint\]](#dotfiles-linux-mint)
   - [About](#about)
